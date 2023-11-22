@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.DialogTest.DialogTestActivity">
+
+
+    <Button
+        android:id="@+id/btn_normal_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通对话框" />
+
+    <Button
+        android:id="@+id/btn_item_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通列表对话框" />
+
+    <Button
+        android:id="@+id/btn_single_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单选对话框" />
+
+    <Button
+        android:id="@+id/btn_multi_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="复选对话框" />
+
+    <Button
+        android:id="@+id/btn_custom_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义对话框" />
+
+    <Button
+        android:id="@+id/btn_list_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List对话框" />
+
+    <Button
+        android:id="@+id/btn_RecyclerView_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recycler对话框"
+        android:textAllCaps="false" />
+
+</LinearLayout>

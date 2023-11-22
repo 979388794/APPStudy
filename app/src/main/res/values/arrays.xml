@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <string-array name="finishedAction">
+            <item>返航</item>
+            <item>悬停</item>
+            <item>最后一航点降落</item>
+            <item>返回第一航点悬停</item>
+        </string-array>
+        <string-array name="finishedAction_values">
+            <item>GO_HOME</item>
+            <item>NO_ACTION</item>
+            <item>AUTO_LAND</item>
+            <item>GO_FIRST_WAYPOINT</item>
+        </string-array>
+        <string-array name="failSafe">
+            <item>悬停</item>
+            <item>降落</item>
+            <item>返航</item>
+        </string-array>
+        <string-array name="failSafe_values">
+            <item>HOVER</item>
+            <item>LANDING</item>
+            <item>GO_HOME</item>
+        </string-array>
+
+    <string-array name="cates">
+        <item>酒店</item>
+        <item>商超</item>
+        <item>酒水专卖</item>
+    </string-array>
+    <string-array name="cates_value">
+        <item>001</item>
+        <item>002</item>
+        <item>003</item>
+    </string-array>
+    <string-array name="days">
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+        <item>周日</item>
+    </string-array>
+
+    <string-array name="day_value">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+        <item>64</item>
+    </string-array>
+
+
+
+
+
+
+    <string-array name="entry_list">
+        <item>total</item>
+        <item>check</item>
+        <item>airplace</item>
+    </string-array>
+    <string-array name="values_list">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="game">
+        <item>Dota</item>
+        <item>Dota2</item>
+        <item>NBA2K10</item>
+        <item>FIFA2K10</item>
+    </string-array>
+    <string-array name="game_index">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    </string-array>
+
+
+
+
+
+
+
+</resources>

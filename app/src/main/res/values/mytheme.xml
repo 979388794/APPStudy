@@ -1,0 +1,61 @@
+
+<resources>
+<style name="AppThemeDemo" parent="Theme.AppCompat.Light.DarkActionBar">
+
+<!-- 应用的主要色调,actionBar默认使用该颜色，Toolbar导航栏的底色 -->
+<item name="colorPrimary">@color/white</item>
+<!-- 应用的主要暗色调,statusBarColor 默认使用该颜色 -->
+<item name="colorPrimaryDark">@color/white</item>
+<!-- 一般控件的选中效果默认采用该颜色,如 CheckBox,RadioButton,SwitchCompat，ProcessBar等-->
+<!-- 状态栏、顶部导航栏 相关-->
+<!-- status bar color -->
+<item name="android:statusBarColor">#00000000</item>
+<!-- activity 是否能在status bar 底部绘制 -->
+<item name="android:windowOverscan">true</item>
+<!-- 让status bar透明，相当于statusBarColor=transparent + windowOverscan=true -->
+<item name="android:windowTranslucentStatus">true</item>
+<!-- 改变status bar 文字颜色， true黑色， false白色，API23可用-->
+<item name="android:windowLightStatusBar">true</item>
+<!-- 全屏显示，隐藏状态栏、导航栏、底部导航栏 -->
+<item name="android:windowFullscreen">true</item>
+<!-- hide title bar -->
+<item name="windowNoTitle">true</item>
+<!-- 底部虚拟导航栏颜色 -->
+<item name="android:navigationBarColor">#E91E63</item>
+<!-- 让底部导航栏变半透明灰色，覆盖在Activity之上（默认false，activity会居于底部导航栏顶部），如果设为true，navigationBarColor 失效 -->
+<item name="android:windowTranslucentNavigation">true</item>
+
+<!-- WindowBackground，可以设置@drawable，颜色引用（@color），不能设置颜色值（#fffffff），
+Window区域说明：Window涵盖整个屏幕显示区域，包括StatusBar的区域。当windowOverscan=false时，window的区域比Activity多出StatusBar，当windowOverscan=true时，window区域与Activity相同-->
+<item name="android:windowBackground">@drawable/ic_launcher_background</item>
+<!--<item name="android:windowBackground">@color/light_purple</item>-->
+
+<!-- 控件相关 -->
+<!-- button 文字是否全部大写（系统默认开）-->
+<item name="android:textAllCaps">false</item>
+
+<!-- 默认 Button,TextView的文字颜色 -->
+<item name="android:textColor">#B0C4DE</item>
+<!-- 默认 EditView 输入框字体的颜色 -->
+<item name="android:editTextColor">#E6E6FA</item>
+<!-- RadioButton checkbox等控件的文字 -->
+<item name="android:textColorPrimaryDisableOnly">#1C71A9</item>
+<!-- 应用的主要文字颜色,actionBar的标题文字默认使用该颜色 -->
+<item name="android:textColorPrimary">#FFFFFF</item>
+<!-- 辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示 -->
+<item name="android:textColorSecondary">#C1C1C1</item>
+<!-- 控件选中时的颜色,默认使用colorAccent -->
+<item name="android:colorControlActivated">#FF7F50</item>
+<!-- 控件按压时的色调-->
+<item name="android:colorControlHighlight">#FF00FF</item>
+<!-- CheckBox,RadioButton,SwitchCompat等默认状态的颜色 -->
+<item name="android:colorControlNormal">#FFD700</item>
+<!-- 默认按钮的背景颜色 -->
+<item name="android:colorButtonNormal">#1C71A9</item>
+
+<!-- 【无效】 在theme中设置Activity的属性无效， 请到AndroidManifest中Activity标签下设置 -->
+<item name="android:launchMode">singleTop</item>
+<item name="android:screenOrientation">landscape</item>
+
+</style>
+</resources>

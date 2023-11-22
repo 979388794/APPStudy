@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.SensorManagerTest.SensorManagerActivity">
+
+
+    <TextView
+        android:id="@+id/g_sensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/dis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/o_sensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/ois"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/m_sensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+        android:text="dasd"
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/mis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+        android:text="dasd"
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/gy_sensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+        android:text="dasd"
+        android:textSize="30sp"/>
+    <TextView
+        android:id="@+id/gyis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+        android:text="dasd"
+        android:textSize="30sp"/>
+    <Button
+        android:text="START"
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"/>
+</LinearLayout>

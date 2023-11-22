@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--name为声明的"属性集合"名，可以随便取，但是最好是设置为跟我们的View一样的名称-->
+    <declare-styleable name="testview">
+        <!--声明我们的属性，名称为default_size,取值类型为尺寸类型（dp,px等）-->
+        <attr name="default_size" format="dimension" />
+        <attr name="text_text" format="string" />
+        <attr name="text_color" format="color" />
+    </declare-styleable>
+
+    <style name="tab_menu_text">
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textColor">@drawable/tab_menu_text</item>
+    </style>
+
+
+    <style name="tab_menu_bgnum">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:background">@mipmap/bg_num</item>
+        <item name="android:layout_marginLeft">-10dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+
+    <style name="cancealTitle">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+
+
+
+</resources>

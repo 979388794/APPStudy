@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <CheckBoxPreference
+        android:key="checkbox"
+        android:summary="check it box"
+        android:title="CheckBoxPreference" />
+    <RingtonePreference
+        android:key="ring"
+        android:summary="check a ringtone"
+        android:title="ringtone" />
+    <PreferenceScreen
+        android:key="screen"
+        android:summary="screen it"
+        android:title="PreferenceScreen">
+        <SwitchPreference
+            android:key="switch"
+            android:summary="switch it"
+            android:title="switchPreference" />
+        <EditTextPreference
+            android:key="edit"
+            android:summary="OK"
+            android:title="editPreference" />
+    </PreferenceScreen>
+    <PreferenceCategory
+        android:key="category"
+        android:title="PreferenceCategory">
+        <EditTextPreference
+            android:icon="@drawable/qwe"
+            android:key="edit"
+            android:summary="OK"
+            android:title="category" />
+    </PreferenceCategory>
+    <ListPreference
+        app:useSimpleSummaryProvider="true"
+        android:defaultValue="1"
+        android:dialogTitle="list dialogtitle"
+        android:entries="@array/entry_list"
+        android:entryValues="@array/values_list"
+        android:key="list"
+        android:title="Options"
+        android:summary=""/>
+    <CheckBoxPreference
+        android:key="checkbox_one"
+        android:summaryOff="offcheck_one"
+        android:summaryOn="On_check_one"
+        android:title="checbox_one" />
+    <CheckBoxPreference
+        android:key="checkbox_two"
+        android:summaryOff="offcheck_two"
+        android:summaryOn="On_check_two"
+        android:title="checbox_two" />
+    <CheckBoxPreference
+        android:key="checkbox_three"
+        android:summaryOff="offcheck_three"
+        android:summaryOn="On_check_three"
+        android:title="checbox_three" />
+    <EditTextPreference
+        android:dialogTitle="Package Name:"
+        android:key="edit2"
+        android:summary="Set the Package Name"
+        android:title="Set Package Name" />
+
+    <MultiSelectListPreference
+        android:dialogTitle="list dialogtitle"
+        android:entries="@array/entry_list"
+        android:entryValues="@array/values_list"
+        android:key="list2"
+        android:summary="da"
+        android:title="Options" />
+    <ListPreference
+        android:icon="@mipmap/ic_launcher"
+        android:title="ListPreference"
+        android:summary="ListPreference summary"
+        android:dialogTitle="Favourite Games"
+        android:key="key_listpreference"
+        android:entries="@array/game"
+        android:entryValues="@array/game_index"
+        />
+
+</PreferenceScreen>
