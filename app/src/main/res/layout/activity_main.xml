@@ -225,7 +225,15 @@
                 android:text="屏幕适配"
                 android:textAllCaps="false"
                 app:layout_constraintLeft_toRightOf="@+id/WindowManager_Test" />
-
+            <Button
+                android:id="@+id/OpenGl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:background="@color/pink"
+                android:text="gpu测试"
+                android:textAllCaps="false"
+                app:layout_constraintLeft_toRightOf="@+id/Display_Adapter" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </HorizontalScrollView>

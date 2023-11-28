@@ -27,6 +27,7 @@ import com.example.custom_view.Custom_view_group;
 import com.example.linechart.More_Line_Chart;
 import com.example.list_recycle_view.List_Recycler_ViewTestActivity;
 import com.example.windowManagerTest.windowManagerActivity;
+import com.example.OpenGl.SurfaceViewActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,6 +66,7 @@ public class ActivityFragment extends Fragment {
         put("WindowManager_Test", windowManagerActivity.class);
         put("Fragment", FragmentActivity.class);
         put("Display_Adapter", TestActivity.class);
+        put("OpenGl_Test", SurfaceViewActivity.class);
     }};
 
     public ActivityFragment(String content1, Context context1) {

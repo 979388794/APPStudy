@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     List<ActivityFragment> Fragmentlist= new ArrayList<ActivityFragment>();
 
     private ActivityFragment fg[];
-    private ActivityFragment fg1, fg2, fg3, fg4,fg5,fg6,fg7,fg8,fg9,fg10,fg11,fg12,fg13,fg14,fg15,fg16,fg17,fg18,fg19,fg20,fg21;
+    private ActivityFragment fg1, fg2, fg3, fg4,fg5,fg6,fg7,fg8,fg9,fg10,fg11,fg12,fg13,fg14,fg15,fg16,fg17,fg18,fg19,fg20,fg21,fg22;
     private FragmentManager fManager;
     private static final String[] REQUEST_PERMISSIONS = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -166,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
         binding.WindowManagerTest.setOnClickListener(onClick);
         binding.Fragment.setOnClickListener(onClick);
         binding.DisplayAdapter.setOnClickListener(onClick);
+        binding.OpenGl.setOnClickListener(onClick);
     }
 
     private void hideAllFragment(FragmentTransaction fragmentTransaction) {
@@ -373,6 +374,15 @@ public class MainActivity extends AppCompatActivity {
                         fTransaction.add(R.id.ActivityContent, fg21);
                     } else {
                         fTransaction.show(fg21);
+                    }
+                    break;
+                case R.id.OpenGl:
+                    ActivityIntent="OpenGl_Test";
+                    if (fg22 == null) {
+                        fg22 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fTransaction.add(R.id.ActivityContent, fg22);
+                    } else {
+                        fTransaction.show(fg22);
                     }
                     break;
                 default:

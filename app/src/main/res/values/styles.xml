@@ -33,7 +33,11 @@
     </style>
 
 
-
+    <style name="ActivityTheme">
+        <item name="android:windowLayoutInDisplayCutoutMode">
+            shortEdges <!-- default, shortEdges, never -->
+        </item>
+    </style>
 
 
 </resources>

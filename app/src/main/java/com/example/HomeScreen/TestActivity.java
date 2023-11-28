@@ -10,6 +10,8 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.xuejie.XuejieTest;
+
 public class TestActivity extends AppCompatActivity {
     TextView view1;
 
@@ -27,7 +29,9 @@ public class TestActivity extends AppCompatActivity {
         double screenInches = Math.sqrt(Math.pow(widthInches, 2) + Math.pow(heightInches, 2));
         String fromDouble = "" + screenInches;
         view1.setText(fromDouble);
+        int number=new XuejieTest().calculate_double(2);
     }
+
 
 
 

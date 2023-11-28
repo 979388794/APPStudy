@@ -2,11 +2,11 @@ plugins {
     id 'com.android.application'
 }
 android {
-    compileSdk 32
+    compileSdk 34
     defaultConfig {
         applicationId "com.example.HomeScreen"
-        minSdk 21
-        targetSdk 32
+        minSdk 29
+        targetSdk 34
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -24,19 +24,12 @@ android {
     dataBinding {
         enabled = true
     }
-    dependencies {
-        //      classpath 'com.android.tools.build:gradle:4.2.2'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
+
     buildFeatures {
         viewBinding true
     }
 }
 dependencies {
-
-
-
     def lottieVersion = "5.2.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
     def preference_version = "1.2.0"
@@ -54,4 +47,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0'
+    implementation 'com.github.979388794:MyDependency:v1.0'
 }
