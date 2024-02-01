@@ -39,7 +39,6 @@ public class DragScaleView extends RelativeLayout implements View.OnTouchListene
     protected void initScreenW_H() {
         screenHeight = getResources().getDisplayMetrics().heightPixels - 40;
         screenWidth = getResources().getDisplayMetrics().widthPixels;
-        Log.d("xuejie","screenHeight="+screenHeight+"  screenWidth="+screenWidth);
     }
 
     public DragScaleView(Context context, AttributeSet attrs, int defStyle) {

@@ -71,7 +71,6 @@ public class RecyclerTest3 extends AppCompatActivity {
             "Binary Program"
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,8 +108,6 @@ public class RecyclerTest3 extends AppCompatActivity {
                 adapter.notifyItemChanged(2);
             }
         });
-
-
         recyclerView.setLayoutManager(layoutManager);//设置布局管理器
         recyclerView.setAdapter(adapter);//设置Adapter
     }

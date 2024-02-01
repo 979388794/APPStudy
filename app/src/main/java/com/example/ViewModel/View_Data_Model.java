@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModel;
 
 
 public class View_Data_Model extends ViewModel {
-    private static final String TAG = "xuejie";
 
     private MutableLiveData<Long> liveData = new MutableLiveData<>();
     private MutableLiveData<String> liveData1 = new MutableLiveData<>();
@@ -26,14 +25,12 @@ public class View_Data_Model extends ViewModel {
         liveDataMerger.addSource(liveData1, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Log.i(TAG, "addSource1 onChanged: " + s);
                 liveDataMerger.setValue(s);
             }
         });
         liveDataMerger.addSource(liveData2, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Log.i(TAG, "addSource2 onChanged: " + s);
                 liveDataMerger.setValue(s);
             }
         });
@@ -56,7 +53,6 @@ public class View_Data_Model extends ViewModel {
         new CountDownTimer(1 * 60 * 1000, 1 * 1000) {
             @Override
             public void onTick(long l) {
-                Log.i("xuejie", "onTick: " + l);
                 liveData.postValue(l);
             }
 
@@ -96,7 +92,6 @@ public class View_Data_Model extends ViewModel {
     protected void onCleared()
     {
         super.onCleared();
-        Log.d("xuejie","onCleared");
     }
 
 }

@@ -34,8 +34,6 @@ public class MyTextview extends View {
     public MyTextview(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
       //  init();
-
-        Log.d("xuejie"," 左上角横坐标为"+getX()+"左上角纵坐标为"+getY());
     }
 
     private void init() {
@@ -62,13 +60,11 @@ public class MyTextview extends View {
 //        switch (event.getAction()){
 //            case MotionEvent.ACTION_DOWN://手指按下
 //                //按下的时候获取手指触摸的坐标
-//                Log.d("xuejie","ACTION_DOWN");
 //                mX =  event.getRawX();
 //                mY =  event.getRawY();
 //                break;
 //            case MotionEvent.ACTION_MOVE://手指滑动
 //                //滑动时计算偏移量
-//                Log.d("xuejie","ACTION_MOVE");
 //                moveX = event.getRawX() - mX;
 //                moveY = event.getRawY() - mY;
 //                //随手指移动
@@ -76,7 +72,6 @@ public class MyTextview extends View {
 //                setTranslationY(moveY);
 //                break;
 //            case MotionEvent.ACTION_UP://手指松开
-//                Log.d("xuejie","ACTION_UP");
 //                break;
 //        }
 ////        return super.onTouchEvent(event);
@@ -107,21 +102,10 @@ public class MyTextview extends View {
                 mOriginalY = getY();
                 mOriginalRawX = event.getRawX();
                 mOriginalRawY = event.getRawY();
-//                Log.d("xuejie"," "+"x轴中心坐标为"+getWidth() * 0.5+"y轴中心坐标为"+ getHeight() * 0.5);
-//                Log.d("xuejie"," "+"x轴中心坐标为"+getPivotX()+"y轴中心坐标为"+ getPivotY());
-//                Log.d("xuejie","ACTION_DOWN");
-
-                Log.d("xuejie","X"+" "+getTranslationX());
-                Log.d("xuejie","mOriginalX"+" "+mOriginalX);
-                Log.d("xuejie","mOriginalRawX"+" "+mOriginalRawX);
-                Log.d("xuejie","mOriginalY"+" "+mOriginalY);
-                Log.d("xuejie","mOriginalRawY"+" "+mOriginalRawY);
-                Log.d("xuejie","event.getY"+" "+event.getY());
                 break;
             case MotionEvent.ACTION_MOVE:
                 setX(mOriginalX + event.getRawX() - mOriginalRawX);
                 setY(mOriginalY + event.getRawY() - mOriginalRawY);
-                Log.d("xuejie","ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
                 break;

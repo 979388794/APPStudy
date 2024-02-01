@@ -30,7 +30,6 @@ public class SurfaceViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("xuejie", "--------OpenglActivity-------");
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         linearLayout = (LinearLayout) inflater.inflate(R.layout.activity_surfaceview, null);
         setContentView(linearLayout);
@@ -44,7 +43,6 @@ public class SurfaceViewActivity extends AppCompatActivity {
                     case 1:
                         gpuRate = getGpuCurFreq();
                         t1.setText("GPU当前占用率为" + gpuRate + "%");
-                        Log.d("xuejie", "当前占用率为 " + gpuRate + "%");
                         break;
                 }
             }

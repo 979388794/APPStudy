@@ -19,25 +19,21 @@ public class ViewTest_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_view_test);
         t1=findViewById(R.id.t1);
         b1=findViewById(R.id.b1);
-        Log.d("xuejie", "onCreate: ---");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("xuejie", "onStart: ---");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("xuejie", "onResume: ---");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("xuejie", "onStop: ---");
     }
 
     public void run(View view) {

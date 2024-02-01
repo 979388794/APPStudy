@@ -90,16 +90,12 @@ public class Cone {
         vertexBuffer1.position(0);
 
         //数据转换
-        Log.d("xuejie", "RendererTest.loadShader");
         int vertexShader = GlsurfaceView.RendererTest.loadShader(GL_VERTEX_SHADER,
                 vertexShaderCode);
-        Log.d("xuejie", "fragmentShaderCode");
         int fragmentShader = GlsurfaceView.RendererTest.loadShader(GL_FRAGMENT_SHADER,
                 fragmentShaderCode);
         // 创建空的OpenGL ES程序
-        Log.d("xuejie", "GLES20.glCreateProgram");
         mProgram = GLES20.glCreateProgram();
-        Log.d("xuejie", "GLES20.glAttachShader");
         // 添加顶点着色器到程序中
         GLES20.glAttachShader(mProgram, vertexShader);
         // 添加片段着色器到程序中

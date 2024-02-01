@@ -51,14 +51,12 @@ public class Test_Settings_Activity extends PreferenceActivity implements Prefer
             @Override
             public boolean onPreferenceClick(android.preference.Preference preference) {
                 Toast.makeText(Test_Settings_Activity.this, "xuejie", Toast.LENGTH_LONG).show();
-                Log.i("xuejie", "checkbox---------");
                 return true;
             }
         });
         checkbox.setOnPreferenceChangeListener(new android.preference.Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(android.preference.Preference preference, Object o) {
-                Log.i("xuejie", "checkbox");
                 return true;
             }
         });
@@ -66,7 +64,6 @@ public class Test_Settings_Activity extends PreferenceActivity implements Prefer
         editbox.setOnPreferenceChangeListener(new android.preference.Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(android.preference.Preference preference, Object newValue) {
-                Log.i("xuejie", "666666666666");
                 return true;
             }
         });
@@ -108,7 +105,6 @@ public class Test_Settings_Activity extends PreferenceActivity implements Prefer
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, android.preference.Preference preference) {
         if (preference.getKey().equals("checkbox")) {
-            Log.i("xuejie", "checkbox");
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -125,7 +121,6 @@ public class Test_Settings_Activity extends PreferenceActivity implements Prefer
     @Override
     public boolean onPreferenceChange(@NonNull Preference preference, Object newValue) {
         if (preference.getKey().equals("edit2")) {
-            Log.i("xuejie", "555555555");
         }
         return true;
     }

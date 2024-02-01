@@ -46,7 +46,6 @@ public class MainService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("xuejie","----onStartCommand------");
         int operation = intent.getIntExtra(OPERATION, 3);
         if (operation == OPERATION_SHOW) {
             mHandler.sendEmptyMessage(HANDLE_CHECK_ACTIVITY);
@@ -128,7 +127,6 @@ public class MainService extends Service {
     private boolean isAtHome() {
         ActivityManager mActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> runningTaskInfos = mActivityManager.getRunningTasks(1);
-        Log.d("xuejie","----栈顶进程为---"+runningTaskInfos.get(0).topActivity.getPackageName());
         return getHomeApplicationList().contains(runningTaskInfos.get(0).topActivity.getPackageName());
     }
 
@@ -162,7 +160,6 @@ public class MainService extends Service {
         public void handleMessage(Message msg) {
          if (msg.what==HANDLE_CHECK_ACTIVITY) {
                     if (isAtHome()) {
-                     //   Log.d("xuejie","----在桌面------");
                         if (!isAdded) {
                             windowManager.addView(btnView, params);
                             isAdded = true;
@@ -182,7 +179,6 @@ public class MainService extends Service {
                             }).start();
                         }
                     } else {
-                   //     Log.d("xuejie","----不在桌面------");
                         if (isAdded) {
                             windowManager.removeView(btnView);
                             isAdded = false;

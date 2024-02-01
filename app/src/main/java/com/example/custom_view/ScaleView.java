@@ -115,7 +115,6 @@ public class ScaleView extends AppCompatImageView implements View.OnTouchListene
                 case MotionEvent.ACTION_MOVE:
                     int dx = (int) event.getRawX() - lastX;
                     int dy = (int) event.getRawY() - lastY;
-                    Log.d("xuejie","dx="+dx+"  "+"dy="+dy);
                     switch (dragDirection) {
                         case LEFT: // 左边缘
                             left(v, dx);
@@ -203,7 +202,6 @@ public class ScaleView extends AppCompatImageView implements View.OnTouchListene
                 bottom = screenHeight + offset;
                 top = bottom - v.getHeight();
             }
-            Log.d("xuejie", left+"  "+top+"  "+right+"  "+bottom+"  "+dx);
             v.layout(left, top, right, bottom);
         }
 
@@ -285,7 +283,6 @@ public class ScaleView extends AppCompatImageView implements View.OnTouchListene
             int right = v.getRight();
             int bottom = v.getBottom();
             int top = v.getTop();
-            Log.d("xuejie","left=  "+left+"right=  "+right+"bottom=  "+bottom+"top=  "+top);
             if (x < touchDistance && y < touchDistance) {
                 return LEFT_TOP;
             }

@@ -16,7 +16,6 @@ import android.widget.TextView;
 public class TextViewActivity extends Activity {
     private TextView mtv;
 
-    String Tag = "xuejie";
     LayoutInflater inflater;
 
     @Override
@@ -55,11 +54,9 @@ public class TextViewActivity extends Activity {
 
 
         mtv = findViewById(R.id.tv_6);
-        Log.d(Tag, "高度1为" + mtv.getMeasuredHeight());
         mtv.post(new Runnable() {
             @Override
             public void run() {
-                Log.d(Tag, "高度2为" + mtv.getMeasuredHeight());
             }
         });
 
@@ -71,6 +68,5 @@ public class TextViewActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(Tag, "高度3为" + mtv.getMeasuredHeight());
     }
 }

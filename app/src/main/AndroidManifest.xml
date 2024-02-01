@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
-    <uses-permission android:name="android.permission.READ_LOGS" /> <!-- Window -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- Network -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- IO -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -30,6 +29,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name="com.example.ContentProviderTest.MusicListActivity"
+            android:exported="false" />
         <activity
             android:name="com.example.OpenGl.SurfaceViewActivity"
             android:exported="false" />
@@ -134,9 +136,6 @@
             android:exported="false" />
         <activity
             android:name=".ImageviewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CheckBoxActivity"
             android:exported="false" />
         <activity
             android:name=".RadioButtonActivity"

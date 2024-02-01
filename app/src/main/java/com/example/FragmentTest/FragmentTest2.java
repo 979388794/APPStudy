@@ -20,7 +20,7 @@ public class FragmentTest2 extends AppCompatActivity {
         Display dis = getWindowManager().getDefaultDisplay();
         mTransaction = getSupportFragmentManager().beginTransaction();
         if (dis.getWidth() > dis.getHeight()) {
-            Fragment f1 = new Fragmentone();
+            Fragment f1 = new FragmentView();
             mTransaction.replace(R.id.LinearLayout1, f1).commit();
         } else {
             Fragment f2 = new FragmentTwo();

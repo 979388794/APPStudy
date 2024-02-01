@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.HomeScreen.R;
 
-public class Fragmentone extends Fragment {
+public class FragmentView extends Fragment {
 
     @Nullable
     @Override

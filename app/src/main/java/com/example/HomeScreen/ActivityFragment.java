@@ -12,9 +12,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
+
 
 import com.example.DialogTest.DialogTestActivity;
+import com.example.FragmentTest.FragmentActivity;
 import com.example.PowerControlTest.PowerContronlActivity;
 import com.example.PreferenceTest.PreferenceActivity;
 import com.example.SensorManagerTest.SensorManagerActivity;
@@ -46,7 +47,6 @@ public class ActivityFragment extends Fragment {
     Onclick onclick;
     static Map<String, Class> mMap = new HashMap<String, Class>() {{
         put("Textview", TextViewActivity.class);
-        put("checkbox", CheckBoxActivity.class);
         put("editText", EditTextActivity.class);
         put("radioButton", RadioButtonActivity.class);
         put("imageview", ImageviewActivity.class);
@@ -67,6 +67,7 @@ public class ActivityFragment extends Fragment {
         put("Fragment", FragmentActivity.class);
         put("Display_Adapter", TestActivity.class);
         put("OpenGl_Test", SurfaceViewActivity.class);
+
     }};
 
     public ActivityFragment(String content1, Context context1) {
@@ -95,7 +96,6 @@ public class ActivityFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Class<?> activityClass = mMap.get(content);
-            Log.d("xuejie",  activityClass+ " ");
             Intent intent = new Intent(context, activityClass);
             startActivity(intent);
         }

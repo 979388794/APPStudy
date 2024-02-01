@@ -67,17 +67,13 @@ public class FpsView extends FrameLayout {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 preP = new Point((int) event.getRawX(), (int) event.getRawY());
-                Log.d("xuejie","DOWN+++++"+preP.x+"+++++"+preP.y);
                 break;
             case MotionEvent.ACTION_MOVE:
                 curP = new Point((int) event.getRawX(), (int) event.getRawY());
-                Log.d("xuejie","MOVE+++++"+curP.x+"+++++"+curP.y);
                 int dx = curP.x - preP.x;
                 int dy = curP.y - preP.y;
-                Log.d("xuejie","MOVE2+++++"+dx+"+++++"+dy);
              //   if (Math.abs(dx) > 100 || Math.abs(dy) > 100) {
                     layoutParams.x += dx;
-                Log.d("xuejie","MOVE3+++++"+layoutParams.x );
                     layoutParams.y += dy;
                     mWindowManager.updateViewLayout(this, layoutParams);
 

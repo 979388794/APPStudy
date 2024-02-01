@@ -83,13 +83,11 @@ public class myview extends View {
         }
 
         setMeasuredDimension(width, height);
-        Log.d("xuejie", "onMeasure: ---MyView");
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        Log.d("xuejie", "onLayout: ---MyView");
     }
 
     @Override
@@ -108,6 +106,5 @@ public class myview extends View {
         //开始绘制
         canvas.drawCircle(centerX, centerY, r, paint);
         canvas.drawText(defaulttext,  r+paint.getTextSize()/2,r+paint.getTextSize()/2, paint);
-        Log.d("xuejie", "onDraw: ---MyView");
     }
 }

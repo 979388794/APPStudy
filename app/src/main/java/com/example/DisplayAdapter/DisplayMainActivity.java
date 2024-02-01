@@ -43,7 +43,6 @@ public class DisplayMainActivity extends AppCompatActivity {
 //从Display获取DisplayMetrics信息
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
-        Log.d("xuejie", metrics.toString());
         t = findViewById(R.id.my_text);
         setCustomDensity(this, this.getApplication());
     }

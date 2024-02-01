@@ -26,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
     String Tag = "xuejie";
     String ActivityIntent;
 
-    List<ActivityFragment> Fragmentlist= new ArrayList<ActivityFragment>();
 
-    private ActivityFragment fg[];
     private ActivityFragment fg1, fg2, fg3, fg4,fg5,fg6,fg7,fg8,fg9,fg10,fg11,fg12,fg13,fg14,fg15,fg16,fg17,fg18,fg19,fg20,fg21,fg22;
     private FragmentManager fManager;
     private static final String[] REQUEST_PERMISSIONS = {
@@ -43,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         fManager = getSupportFragmentManager();
-//        for(int i=0;i<20;i++){
-//            Fragmentlist.add(fg[i]);
-//        }
+
         setlisteners();
     }
 
@@ -53,20 +49,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (!hasPermissionsGranted(REQUEST_PERMISSIONS)) {
-            Log.d(Tag, "-------activityCompat.requestPermissions--------");
             ActivityCompat.requestPermissions(this, REQUEST_PERMISSIONS, PERMISSION_REQUEST_CODE);
         }
     }
 
     @Override
     protected void onResume() {
-        Log.d(Tag, "-------onResume--------");
         super.onResume();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        Log.d(Tag, "-------onRequestPermissionsResult--------");
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (!hasPermissionsGranted(REQUEST_PERMISSIONS)) {
                 Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
@@ -148,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
         binding.textView1.setOnClickListener(onClick);
         binding.editText.setOnClickListener(onClick);
         binding.radioButton.setOnClickListener(onClick);
-        binding.checkbox.setOnClickListener(onClick);
         binding.imageview.setOnClickListener(onClick);
         binding.LineChart.setOnClickListener(onClick);
         binding.LineChart2.setOnClickListener(onClick);
@@ -174,7 +166,24 @@ public class MainActivity extends AppCompatActivity {
         if (fg2 != null) fragmentTransaction.hide(fg2);
         if (fg3 != null) fragmentTransaction.hide(fg3);
         if (fg4 != null) fragmentTransaction.hide(fg4);
-
+        if (fg5 != null) fragmentTransaction.hide(fg5);
+        if (fg6 != null) fragmentTransaction.hide(fg6);
+        if (fg7 != null) fragmentTransaction.hide(fg7);
+        if (fg8 != null) fragmentTransaction.hide(fg8);
+        if (fg9 != null) fragmentTransaction.hide(fg9);
+        if (fg10 != null) fragmentTransaction.hide(fg10);
+        if (fg11 != null) fragmentTransaction.hide(fg11);
+        if (fg12 != null) fragmentTransaction.hide(fg12);
+        if (fg13 != null) fragmentTransaction.hide(fg13);
+        if (fg14 != null) fragmentTransaction.hide(fg14);
+        if (fg15 != null) fragmentTransaction.hide(fg15);
+        if (fg16 != null) fragmentTransaction.hide(fg16);
+        if (fg17 != null) fragmentTransaction.hide(fg17);
+        if (fg18 != null) fragmentTransaction.hide(fg18);
+        if (fg19 != null) fragmentTransaction.hide(fg19);
+        if (fg20 != null) fragmentTransaction.hide(fg20);
+        if (fg21 != null) fragmentTransaction.hide(fg21);
+        if (fg22 != null) fragmentTransaction.hide(fg22);
     }
 
 
@@ -185,15 +194,6 @@ public class MainActivity extends AppCompatActivity {
 
             hideAllFragment(fTransaction);
             switch (v.getId()) {
-                case R.id.checkbox:
-                    ActivityIntent="checkbox";
-                    if (fg1 == null) {
-                        fg1 = new ActivityFragment(ActivityIntent,MainActivity.this);
-                        fTransaction.add(R.id.ActivityContent, fg1);
-                    } else {
-                        fTransaction.show(fg1);
-                    }
-                    break;
                 case R.id.text_view1:
                     ActivityIntent="Textview";
                     if (fg2 == null) {

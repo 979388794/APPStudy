@@ -116,7 +116,6 @@ public class GlsurfaceView extends GLSurfaceView {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Log.d("xuejie", "gpu占用率为" + SurfaceViewActivity.getGpuCurFreq() + "  i=" + i);
 
 //                    if (SurfaceViewActivity.getGpuCurFreq() == 0) {
 //                        break;

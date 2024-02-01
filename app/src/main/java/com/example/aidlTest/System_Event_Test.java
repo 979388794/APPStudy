@@ -23,9 +23,7 @@ public class System_Event_Test extends AppCompatActivity {
         setContentView(R.layout.activity_system_event_test);
         context = getApplicationContext();
 
-        Log.d("xuejie", "-------AAAAAAAAA---------------");
         SystemEventManager eventManager = (SystemEventManager) context.getSystemService("test_systemevent");
-        Log.d("xuejie", "-------AAAAAAAAA---------------");
 
         register = findViewById(R.id.rigister);
         unregister = findViewById(R.id.unrigister);
@@ -57,7 +55,6 @@ public class System_Event_Test extends AppCompatActivity {
     private IEventCallback.Stub eventCallback = new IEventCallback.Stub() {
         @Override
         public void onSystemEvent(int type, String value) throws RemoteException {
-            Log.d("xuejie", "type:" + type + " value:" + value);
         }
     };
 

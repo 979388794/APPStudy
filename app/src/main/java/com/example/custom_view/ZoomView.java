@@ -58,7 +58,6 @@ public class ZoomView extends View {
                 moveType = 2;
                 spacing = getSpacing(event);
                 degree = getDegree(event);
-                Log.d("xuejie","degree="+degree);
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (moveType == 1) {//拖动操作
@@ -69,7 +68,6 @@ public class ZoomView extends View {
                     setScaleX(scale);
                     setScaleY(scale);
                     rotation = rotation + getDegree(event) - degree;
-                    Log.d("xuejie","rotation="+rotation);
                     if (rotation > 360) {
                         rotation = rotation - 360;
                     }

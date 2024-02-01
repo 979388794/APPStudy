@@ -29,7 +29,6 @@ public class DebugOverlayController {
         params.width = WindowManager.LayoutParams.WRAP_CONTENT;
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         params.gravity = Gravity.LEFT | Gravity.TOP;
-        Log.d("xuejie", "------------------");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             params.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         } else {
@@ -40,7 +39,6 @@ public class DebugOverlayController {
                 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
 
         mWindowManager.addView(mFPSDebugViewContainer, params);
-        Log.d("xuejie", "------------------");
     }
 
     public void stopFps() {
