@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--   <com.example.revolve.MyTextview.MyTextview
+    <!--   <com.MyStudy.revolve.MyTextview.MyTextview
            android:id="@+id/t1"
            android:layout_width="200dp"
            android:layout_height="200dp"
@@ -14,7 +14,7 @@
            android:background="@drawable/torres"
            android:text="xuejie"
            android:textSize="20sp" />-->
-    <com.example.custom_view.myview
+    <com.MyStudy.custom_view.myview
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="100dp"

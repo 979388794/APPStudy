@@ -4,17 +4,40 @@ plugins {
 android {
     compileSdk 34
     defaultConfig {
-        applicationId "com.example.HomeScreen"
+        applicationId "com.MyStudy.Basic_control_view"
         minSdk 29
         targetSdk 34
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+//    signingConfigs {
+//        main {
+//            storeFile file("./platform.jks") //签名文件路径，根目录
+//            storePassword "MyPassWord"
+//            keyAlias "Myname"
+//            keyPassword "MyPassWord"
+//        }
+//    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            signingConfig signingConfigs.main //添加这一行
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//        debug {
+//            minifyEnabled false
+//            signingConfig signingConfigs.main //添加这一行
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//
+//    }
+    // 自定义打包名称
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "MyStudy_${buildType.name}_v${versionName}_${generateTime()}.apk"
+
         }
     }
     compileOptions {
@@ -29,23 +52,24 @@ android {
         viewBinding true
     }
 }
+//构建时间
+def generateTime() {
+    return new Date().format("yyyy_MM_dd_HH_mm_ss")
+}
+
 dependencies {
-    def lottieVersion = "5.2.0"
-    implementation "com.airbnb.android:lottie:$lottieVersion"
-    def preference_version = "1.2.0"
+    implementation 'androidx.navigation:navigation-fragment:2.2.2'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
+    def preference_version = "1.1.0"
     // Java language implementation
     implementation "androidx.preference:preference:$preference_version"
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.navigation:navigation-fragment:2.5.3'
-    implementation 'androidx.navigation:navigation-ui:2.5.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.github.bumptech.glide:glide:4.13.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0'
     implementation 'com.github.979388794:MyDependency:v1.0'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.7'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    implementation 'com.squareup.okio:okio:1.17.5'
 }

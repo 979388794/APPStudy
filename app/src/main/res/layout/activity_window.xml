@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.windowManagerTest.My_Floating_Window.WindowActivity">
+    tools:context="com.MyStudy.windowManagerTest.My_Floating_Window.WindowActivity">
 
 
     <Button

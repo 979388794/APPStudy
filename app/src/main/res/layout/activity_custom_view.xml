@@ -3,20 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--  <com.example.custom_view.ZoomView
+    <!--  <com.MyStudy.custom_view.ZoomView
          android:id="@+id/zoomView"
          android:layout_width="266dp"
          android:layout_height="267dp"
          android:layout_centerInParent="true"
          android:background="@drawable/torres">
-     </com.example.custom_view.ZoomView>-->
-       <com.example.custom_view.ScaleView
+     </com.MyStudy.custom_view.ZoomView>-->
+       <com.MyStudy.custom_view.ScaleView
            android:id="@+id/ds"
            android:layout_width="180dip"
            android:layout_height="180dip"
            android:background="@drawable/ic_launcher_background"
            android:clickable="true" />
-    <!-- <com.example.custom_view.DragScaleView
+    <!-- <com.MyStudy.custom_view.DragScaleView
          android:id="@+id/ds"
          android:layout_width="180dip"
          android:layout_height="180dip"
@@ -30,7 +30,7 @@
         android:layout_marginBottom="23dp"
         android:text="跳转到View测试" />
 
-    <com.example.custom_view.MyTextview
+    <com.MyStudy.custom_view.MyTextview
         android:id="@+id/view_test"
         android:layout_width="150dp"
         android:layout_height="150dp"

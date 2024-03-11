@@ -1,2 +1,2 @@
-rootProject.name = "学习大集合"
+rootProject.name = "MyStudy"
 include ':app'

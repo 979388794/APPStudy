@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">学习大集合</string>
+    <string name="app_name">HenryTest</string>
     <string name="tv_test11">app测试中</string>
     <string name="title_activity_power_contronl">PowerContronl</string>
     <!-- Strings used for fragments for navigation -->

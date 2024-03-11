@@ -4,17 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/test_view"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/teal_200" />
 
-   <!-- <com.example.quectel.cputest.OpenGL.GlsurfaceView
+   <!-- <com.MyStudy.quectel.cputest.OpenGL.GlsurfaceView
         android:id="@+id/testView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusedByDefault="true"/>-->
-
 </LinearLayout>

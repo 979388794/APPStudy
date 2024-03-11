@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.list_recycle_view.List_Recycler_ViewTestActivity">
+    tools:context="com.MyStudy.list_recycle_view.List_Recycler_ViewTestActivity">
 
    <Button
        android:id="@+id/list_1"
