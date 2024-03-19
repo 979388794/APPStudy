@@ -67,7 +67,7 @@ public class TestActivity extends AppCompatActivity {
         User receivedUser = getIntent().getParcelableExtra("user");
         String userName = receivedUser.getName();
         int userAge = receivedUser.getAge();
-        Log.d("henry"," "+userName+" "+userAge);
+        Log.d("xuejie"," "+userName+" "+userAge);
     }
 
     /**

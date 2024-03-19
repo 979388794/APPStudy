@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 
     <application
-
+        android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.SingletonApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -30,9 +30,26 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
-        <!--        <activity-->
-        <!--            android:name="com.MyStudy.OkHttpTest.OkHttpTestActivity"-->
-        <!--            android:exported="false" />-->
+        <activity
+            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activitysecond"
+            android:exported="false" />
+        <activity
+            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activityfirst"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.MyStudy.JetPackTest.Dagger2Test.UserActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name="com.MyStudy.Slide_menu_frame.Slide_menu_Activity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name="com.MyStudy.OkHttpTest.OkHttpTestActivity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name="com.MyStudy.OpenGl.SurfaceViewActivity"
             android:exported="false" />
@@ -146,27 +163,24 @@
             android:exported="false" />
         <activity
             android:name="com.MyStudy.OkHttpTest.OkHttpTestActivity"
-            android:exported="false"></activity>
-
-
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name="com.MyStudy.HotFixTest.HotFixActivity"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name="com.MyStudy.HotFixTest.HotFixActivity2"
-            android:exported="false"></activity>
-
+            android:exported="false" />
 
         <service android:name="com.MyStudy.windowManagerTest.FPS.FPSService" />
         <service android:name="com.MyStudy.windowManagerTest.My_Floating_Window.MainService" />

@@ -89,9 +89,9 @@ public class ActivityFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onclick = new Onclick();
-
     }
-    void ParcelableSend(){
+
+    void ParcelableSend() {
         User user = new User("Alice", 25);
         // 将User对象放入Intent中传递给另一个Activity
         Intent intent = new Intent(context, TestActivity.class);
@@ -103,7 +103,7 @@ public class ActivityFragment extends Fragment {
         public void onClick(View v) {
             Class<?> activityClass = mMap.get(content);
             Intent intent = new Intent(context, activityClass);
-            if(activityClass == TestActivity.class){
+            if (activityClass == TestActivity.class) {
                 User user = new User("Alice", 25);
                 intent.putExtra("user", user);
             }

@@ -1,11 +1,5 @@
 package com.MyStudy.Basic_control_view;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -14,8 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.MyStudy.Basic_control_view.databinding.ActivityMainBinding;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.MyStudy.Basic_control_view.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String ActivityIntent;
 
 
-
-    private ActivityFragment fg1, fg2, fg3, fg4,fg5,fg6,fg7,fg8,fg9,fg10,fg11,fg12,fg13,fg14,fg15,fg16,fg17,fg18,fg19,fg20,fg21,fg22;
+    private ActivityFragment fg1, fg2, fg3, fg4, fg5, fg6, fg7, fg8, fg9, fg10, fg11, fg12, fg13, fg14, fg15, fg16, fg17, fg18, fg19, fg20, fg21, fg22;
     private FragmentManager fManager;
     private static final String[] REQUEST_PERMISSIONS = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -39,10 +37,108 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         fManager = getSupportFragmentManager();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }).start();
+//        test();
+//        testJackson();
         setlisteners();
     }
+    public static class User {
+        private String name;
+        private int age;
+
+        public User() {
+        }
+
+        public User(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
 
 
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
+
+
+    }
+
+//    public static void testJackson() {
+//        try {
+//            // 创建 ObjectMapper 对象
+//            ObjectMapper objectMapper = new ObjectMapper();
+//
+//            // 创建一个 User 对象
+//            User user = new User("Bob", 30);
+//
+//            // 将 User 对象转换为 JSON 字符串
+//            String json = objectMapper.writeValueAsString(user);
+//            Log.d("JacksonTest", "Serialized JSON: " + json);
+//
+//            // 将 JSON 字符串转换为 User 对象
+//            User deserializedUser = objectMapper.readValue(json, User.class);
+//            Log.d("JacksonTest", "Deserialized User: " + deserializedUser.getName() + ", " + deserializedUser.getAge());
+//        } catch (Exception e) {
+//            Log.e("JacksonTest", "Error during Jackson test: " + e.getMessage());
+//        }
+//    }
+//    void test() {
+//        try {
+//            // 构建一个 JSON 对象
+//            JSONObject jsonObject = new JSONObject();
+//            jsonObject.put("name", "Alice");
+//            jsonObject.put("age", 25);
+//            Log.d("henry", "" + jsonObject);
+//
+//            // 构建一个 JSON 数组
+//            JSONArray jsonArray = new JSONArray();
+//            jsonArray.put("apple");
+//            jsonArray.put("banana");
+//            jsonArray.put("cherry");
+//            Log.d("henry", "" + jsonArray);
+//
+//            // 将 JSON 对象和 JSON 数组组合成一个新的 JSON 对象
+//            JSONObject mainObject = new JSONObject();
+//            mainObject.put("person", jsonObject);
+//            mainObject.put("fruits", jsonArray);
+//            Log.d("henry", "" + mainObject);
+//
+//            // 将 JSON 对象转换为字符串输出
+//            String jsonString = mainObject.toString();
+//            Log.d("henry", "" + jsonString);
+//
+//            // 解析 JSON 字符串
+//            JSONObject parsedObject = new JSONObject(jsonString);
+//            Log.d("henry", "" + parsedObject.get("person"));
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     @Override
@@ -195,27 +291,27 @@ public class MainActivity extends AppCompatActivity {
             hideAllFragment(fTransaction);
             switch (v.getId()) {
                 case R.id.text_view1:
-                    ActivityIntent="Textview";
+                    ActivityIntent = "Textview";
                     if (fg2 == null) {
-                        fg2 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg2 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg2);
                     } else {
                         fTransaction.show(fg2);
                     }
                     break;
                 case R.id.editText:
-                    ActivityIntent="editText";
+                    ActivityIntent = "editText";
                     if (fg3 == null) {
-                        fg3 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg3 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg3);
                     } else {
                         fTransaction.show(fg3);
                     }
                     break;
                 case R.id.radioButton:
-                    ActivityIntent="radioButton";
+                    ActivityIntent = "radioButton";
                     if (fg4 == null) {
-                        fg4 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg4 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg4);
                     } else {
                         fTransaction.show(fg4);
@@ -223,9 +319,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.imageview:
-                    ActivityIntent="imageview";
+                    ActivityIntent = "imageview";
                     if (fg5 == null) {
-                        fg5 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg5 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg5);
                     } else {
                         fTransaction.show(fg5);
@@ -233,153 +329,153 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.LineChart:
-                    ActivityIntent="LineChart";
+                    ActivityIntent = "LineChart";
                     if (fg6 == null) {
-                        fg6 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg6 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg6);
                     } else {
                         fTransaction.show(fg6);
                     }
                     break;
                 case R.id.LineChart2:
-                    ActivityIntent="LineChart2";
+                    ActivityIntent = "LineChart2";
                     if (fg7 == null) {
-                        fg7 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg7 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg7);
                     } else {
                         fTransaction.show(fg7);
                     }
                     break;
                 case R.id.CustomView:
-                    ActivityIntent="CustomView";
+                    ActivityIntent = "CustomView";
                     if (fg8 == null) {
-                        fg8 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg8 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg8);
                     } else {
                         fTransaction.show(fg8);
                     }
                     break;
                 case R.id.CustomViewGroup:
-                    ActivityIntent="CustomViewGroup";
+                    ActivityIntent = "CustomViewGroup";
                     if (fg9 == null) {
-                        fg9 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg9 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg9);
                     } else {
                         fTransaction.show(fg9);
                     }
                     break;
                 case R.id.ViewModel:
-                    ActivityIntent="ViewModel";
+                    ActivityIntent = "ViewModel";
                     if (fg10 == null) {
-                        fg10 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg10 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg10);
                     } else {
                         fTransaction.show(fg10);
                     }
                     break;
                 case R.id.LiveData:
-                    ActivityIntent="LiveData";
+                    ActivityIntent = "LiveData";
                     if (fg11 == null) {
-                        fg11 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg11 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg11);
                     } else {
                         fTransaction.show(fg11);
                     }
                     break;
                 case R.id.PowerControl:
-                    ActivityIntent="PowerControl";
+                    ActivityIntent = "PowerControl";
                     if (fg12 == null) {
-                        fg12 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg12 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg12);
                     } else {
                         fTransaction.show(fg12);
                     }
                     break;
                 case R.id.ViewTreeObserver:
-                    ActivityIntent="ViewTreeObserver";
+                    ActivityIntent = "ViewTreeObserver";
                     if (fg13 == null) {
-                        fg13 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg13 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg13);
                     } else {
                         fTransaction.show(fg13);
                     }
                     break;
                 case R.id.SensorManagerTest:
-                    ActivityIntent="SensorManagerTest";
+                    ActivityIntent = "SensorManagerTest";
                     if (fg14 == null) {
-                        fg14 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg14 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg14);
                     } else {
                         fTransaction.show(fg14);
                     }
                     break;
                 case R.id.DialogTest:
-                    ActivityIntent="DialogTest";
+                    ActivityIntent = "DialogTest";
                     if (fg15 == null) {
-                        fg15 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg15 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg15);
                     } else {
                         fTransaction.show(fg15);
                     }
                     break;
                 case R.id.list_recycler_view:
-                    ActivityIntent="list_recycler_view";
+                    ActivityIntent = "list_recycler_view";
                     if (fg16 == null) {
-                        fg16 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg16 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg16);
                     } else {
                         fTransaction.show(fg16);
                     }
                     break;
                 case R.id.Preference_Test:
-                    ActivityIntent="Preference_Test";
+                    ActivityIntent = "Preference_Test";
                     if (fg17 == null) {
-                        fg17 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg17 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg17);
                     } else {
                         fTransaction.show(fg17);
                     }
                     break;
                 case R.id.System_service_Test:
-                    ActivityIntent="System_service_Test";
+                    ActivityIntent = "System_service_Test";
                     if (fg18 == null) {
-                        fg18 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg18 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg18);
                     } else {
                         fTransaction.show(fg18);
                     }
                     break;
                 case R.id.WindowManager_Test:
-                    ActivityIntent="WindowManager_Test";
+                    ActivityIntent = "WindowManager_Test";
                     if (fg19 == null) {
-                        fg19 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg19 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg19);
                     } else {
                         fTransaction.show(fg19);
                     }
                     break;
                 case R.id.Fragment:
-                    ActivityIntent="Fragment";
+                    ActivityIntent = "Fragment";
                     if (fg20 == null) {
-                        fg20 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg20 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg20);
                     } else {
                         fTransaction.show(fg20);
                     }
                     break;
                 case R.id.Display_Adapter:
-                    ActivityIntent="Display_Adapter";
+                    ActivityIntent = "Display_Adapter";
                     if (fg21 == null) {
-                        fg21 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg21 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg21);
                     } else {
                         fTransaction.show(fg21);
                     }
                     break;
                 case R.id.OpenGl:
-                    ActivityIntent="OpenGl_Test";
+                    ActivityIntent = "OpenGl_Test";
                     if (fg22 == null) {
-                        fg22 = new ActivityFragment(ActivityIntent,MainActivity.this);
+                        fg22 = new ActivityFragment(ActivityIntent, MainActivity.this);
                         fTransaction.add(R.id.ActivityContent, fg22);
                     } else {
                         fTransaction.show(fg22);
@@ -391,7 +487,6 @@ public class MainActivity extends AppCompatActivity {
             fTransaction.commit();
         }
     }
-
 
 
 }

@@ -1,5 +1,6 @@
 package com.MyStudy.DialogTest;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +36,7 @@ public class DialogRecyclerAdapter  extends RecyclerView.Adapter<DialogRecyclerA
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         Fruit fruit = fruits.get(position);
         holder.imageView.setImageResource(fruit.getImageID());

@@ -1,5 +1,7 @@
 package com.MyStudy.Basic_control_view;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.graphics.Color;
 import android.view.View;
@@ -31,7 +33,7 @@ public class LineChartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //数据传入端口
                 dynamicLineChartManager1.addEntry((int) (Math.random() * 100));
-               // dynamicLineChartManager1.addEntry((float) 75.65,0);
+                // dynamicLineChartManager1.addEntry((float) 75.65,0);
             }
         });
     }
