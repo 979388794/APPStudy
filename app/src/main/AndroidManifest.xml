@@ -31,10 +31,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
         <activity
-            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activitysecond"
-            android:exported="false" />
-        <activity
-            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activityfirst"
+            android:name="com.MyStudy.JetPackTest.LifecycleTest.LifeCycleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,8 +40,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.MyStudy.JetPackTest.Dagger2Test.UserActivity"
+            android:name="com.MyStudy.JetPackTest.HiltTest.user.HiltActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activitysecond"
+            android:exported="false" />
+        <activity
+            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activityfirst"
             android:exported="false"></activity>
+        <activity
+            android:name="com.MyStudy.JetPackTest.Dagger2Test.UserActivity"
+            android:exported="false" />
         <activity
             android:name="com.MyStudy.Slide_menu_frame.Slide_menu_Activity"
             android:exported="false" /> <!-- <activity -->

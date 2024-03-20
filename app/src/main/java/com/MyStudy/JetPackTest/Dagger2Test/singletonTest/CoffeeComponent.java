@@ -15,4 +15,5 @@ public interface CoffeeComponent {
     void injectActivity_first(Activityfirst activityfirst );
 
     void injectActivity_second(Activitysecond activitysecond );
+
 }

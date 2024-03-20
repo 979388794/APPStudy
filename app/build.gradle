@@ -58,12 +58,17 @@ def generateTime() {
 }
 
 dependencies {
+
+    def preference_version = "1.1.0"
+    def lifecycle_version = "2.2.0"
+
+
     implementation 'androidx.navigation:navigation-fragment:2.2.2'
     implementation 'androidx.navigation:navigation-ui:2.2.2'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    def preference_version = "1.1.0"
+
     // Java language implementation
     implementation "androidx.preference:preference:$preference_version"
 
@@ -87,16 +92,34 @@ dependencies {
 // Optional -- UI testing with UI Automator
     androidTestImplementation "androidx.test.uiautomator:uiautomator:2.2.0"
 // Optional -- UI testing with Compose
-//    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.6.3-alpha4"
+// androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.6.3-alpha4"
 
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.9.8'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
 
 
+    //dagger依赖
     implementation 'com.google.dagger:dagger-android:2.17'
 //    implementation 'com.google.dagger:dagger-android-support:2.17' // if you use the support libraries
     implementation 'com.google.dagger:dagger:2.17'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.17'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.17'
+
+    //lifecycle依赖
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-service:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-process:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
+    //viewmodel依赖
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+
+    //livedata依赖
+    implementation "androidx.lifecycle:lifecycle-livedata:2.2.0"
+
+    //只有lifecycle依赖(不带viewmodel和livedata)
+    implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
+
+
 }
