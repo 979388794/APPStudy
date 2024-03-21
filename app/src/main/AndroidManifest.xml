@@ -31,7 +31,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
         <activity
-            android:name="com.MyStudy.JetPackTest.LifecycleTest.LifeCycleActivity"
+            android:name="com.MyStudy.JetPackTest.OkLiveDataBusTest.OkLiveDataBusSecondActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.MyStudy.JetPackTest.OkLiveDataBusTest.OkLiveDataBusActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,6 +43,23 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.MyStudy.JetPackTest.LiveDataTest.JumpTest.LiveDataSecondActivity"
+            android:exported="false"></activity>
+
+        <service
+            android:name="com.MyStudy.JetPackTest.LiveDataTest.weixindemo.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name="com.MyStudy.JetPackTest.LiveDataTest.LiveDataActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name="com.MyStudy.JetPackTest.LifecycleTest.LifeCycleActivity"
+            android:exported="false" />
+        <activity
             android:name="com.MyStudy.JetPackTest.HiltTest.user.HiltActivity"
             android:exported="false" />
         <activity
@@ -47,7 +67,7 @@
             android:exported="false" />
         <activity
             android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activityfirst"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.MyStudy.JetPackTest.Dagger2Test.UserActivity"
             android:exported="false" />
