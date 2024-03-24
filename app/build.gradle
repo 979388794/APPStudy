@@ -4,12 +4,24 @@ plugins {
 android {
     compileSdk 34
     defaultConfig {
-        applicationId "com.MyStudy.Basic_control_view"
-        namespace "com.MyStudy.Basic_control_view"
+        applicationId "com.henry.basic"
+        namespace "com.henry.basic"
         minSdk 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //启用viewBinding
+        viewBinding{
+            enabled true
+        }
+        //启用dataBinding
+        //第一种方式
+        dataBinding {
+            enabled = true
+        }
+        //第二种方式
+//        dataBinding.enabled=true
     }
 
 //    signingConfigs {
@@ -44,13 +56,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dataBinding {
-        enabled = true
-    }
 
-    buildFeatures {
-        viewBinding true
-    }
+
+
+
 }
 //构建时间
 def generateTime() {
@@ -121,5 +130,10 @@ dependencies {
     //只有lifecycle依赖(不带viewmodel和livedata)
     implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
 
+
+    //Databinding插件
+//    implementation 'androidx.databinding:databinding-runtime:2.2.0'
+//
+//    implementation  "com.android.databinding:compiler:2.2.0"
 
 }

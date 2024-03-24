@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--layout是由DataBinding管理了，我们整个布局  -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!-- 不是通过反射-->
+        <!-- 生成setuser()函数-->
+        <variable
+            name="user"
+            type="com.henry.jetPackTest.dataBindingTest.User" />
+
+    </data>
+    <!-- 上面的内容是DataBinding内部用的，安卓View体系不认识
+    -->
+
+
+    <!-- 安卓  View体系的
+    下面的所有内容会给安卓绘制
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--@=  View————Model -->
+        <TextView
+            android:id="@+id/dataBinding1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={user.name}"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/dataBinding2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={user.password}"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+</layout>

@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.MyStudy.JetPackTest.LiveDataTest.JumpTest.LiveDataSecondActivity">
+    tools:context="com.henry.jetPackTest.LiveDataTest.JumpTest.LiveDataSecondActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

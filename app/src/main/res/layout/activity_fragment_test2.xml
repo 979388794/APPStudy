@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.MyStudy.FragmentTest.FragmentTest2">
+    tools:context="com.henry.FragmentTest.FragmentTest2">
 
     <LinearLayout
         android:id="@+id/LinearLayout1"

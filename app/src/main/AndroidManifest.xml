@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.MyStudy.Basic_control_view">
+    package="com.henry.basic">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 
     <application
-        android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.SingletonApplication"
+        android:name="com.henry.jetPackTest.Dagger2Test.singletonTest.SingletonApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -30,11 +30,10 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
+
+
         <activity
-            android:name="com.MyStudy.JetPackTest.OkLiveDataBusTest.OkLiveDataBusSecondActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.MyStudy.JetPackTest.OkLiveDataBusTest.OkLiveDataBusActivity"
+            android:name="com.henry.jetPackTest.viewModelTest.ViewModelActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,156 +41,167 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="com.MyStudy.JetPackTest.LiveDataTest.JumpTest.LiveDataSecondActivity"
+            android:name="com.henry.jetPackTest.dataBindingTest.DataBindingTestActivity"
             android:exported="false"></activity>
+        <activity
+            android:name="com.henry.jetPackTest.ViewBindingTest.ViewBindingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.henry.jetPackTest.OkLiveDataBusTest.OkLiveDataBusSecondActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.henry.jetPackTest.OkLiveDataBusTest.OkLiveDataBusActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name="com.henry.jetPackTest.LiveDataTest.JumpTest.LiveDataSecondActivity"
+            android:exported="false" />
 
         <service
-            android:name="com.MyStudy.JetPackTest.LiveDataTest.weixindemo.MyService"
+            android:name="com.henry.jetPackTest.LiveDataTest.weixindemo.MyService"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name="com.MyStudy.JetPackTest.LiveDataTest.LiveDataActivity"
-            android:exported="false">
-
-        </activity>
+            android:name="com.henry.jetPackTest.LiveDataTest.LiveDataActivity"
+            android:exported="false"></activity>
         <activity
-            android:name="com.MyStudy.JetPackTest.LifecycleTest.LifeCycleActivity"
+            android:name="com.henry.jetPackTest.LifecycleTest.LifeCycleActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.JetPackTest.HiltTest.user.HiltActivity"
+            android:name="com.henry.jetPackTest.HiltTest.user.HiltActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activitysecond"
+            android:name="com.henry.jetPackTest.Dagger2Test.singletonTest.Activitysecond"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activityfirst"
+            android:name="com.henry.jetPackTest.Dagger2Test.singletonTest.Activityfirst"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.JetPackTest.Dagger2Test.UserActivity"
+            android:name="com.henry.jetPackTest.Dagger2Test.UserActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.Slide_menu_frame.Slide_menu_Activity"
+            android:name="com.henry.Slide_menu_frame.Slide_menu_Activity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name="com.MyStudy.OkHttpTest.OkHttpTestActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name="com.MyStudy.OpenGl.SurfaceViewActivity"
+            android:name="com.henry.OpenGl.SurfaceViewActivity"
             android:exported="false" />
         <activity
-            android:name=".TestActivity"
+            android:name="com.henry.basic.TestActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.DisplayAdapter.DisplayMainActivity"
+            android:name="com.henry.DisplayAdapter.DisplayMainActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.FragmentTest.NavigationBar_Message.Navigation_Message_Activity"
+            android:name="com.henry.FragmentTest.NavigationBar_Message.Navigation_Message_Activity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.FragmentTest.NavigationBar.Navigation_bar_Activity"
+            android:name="com.henry.FragmentTest.NavigationBar.Navigation_bar_Activity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.FragmentTest.FragmentTest2"
+            android:name="com.henry.FragmentTest.FragmentTest2"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.FragmentTest.FragmentTest1"
+            android:name="com.henry.FragmentTest.FragmentTest1"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.FragmentTest.FragmentActivity"
+            android:name="com.henry.FragmentTest.FragmentActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.windowManagerTest.My_Floating_Window.WindowActivity"
+            android:name="com.henry.windowManagerTest.My_Floating_Window.WindowActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.PreferenceTest.AsyncTaskActivity"
+            android:name="com.henry.PreferenceTest.AsyncTaskActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.PreferenceTest.Test_Settings_Activity"
+            android:name="com.henry.PreferenceTest.Test_Settings_Activity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.PreferenceTest.FragmentActivity"
+            android:name="com.henry.PreferenceTest.FragmentActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.PreferenceTest.PreferenceActivity"
+            android:name="com.henry.PreferenceTest.PreferenceActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.windowManagerTest.windowManagerActivity"
+            android:name="com.henry.windowManagerTest.windowManagerActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.aidlTest.System_Event_Test"
+            android:name="com.henry.aidlTest.System_Event_Test"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.list_recycle_view.RecyclerView.RecyclerTest2"
+            android:name="com.henry.list_recycle_view.RecyclerView.RecyclerTest2"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.list_recycle_view.RecyclerView.RecyclerTest1"
+            android:name="com.henry.list_recycle_view.RecyclerView.RecyclerTest1"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.list_recycle_view.List_Recycler_ViewTestActivity"
+            android:name="com.henry.list_recycle_view.List_Recycler_ViewTestActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.list_recycle_view.RecyclerView.RecyclerTest3"
+            android:name="com.henry.list_recycle_view.RecyclerView.RecyclerTest3"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.list_recycle_view.listview.ListViewTest2"
+            android:name="com.henry.list_recycle_view.listview.ListViewTest2"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.list_recycle_view.listview.ListViewTest1"
+            android:name="com.henry.list_recycle_view.listview.ListViewTest1"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.DialogTest.DialogTestActivity"
+            android:name="com.henry.DialogTest.DialogTestActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.SensorManagerTest.SensorManagerActivity"
+            android:name="com.henry.SensorManagerTest.SensorManagerActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.ViewTreeObserverTest.ViewTreeObserverActivity"
+            android:name="com.henry.ViewTreeObserverTest.ViewTreeObserverActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.PowerControlTest.PowerContronlActivity"
+            android:name="com.henry.PowerControlTest.PowerContronlActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.ViewModel.View_Data_Activity"
+            android:name="com.henry.ViewModel.View_Data_Activity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.ViewModel.LiveDataActivity"
+            android:name="com.henry.ViewModel.LiveDataActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.ViewModel.TimerActivity"
+            android:name="com.henry.ViewModel.TimerActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.custom_view.Custom_view_group"
+            android:name="com.henry.custom_view.Custom_view_group"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.custom_view.ViewTest_Activity"
+            android:name="com.henry.custom_view.ViewTest_Activity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.custom_view.Custom_view_Activity"
+            android:name="com.henry.custom_view.Custom_view_Activity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.linechart.More_Line_Chart"
+            android:name="com.henry.linechart.More_Line_Chart"
             android:exported="false" />
         <activity
-            android:name=".LineChartActivity"
+            android:name="com.henry.basic.LineChartActivity"
             android:exported="false" />
         <activity
-            android:name=".ImageviewActivity"
+            android:name="com.henry.basic.ImageviewActivity"
             android:exported="false" />
         <activity
-            android:name=".RadioButtonActivity"
+            android:name="com.henry.basic.RadioButtonActivity"
             android:exported="false" />
         <activity
-            android:name=".EditTextActivity"
+            android:name="com.henry.basic.EditTextActivity"
             android:exported="false" />
         <activity
-            android:name=".TextViewActivity"
+            android:name="com.henry.basic.TextViewActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.OkHttpTest.OkHttpTestActivity"
+            android:name="com.henry.OkHttpTest.OkHttpTestActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.henry.basic.MainActivity"
             android:exported="true">
 
             <!-- <intent-filter> -->
@@ -202,24 +212,24 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name="com.MyStudy.HotFixTest.HotFixActivity"
+            android:name="com.henry.HotFixTest.HotFixActivity"
             android:exported="false" />
         <activity
-            android:name="com.MyStudy.HotFixTest.HotFixActivity2"
+            android:name="com.henry.HotFixTest.HotFixActivity2"
             android:exported="false" />
 
-        <service android:name="com.MyStudy.windowManagerTest.FPS.FPSService" />
-        <service android:name="com.MyStudy.windowManagerTest.My_Floating_Window.MainService" />
+        <service android:name="com.henry.windowManagerTest.FPS.FPSService" />
+        <service android:name="com.henry.windowManagerTest.My_Floating_Window.MainService" />
 
         <receiver
-            android:name="com.MyStudy.PowerControlTest.WLWakefulReceiver"
+            android:name="com.henry.PowerControlTest.WLWakefulReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="WANG_LEI" />
             </intent-filter>
         </receiver>
 
-        <service android:name="com.MyStudy.PowerControlTest.MyIntentService" />
+        <service android:name="com.henry.PowerControlTest.MyIntentService" />
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.MyStudy.Lottie_HMI.HMI_view_Activity">
+    tools:context="com.henry.Lottie_HMI.HMI_view_Activity">
 
 
 

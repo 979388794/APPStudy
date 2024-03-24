@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.MyStudy.JetPackTest.Dagger2Test.singletonTest.Activityfirst">
+    tools:context="com.henry.jetPackTest.Dagger2Test.singletonTest.Activityfirst">
 
 
     <Button

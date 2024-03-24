@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.MyStudy.FragmentTest.FragmentTest1">
+    tools:context="com.henry.FragmentTest.FragmentTest1">
 
     <fragment
         android:id="@+id/fragment1"
-        android:name="com.MyStudy.FragmentTest.FragmentView"
+        android:name="com.henry.FragmentTest.FragmentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"

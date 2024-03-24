@@ -25,7 +25,7 @@ tools:context=".MainActivity">
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.MyStudy.linechart.Mylinechart
+    <com.henry.linechart.Mylinechart
         android:id="@+id/dynamic_chart1"
         android:layout_width="match_parent"
         android:layout_height="200dp"/>

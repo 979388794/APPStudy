@@ -1,4 +1,4 @@
-<com.MyStudy.custom_view.Custom_view_group2
+<com.henry.custom_view.Custom_view_group2
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
@@ -44,4 +44,4 @@
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold" />
-</com.MyStudy.custom_view.Custom_view_group2>
+</com.henry.custom_view.Custom_view_group2>

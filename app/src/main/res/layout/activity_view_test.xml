@@ -14,7 +14,7 @@
            android:background="@drawable/torres"
            android:text="xuejie"
            android:textSize="20sp" />-->
-    <com.MyStudy.custom_view.myview
+    <com.henry.custom_view.myview
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="100dp"
