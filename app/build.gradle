@@ -136,4 +136,21 @@ dependencies {
 //
 //    implementation  "com.android.databinding:compiler:2.2.0"
 
+
+
+
+
+    implementation "androidx.room:room-runtime:2.2.0"
+    annotationProcessor "androidx.room:room-compiler:2.2.0" // For Java
+    // 如果需要在调试时查看 Room 数据库的内容
+    debugImplementation "androidx.room:room-testing:2.2.0"
+
+
+
+
+
+
+
+
+
 }
