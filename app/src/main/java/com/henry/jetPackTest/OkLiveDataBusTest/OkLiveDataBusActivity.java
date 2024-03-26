@@ -20,7 +20,6 @@ public class OkLiveDataBusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ok_live_data_bus);
         button = findViewById(R.id.OKlivedata_jump);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
