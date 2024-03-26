@@ -19,7 +19,6 @@ import java.util.List;
  * @date: 2024-03-24
  */
 public class RoomTestActivity extends AppCompatActivity {
-
     ActivityViewmodelBinding binding;
 
     @Override

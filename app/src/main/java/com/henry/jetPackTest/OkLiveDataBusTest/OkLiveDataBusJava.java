@@ -11,7 +11,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
