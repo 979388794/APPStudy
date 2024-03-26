@@ -6,6 +6,7 @@
         <attr name="default_size" format="dimension" />
         <attr name="text_text" format="string" />
         <attr name="text_color" format="color" />
+
     </declare-styleable>
 
     <style name="tab_menu_text">
@@ -38,6 +39,5 @@
             shortEdges <!-- default, shortEdges, never -->
         </item>
     </style>
-
 
 </resources>

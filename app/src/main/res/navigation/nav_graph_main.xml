@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/page1Fragment">
+    <!--    默认启动page1Fragment-->
+
+    <!--    第一个Fragment-->
+    <fragment
+        android:id="@+id/page1Fragment"
+        android:name="com.henry.jetPackTest.navigationTest.Page1Fragment"
+        android:label="Page1Fragment">
+        <action
+            android:id="@+id/action_page2"
+            app:destination="@id/page2Fragment" />
+    </fragment>
+
+    <!--    第二个Fragment-->
+    <fragment
+        android:id="@+id/page2Fragment"
+        android:name="com.henry.jetPackTest.navigationTest.Page2Fragment"
+        android:label="Page2Fragment">
+        <action
+            android:id="@+id/action_page3"
+            app:destination="@id/page3Fragment" />
+        <action
+            android:id="@+id/action_page1"
+            app:destination="@id/page1Fragment" />
+    </fragment>
+
+    <!--    第三个Fragment-->
+    <fragment
+        android:id="@+id/page3Fragment"
+        android:name="com.henry.jetPackTest.navigationTest.Page3Fragment"
+        android:label="Page3Fragment">
+        <action
+            android:id="@+id/action_page3_2"
+            app:destination="@id/page2Fragment" />
+    </fragment>
+
+</navigation>

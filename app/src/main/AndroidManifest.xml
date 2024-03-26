@@ -33,23 +33,25 @@
 
 
         <activity
-            android:name="com.henry.jetPackTest.RoomTest.RoomTestActivity"
+            android:name="com.henry.jetPackTest.navigationTest.NavigationTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
+            android:name="com.henry.jetPackTest.RoomTest.RoomTestActivity"
+            android:exported="false"></activity>
+
+        <activity
             android:name="com.henry.jetPackTest.viewModelTest.ViewModelActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
 
         <activity
             android:name="com.henry.jetPackTest.dataBindingTest.DataBindingTestActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.jetPackTest.ViewBindingTest.ViewBindingActivity"
             android:exported="false" />
@@ -58,7 +60,7 @@
             android:exported="false" />
         <activity
             android:name="com.henry.jetPackTest.OkLiveDataBusTest.OkLiveDataBusActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name="com.henry.jetPackTest.LiveDataTest.JumpTest.LiveDataSecondActivity"
             android:exported="false" />

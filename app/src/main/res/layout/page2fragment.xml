@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/violet"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="Page2Fragment"
+        android:textColor="@color/blue" />
+
+
+    <Button
+        android:id="@+id/Page2forward"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:background="@color/pink"
+        android:text="跳转Page3Fragment"
+        android:textColor="@color/blue" />
+
+    <Button
+        android:id="@+id/Page2backward"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:background="@color/pink"
+        android:text="返回Page1Fragment"
+        android:textColor="@color/blue" />
+</LinearLayout>

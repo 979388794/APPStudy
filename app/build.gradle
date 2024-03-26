@@ -145,9 +145,10 @@ dependencies {
     // 如果需要在调试时查看 Room 数据库的内容
     debugImplementation "androidx.room:room-testing:2.2.0"
 
-
-
-
+    //navigation依赖导入
+    implementation "androidx.navigation:navigation-fragment:2.2.0"
+    implementation "androidx.navigation:navigation-ui:2.2.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.2.0-alpha02"
 
 
 
