@@ -8,6 +8,6 @@
     <dimen name="mem_monitor_height">150dp</dimen>
 
 
-
+    <dimen name="default_padding">10dp</dimen>
 
 </resources>

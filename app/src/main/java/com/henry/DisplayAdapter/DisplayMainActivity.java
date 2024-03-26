@@ -37,7 +37,7 @@ public class DisplayMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_main);
         Display display = getWindowManager().getDefaultDisplay();
-//从Display获取DisplayMetrics信息
+        //从Display获取DisplayMetrics信息
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
         t = findViewById(R.id.my_text);
