@@ -17,7 +17,6 @@
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
 
     <application
-        android:name="com.henry.jetPackTest.Dagger2Test.singletonTest.SingletonApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -33,25 +32,28 @@
 
 
         <activity
-            android:name="com.henry.projectPractice.SplashActivity"
+            android:name="com.henry.jetPackTest.workManagerTest.workManagerTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.henry.projectPractice.SplashActivity"
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.jetPackTest.navigationTest.NavigationTestActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
 
         <activity
             android:name="com.henry.jetPackTest.RoomTest.RoomTestActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <activity
             android:name="com.henry.jetPackTest.viewModelTest.ViewModelActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <activity
             android:name="com.henry.jetPackTest.dataBindingTest.DataBindingTestActivity"
@@ -76,7 +78,7 @@
 
         <activity
             android:name="com.henry.jetPackTest.LiveDataTest.LiveDataActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.jetPackTest.LifecycleTest.LifeCycleActivity"
             android:exported="false" />
@@ -213,7 +215,7 @@
             android:exported="false" />
         <activity
             android:name="com.henry.basic.MainActivity"
-            android:exported="true">
+            android:exported="false">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->

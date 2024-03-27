@@ -96,4 +96,5 @@ public class LiveDataActivity extends AppCompatActivity {
 
     }
 
+
 }

@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
+//    id 'kotlin-android'
 }
+//apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdk 34
     defaultConfig {
@@ -66,7 +69,10 @@ def generateTime() {
     return new Date().format("yyyy_MM_dd_HH_mm_ss")
 }
 
+
+
 dependencies {
+
 
     def preference_version = "1.1.0"
     def lifecycle_version = "2.2.0"
@@ -151,7 +157,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.2.0-alpha02"
 
 
-
+    //workmanager依赖导入
+    implementation "androidx.work:work-runtime:2.2.0"
 
 
 }

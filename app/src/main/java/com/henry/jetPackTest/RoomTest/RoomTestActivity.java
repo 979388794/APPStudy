@@ -44,10 +44,10 @@ public class RoomTestActivity extends AppCompatActivity {
                     .build();
             StudentDao dao = henryDB.userDao();
 
-            dao.insert(new Student("henry0", "123", 1));
-            dao.insert(new Student("henry1", "456", 2));
-            dao.insert(new Student("henry2", "789", 3));
-            dao.insert(new Student("henry3", "101112", 4));
+//            dao.insert(new Student("henry0", "123", 1));
+//            dao.insert(new Student("henry1", "456", 2));
+//            dao.insert(new Student("henry2", "789", 3));
+//            dao.insert(new Student("henry3", "101112", 4));
 
             //查看全部数据
             List<Student> all = dao.getall();

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.henry.jetPackTest.workManagerTest.workManagerTestActivity">
+
+    <Button
+        android:id="@+id/work1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:background="@color/cyan"
+        android:onClick="test1"
+        android:text="后台任务一" />
+
+    <Button
+        android:id="@+id/work2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/work1"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@color/cyan"
+        android:onClick="test2"
+        android:text="后台任务二" />
+
+    <Button
+        android:id="@+id/work3"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/work2"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@color/cyan"
+        android:onClick="test3"
+        android:text="后台任务三" />
+
+    <Button
+        android:id="@+id/work4"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/work3"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@color/cyan"
+        android:onClick="test4"
+        android:text="后台任务四" />
+
+    <Button
+        android:id="@+id/work5"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/work4"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@color/cyan"
+        android:onClick="test5"
+        android:text="后台任务五" />
+
+    <Button
+        android:id="@+id/work6"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/work5"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@color/cyan"
+        android:onClick="test6"
+        android:text="后台任务六：SP归零" />
+
+
+</RelativeLayout>
