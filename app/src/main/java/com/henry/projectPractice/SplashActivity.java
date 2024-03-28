@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.henry.basic.databinding.ActivitySplashBinding;
 
+import java.util.function.ToDoubleBiFunction;
+
 /**
  * @author: henry.xue
  * @date: 2024-03-26
@@ -56,7 +58,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onAnimationEnd(Animation animation) {
-//                jumpActivity();
+
             }
 
             @Override
@@ -67,9 +69,8 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         });
     }
 
-
     private void countdown() {
-        mCountDownTimer = new MyCountDownTimer(4000, 1000);
+        mCountDownTimer = new MyCountDownTimer(4000 + 200, 1000);
         mCountDownTimer.start();
     }
 
@@ -77,15 +78,14 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
      * 根据首次启动应用与否跳转到相应界面
      */
     private void jumpActivity() {
-        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-        String First = sharedPreferences.getString("isFirst", "0");
-        Intent intent = new Intent();
-//        if ("0".equals(First)) {
-//            intent.setClass(this, GuideActivity.class);
-//        }else{
-//            intent.setClass(this, MainActivity.class);
-//        }
-//        startActivity(intent);
+        /**
+         * TODO
+         * SharedPreferences
+         * 判断首次进入
+         */
+//        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+//        String First = sharedPreferences.getString("isFirst", "0");
+        startActivity(new Intent(SplashActivity.this, GuideActivity.class));
         finish();
     }
 
@@ -126,5 +126,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         }
         super.onDestroy();
     }
+
+
 }
 
