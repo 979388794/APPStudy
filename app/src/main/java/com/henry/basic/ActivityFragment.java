@@ -17,17 +17,13 @@ import com.henry.FragmentTest.FragmentActivity;
 import com.henry.OpenGl.SurfaceViewActivity;
 import com.henry.PowerControlTest.PowerContronlActivity;
 import com.henry.PreferenceTest.PreferenceActivity;
-import com.henry.SensorManagerTest.SensorManagerActivity;
 import com.henry.SerializationTest.User;
-import com.henry.ViewModel.TimerActivity;
-import com.henry.ViewModel.View_Data_Activity;
 import com.henry.ViewTreeObserverTest.ViewTreeObserverActivity;
 import com.henry.aidlTest.System_Event_Test;
 import com.henry.custom_view.Custom_view_Activity;
 import com.henry.custom_view.Custom_view_group;
-import com.henry.list_recycle_view.List_Recycler_ViewTestActivity;
 import com.henry.linechart.More_Line_Chart;
-import com.henry.basic.R;
+import com.henry.list_recycle_view.List_Recycler_ViewTestActivity;
 import com.henry.windowManagerTest.windowManagerActivity;
 
 import java.util.HashMap;
@@ -48,17 +44,12 @@ public class ActivityFragment extends Fragment {
     static Map<String, Class> mMap = new HashMap<String, Class>() {{
         put("Textview", TextViewActivity.class);
         put("editText", EditTextActivity.class);
-        put("radioButton", RadioButtonActivity.class);
-        put("imageview", ImageviewActivity.class);
         put("LineChart", LineChartActivity.class);
         put("LineChart2", More_Line_Chart.class);
         put("CustomView", Custom_view_Activity.class);
-        put("ViewModel", TimerActivity.class);
         put("CustomViewGroup", Custom_view_group.class);
-        put("LiveData", View_Data_Activity.class);
         put("PowerControl", PowerContronlActivity.class);
         put("ViewTreeObserver", ViewTreeObserverActivity.class);
-        put("SensorManagerTest", SensorManagerActivity.class);
         put("DialogTest", DialogTestActivity.class);
         put("list_recycler_view", List_Recycler_ViewTestActivity.class);
         put("Preference_Test", PreferenceActivity.class);

@@ -4,6 +4,11 @@
     package="com.henry.basic">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -32,21 +37,30 @@
 
 
         <activity
-            android:name="com.henry.projectPractice.GuideActivity"
+            android:name="com.henry.projectPractice.activity.LoginActivity"
             android:exported="false" />
+        <activity
+            android:name="com.henry.projectPractice.activity.myActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.henry.projectPractice.activity.GuideActivity"
+            android:exported="false">
+
+        </activity>
 
         <activity
-            android:name="com.henry.jetPackTest.workManagerTest.workManagerTestActivity"
-            android:exported="false" />
+            android:name="com.henry.ViewPagerTest.ViewPagerTestActivity"
+            android:exported="false">
+
+        </activity>
 
         <activity
-            android:name="com.henry.projectPractice.SplashActivity"
+            android:name="com.henry.projectPractice.activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <activity
@@ -100,9 +114,7 @@
         <activity
             android:name="com.henry.jetPackTest.Dagger2Test.UserActivity"
             android:exported="false" />
-        <activity
-            android:name="com.henry.Slide_menu_frame.Slide_menu_Activity"
-            android:exported="false" /> <!-- <activity -->
+        <!-- <activity -->
         <!-- android:name="com.MyStudy.OkHttpTest.OkHttpTestActivity" -->
         <!-- android:exported="false" /> -->
         <activity
@@ -111,9 +123,7 @@
         <activity
             android:name="com.henry.basic.TestActivity"
             android:exported="false" />
-        <activity
-            android:name="com.henry.DisplayAdapter.DisplayMainActivity"
-            android:exported="false" />
+
         <activity
             android:name="com.henry.FragmentTest.NavigationBar_Message.Navigation_Message_Activity"
             android:exported="false" />
@@ -171,24 +181,15 @@
         <activity
             android:name="com.henry.DialogTest.DialogTestActivity"
             android:exported="false" />
-        <activity
-            android:name="com.henry.SensorManagerTest.SensorManagerActivity"
-            android:exported="false" />
+
         <activity
             android:name="com.henry.ViewTreeObserverTest.ViewTreeObserverActivity"
             android:exported="false" />
         <activity
             android:name="com.henry.PowerControlTest.PowerContronlActivity"
             android:exported="false" />
-        <activity
-            android:name="com.henry.ViewModel.View_Data_Activity"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.ViewModel.LiveDataActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.ViewModel.TimerActivity"
-            android:exported="false" />
+
+
         <activity
             android:name="com.henry.custom_view.Custom_view_group"
             android:exported="false" />
@@ -204,12 +205,7 @@
         <activity
             android:name="com.henry.basic.LineChartActivity"
             android:exported="false" />
-        <activity
-            android:name="com.henry.basic.ImageviewActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.basic.RadioButtonActivity"
-            android:exported="false" />
+
         <activity
             android:name="com.henry.basic.EditTextActivity"
             android:exported="false" />

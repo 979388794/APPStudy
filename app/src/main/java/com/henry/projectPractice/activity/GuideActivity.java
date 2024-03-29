@@ -1,4 +1,4 @@
-package com.henry.projectPractice;
+package com.henry.projectPractice.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.henry.basic.R;
+import com.henry.projectPractice.adapter.GuideAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,18 +45,19 @@ public class GuideActivity extends AppCompatActivity {
         initDots();
         adapter = new GuideAdapter(imageViews);
         vp.setAdapter(adapter);
-
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SharedPreferences.Editor editor= getSharedPreferences("data", MODE_PRIVATE).edit();
-//                editor.putString("isFirst", "1");
-//                editor.commit();
-//                Intent intent= new Intent(GuideActivity.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        vp.setOffscreenPageLimit(imageViews.size());
+//        vp.setPageTransformer(true,new DepthPageTransformer());
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor= getSharedPreferences("data", MODE_PRIVATE).edit();
+                editor.putString("isFirst", "1");
+                editor.commit();
+                Intent intent= new Intent(GuideActivity.this, myActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -129,6 +132,102 @@ public class GuideActivity extends AppCompatActivity {
             imageViews.add(imageView);
         }
     }
+
+
+    public class DepthPageTransformer implements ViewPager.PageTransformer {
+        private static final float MIN_SCALE = 0.75f;
+
+//    public void transformPage(View page, float position) {
+//        int pageWidth = page.getWidth();
+//
+//        if (position < -1) { // [-Infinity,-1)
+//            // This page is way off-screen to the left.
+//            page.setAlpha(0);
+//
+//        } else if (position <= 0) { // [-1,0]
+//            // Use the default slide transition when moving to the left page
+//            page.setAlpha(1);
+//            page.setTranslationX(0);
+//            page.setScaleX(1);
+//            page.setScaleY(1);
+//
+//        } else if (position <= 1) { // (0,1]
+//            // Fade the page out.
+//            page.setAlpha(1 - position);
+//
+//            // Counteract the default slide transition
+//            page.setTranslationX(pageWidth * -position);
+//
+//            // Scale the page down (between MIN_SCALE and 1)
+//            float scaleFactor = MIN_SCALE
+//                    + (1 - MIN_SCALE) * (1 - Math.abs(position));
+//            page.setScaleX(scaleFactor);
+//            page.setScaleY(scaleFactor);
+//
+//        } else { // (1,+Infinity]
+//            // This page is way off-screen to the right.
+//            page.setAlpha(0);
+//        }
+//    }
+
+
+        /**
+         * 手风琴效果（水平方向缩放）
+         */
+
+
+
+//        @Override
+//        public void transformPage( View page, float position) {
+//            if (position < 0f) {
+//                page.setPivotX(page.getWidth());
+//                page.setScaleX(1f + position * 0.5f);
+//            } else if (position < 1f) {
+//                page.setPivotX(0f);
+//                page.setScaleX(1f - position * 0.5f);
+//            }
+//        }
+
+        private static final float DEF_MAX_ROTATE = 12.0f;
+        private float mMaxRotate = DEF_MAX_ROTATE;
+
+
+
+        @Override
+        public void transformPage( View page, float position) {
+            page.setPivotY( page.getHeight());
+            if (position < -1f) {//[-Infinity, -1)
+                page.setRotation(-mMaxRotate);
+                page.setPivotX(page.getWidth());
+            } else if (position <= 1f) {//[-1, 1]
+                if (position < 0f) {//[-1, 0)
+                    page.setRotation(mMaxRotate * position);
+                    page.setPivotX(page.getWidth() * (0.5f - 0.5f * position));
+                } else { //[0, 1]
+                    page.setRotation(mMaxRotate * position);
+                    page.setPivotX(page.getWidth() * (0.5f - 0.5f * position));
+                }
+            } else {//(1, +Infinity]
+                page.setRotation(mMaxRotate);
+                page.setPivotX(0f);
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 }

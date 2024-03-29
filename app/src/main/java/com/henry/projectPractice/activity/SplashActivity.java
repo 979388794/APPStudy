@@ -1,11 +1,9 @@
-package com.henry.projectPractice;
+package com.henry.projectPractice.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -15,8 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.henry.basic.databinding.ActivitySplashBinding;
-
-import java.util.function.ToDoubleBiFunction;
 
 /**
  * @author: henry.xue
@@ -83,9 +79,15 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
          * SharedPreferences
          * 判断首次进入
          */
-//        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
-//        String First = sharedPreferences.getString("isFirst", "0");
-        startActivity(new Intent(SplashActivity.this, GuideActivity.class));
+        SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+        String First = sharedPreferences.getString("isFirst", "0");
+        Intent intent = new Intent();
+        if ("0".equals(First)) {
+            intent.setClass(this, GuideActivity.class);
+        } else {
+            intent.setClass(this, myActivity.class);
+        }
+        startActivity(intent);
         finish();
     }
 
