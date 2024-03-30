@@ -45,7 +45,8 @@ public class GuideActivity extends AppCompatActivity {
         initDots();
         adapter = new GuideAdapter(imageViews);
         vp.setAdapter(adapter);
-        vp.setOffscreenPageLimit(imageViews.size());
+
+
 //        vp.setPageTransformer(true,new DepthPageTransformer());
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
