@@ -4,24 +4,15 @@
 
 #define TAG    "henry"
 #define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__) // 定义LOGD类型
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__))
+#define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__))
+#define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__))
 
-extern "C"
-JNIEXPORT jstring JNICALL
-Java_com_henry_cmaketest_JNIDemo_helloJni(JNIEnv *env, jobject thiz) {
-    // TODO: implement helloJni()
-    std::string hello = "Hello from C++";
-    return env->NewStringUTF(hello.c_str());
-}
-
-extern "C"
-JNIEXPORT jfloat JNICALL
-Java_com_henry_cmaketest_JNIDemo_floatJni(JNIEnv *env, jobject thiz, jint number, jobject enabled) {
-
-}
 extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_henry_cmaketest_JNIDemo_stringJni(JNIEnv *env, jobject thiz) {
-    // TODO: implement stringJni()
+    std::string hello = "Hello from C++";
+    return env->NewStringUTF(hello.c_str());
 }
 
 

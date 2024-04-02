@@ -13,9 +13,9 @@ import com.henry.basic.R;
  * @date: 2024-04-01
  */
 public class jniActivity extends AppCompatActivity {
-//    static {
-//        System.loadLibrary("myjni");
-//    }
+    static {
+        System.loadLibrary("myjni");
+    }
 
     private int num = 1;
     String TAG = "henry";
@@ -31,13 +31,14 @@ public class jniActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                test();
+                test();
+                test2();
             }
         });
     }
 
+    public native void test();
 
-//    public native void test();
-
+    public native void test2();
 }
 

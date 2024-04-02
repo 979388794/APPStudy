@@ -13,5 +13,5 @@ public class JNIDemo {
     }
 
     public native String stringJni();
-    public native float floatJni(int number,Boolean enabled);
+
 }
