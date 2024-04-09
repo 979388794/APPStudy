@@ -7,7 +7,6 @@ package com.henry.cmaketest;
 public class JNIDemo {
 
 
-
     public JNIDemo() {
 
     }
