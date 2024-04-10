@@ -12,7 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class EditTextActivity extends AppCompatActivity {
+
+
     private Button login;
     private EditText Username;
     @Override
@@ -29,8 +32,10 @@ public class EditTextActivity extends AppCompatActivity {
                 //startActivity(intent);
             }
         });
-        Username.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+
         Username = findViewById(R.id.et1);
+        Username.setRawInputType(InputType.TYPE_CLASS_NUMBER);
+
         Username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
