@@ -14,6 +14,8 @@ public class ThreadTest {
         System.out.println(str + " :" + localVar.get());
         //清除本地内存中的本地变量
         localVar.remove();
+
+
     }
 
     public static void main(String[] args) throws InterruptedException {

@@ -37,7 +37,6 @@ public class ActivityFragment extends Fragment {
 
     private String content;
     Button button;
-
     String a;
     Context context;
     Onclick onclick;
