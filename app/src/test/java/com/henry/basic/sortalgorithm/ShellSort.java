@@ -31,6 +31,7 @@ public class ShellSort {
             }
         }
     }
+
     public static void shellSort2(int[] arr) {
         int len = arr.length, tmp, j;
         for (int gap = len / 2; gap >= 1; gap = gap / 2) {
@@ -47,12 +48,13 @@ public class ShellSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {12, 11, 15, 50, 7, 65, 3, 99};
+        int[] arr = {12, 11, 15, 50, 7, 65, 3, 99,0};
         System.out.println("---排序前:  " + Arrays.toString(arr));
         shellSort(arr);
         System.out.println("希尔排序从小到大:  " + Arrays.toString(arr));
         shellSort2(arr);
         System.out.println("希尔排序从大到小:  " + Arrays.toString(arr));
+
     }
 
 }
