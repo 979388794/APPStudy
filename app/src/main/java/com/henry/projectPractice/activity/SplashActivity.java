@@ -85,7 +85,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         if ("0".equals(First)) {
             intent.setClass(this, GuideActivity.class);
         } else {
-            intent.setClass(this, myActivity.class);
+            intent.setClass(this, LoginActivity.class);
         }
         startActivity(intent);
         finish();

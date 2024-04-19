@@ -4,6 +4,7 @@ package com.henry.projectPractice.bean;
  * @author: henry.xue
  * @date: 2024-03-29
  */
+
 public class LoginBean {
 
 

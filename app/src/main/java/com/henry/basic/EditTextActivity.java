@@ -105,7 +105,7 @@ public class EditTextActivity extends AppCompatActivity {
 
         public void afterTextChanged(Editable buffer) {
 
-                Username.getText().clear();
+//                Username.getText().clear();
 
         }
     };

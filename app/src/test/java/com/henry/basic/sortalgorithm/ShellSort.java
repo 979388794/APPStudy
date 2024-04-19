@@ -1,6 +1,8 @@
 package com.henry.basic.sortalgorithm;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author: henry.xue
@@ -19,11 +21,13 @@ public class ShellSort {
                 tmp = arr[i];
                 //初始化变量j为当前元素的前一个元素（间隔gap）的下标
                 j = i - gap;
+                System.out.println("--外层循环-j值为 :  " + j);
                 //在内层循环中，如果j仍在数组范围内且前一个元素大于当前元素，就进行插入排序的操作。
                 while (j >= 0 && arr[j] > tmp) {
                     //将前一个元素后移一个间隔位置。
                     arr[j + gap] = arr[j];
                     //继续向前比较。
+                    System.out.println("---j值为 :  " + j);
                     j -= gap;
                 }
                 //将临时保存的当前元素插入到正确的位置。
@@ -55,6 +59,18 @@ public class ShellSort {
         shellSort2(arr);
         System.out.println("希尔排序从大到小:  " + Arrays.toString(arr));
 
+        String email1 = "test@example.com";
+        String email2 = "invalid_email.com";
+        System.out.println(email1 + " is valid: " + isValidEmail(email1));
+        System.out.println(email2 + " is valid: " + isValidEmail(email2));
     }
+
+        private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+        public static boolean isValidEmail(String email) {
+            Pattern pattern = Pattern.compile(EMAIL_REGEX);
+            Matcher matcher = pattern.matcher(email);
+            return matcher.matches();
+        }
 
 }
