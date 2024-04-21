@@ -54,7 +54,7 @@ public class GuideActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor= getSharedPreferences("data", MODE_PRIVATE).edit();
                 editor.putString("isFirst", "1");
                 editor.commit();
-                Intent intent= new Intent(GuideActivity.this, myActivity.class);
+                Intent intent= new Intent(GuideActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

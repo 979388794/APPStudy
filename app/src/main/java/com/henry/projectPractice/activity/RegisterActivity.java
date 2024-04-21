@@ -1,8 +1,10 @@
 package com.henry.projectPractice.activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.henry.basic.R;
+import com.henry.projectPractice.bean.ResponseBean;
 import com.henry.projectPractice.utils.APIConfig;
 import com.henry.projectPractice.bean.ResultBean;
 
@@ -26,6 +29,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -42,35 +47,45 @@ import okhttp3.Response;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+    String TAG = "Henry";
     private EditText et_name;
-    private EditText et_nicke;
-    private EditText et_phonr;
+    private EditText et_email;
+    private EditText et_phonenumber;
     private EditText et_password;
-    private RadioButton rb_man;
-    private RadioButton rb_woman;
-    private RadioGroup rg_sex;
+    private EditText et_password2;
     private Button btn_register;
     private Button btn_login;
+    private Button sendmessage;
+    private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
-    private OkHttpClient client = new OkHttpClient();
-    private Intent intent = null;
-
-    String sex = "";
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            if (msg.what == 0) {
-                String resultStr = (String) msg.obj;
-                Log.i("获取返回的信息：", resultStr);
-                final ResultBean resultBean = new Gson().fromJson(resultStr, ResultBean.class);
-                int resultCode = resultBean.getCode();
-                if (resultCode == 200) {
-                    Toast.makeText(getApplicationContext(), "注册成功：" + resultStr, Toast.LENGTH_LONG).show();
+            if (msg.what == 1) {
+                String result = msg.obj.toString();
+                Gson gson = new Gson();
+                ResponseBean loginBean = gson.fromJson(result, ResponseBean.class);
+                int successCode = loginBean.getCode();
+                if (successCode == 200) {
+                    Toast.makeText(getApplicationContext(), "注册成功!" + "\n立马去登陆", Toast.LENGTH_SHORT).show();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+                    }, 2000);
                 } else {
-                    Toast.makeText(getApplicationContext(), "注册失败：" + resultStr, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "邮箱/验证码不正确！", Toast.LENGTH_SHORT).show();
                 }
-
+            }
+            if (msg.what == 2) {
+                Toast.makeText(getApplicationContext(), "邮箱验证码发送成功", Toast.LENGTH_SHORT).show();
+                sendmessage.setEnabled(false);
+                countdown();
             }
         }
     };
@@ -84,28 +99,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void initView() {
         et_name = (EditText) findViewById(R.id.et_name);
-        et_nicke = (EditText) findViewById(R.id.et_nicke);
-        et_phonr = (EditText) findViewById(R.id.et_phone);
+        et_email = (EditText) findViewById(R.id.et_email);
+        et_phonenumber = (EditText) findViewById(R.id.et_phone);
         et_password = (EditText) findViewById(R.id.et_password);
-        rb_man = (RadioButton) findViewById(R.id.rb_man);
-        rb_woman = (RadioButton) findViewById(R.id.rb_woman);
-        rg_sex = (RadioGroup) findViewById(R.id.rg_sex);
+        et_password2 = (EditText) findViewById(R.id.et_password2);
         btn_register = (Button) findViewById(R.id.btn_register);
         btn_login = (Button) findViewById(R.id.btn_login);
-
+        sendmessage = (Button) findViewById(R.id.send_message);
         btn_register.setOnClickListener(this);
         btn_login.setOnClickListener(this);
-        rg_sex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == rb_man.getId()) {
-                    sex = "1";
-                } else {
-                    sex = "0";
-                }
-            }
-        });
+        sendmessage.setOnClickListener(this);
     }
+
 
     @Override
     public void onClick(View v) {
@@ -114,71 +119,143 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 Register();
                 break;
             case R.id.btn_login:
-                intent = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.send_message:
+                if (isValidEmail()) {
+                    sendVerificationCode();
+                    sendmessage.setEnabled(false);
+                    countdown();
+                } else {
+                    Toast.makeText(getApplicationContext(), "邮箱格式不正确，请输入正确的邮箱！", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }
 
-    private void Register() {
-        // validate
-        String name = et_name.getText().toString().trim();
-        if (TextUtils.isEmpty(name)) {
-            Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
-            return;
-        }
+    public boolean isValidEmail() {
+        String email = et_email.getText().toString().trim();
+        Pattern pattern = Pattern.compile(EMAIL_REGEX);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 
-        String nicke = et_nicke.getText().toString().trim();
-        if (TextUtils.isEmpty(nicke)) {
-            Toast.makeText(this, "请输入昵称", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String phone = et_phonr.getText().toString().trim();
-        if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(this, "请输入你的手机号码", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        String password = et_password.getText().toString().trim();
-        if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "password不能为空", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        final JSONObject jsonObject = new JSONObject();
+    private void sendVerificationCode() {
+        String email = et_email.getText().toString().trim();
+        OkHttpClient client = new OkHttpClient();
+        JSONObject object = new JSONObject();
         try {
-            jsonObject.put("userName", name);
-            jsonObject.put("nickName", nicke);
-            jsonObject.put("phonenumber", phone);
-            jsonObject.put("sex", sex);
-            jsonObject.put("password", password);
+            object.put("mail", email);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         MediaType mediaType = MediaType.parse("application/json;charset=utf-8");
-        final RequestBody requestBody = RequestBody.create(mediaType, jsonObject.toString());
-        Request request = new Request.Builder()
-                .post(requestBody)
-                .url(APIConfig.URL_BASE + "/user/register")
-                .build();
+        RequestBody requestBody = RequestBody.create(mediaType, object.toString());
+        Request request = new Request.Builder().url(APIConfig.BASE_URL_EMAIL).post(requestBody).build();
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.d("onFailure", "onFailure: " + e.getMessage());
+                Toast.makeText(getApplicationContext(), "验证码发送失败，请稍后重试", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                final String result = response.body().string();
-                Message msg = new Message();
-                msg.what = 0;
-                msg.obj = result;
-                handler.sendMessage(msg);
+                if (response.isSuccessful()) {
+                    String result = response.body().string();
+                    Log.i(TAG, "Successful! " + result);
+                    Message msg = new Message();
+                    msg.what = 2;
+                    msg.obj = result;
+                    handler.sendMessage(msg);
+                }
             }
         });
     }
 
+    private void Register() {
+        String name = et_email.getText().toString().trim();
+        if (TextUtils.isEmpty(name)) {
+            Toast.makeText(this, "请输入邮箱!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String phone = et_phonenumber.getText().toString().trim();
+        if (TextUtils.isEmpty(phone)) {
+            Toast.makeText(this, "请输入您的邮箱验证码!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String password = et_password.getText().toString().trim();
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "请输入密码!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String password2 = et_password2.getText().toString().trim();
+        if (TextUtils.isEmpty(password2)) {
+            Toast.makeText(this, "请确认密码!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!password.equals(password2)) {
+            Toast.makeText(this, "两次密码不一致，请重新输入!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        OkHttpClient client = new OkHttpClient();
+        JSONObject object = new JSONObject();
+        try {
+            object.put("account", name);
+            object.put("code", phone);
+            object.put("password", password);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        MediaType mediaType = MediaType.parse("application/json;charset=utf-8");
+        RequestBody requestBody = RequestBody.create(mediaType, object.toString());
+        Request request = new Request.Builder().url(APIConfig.BASE_URL_REGISTER).post(requestBody).build();
+        Call call = client.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(getApplicationContext(), "请检查网络或稍后重试！", Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String result = response.body().string();
+                    Log.i(TAG, "Successful! " + result);
+                    Message msg = new Message();
+                    msg.what = 1;
+                    msg.obj = result;
+                    handler.sendMessage(msg);
+                }
+            }
+        });
+    }
+
+    private void countdown() {
+        MyCountDownTimer mCountDownTimer = new MyCountDownTimer(60000 + 400, 1000);
+        mCountDownTimer.start();
+    }
+
+    class MyCountDownTimer extends CountDownTimer {
+        /**
+         * @param millisInFuture    表示以「 毫秒 」为单位倒计时的总数
+         *                          例如 millisInFuture = 1000 表示1秒
+         * @param countDownInterval 表示 间隔 多少微秒 调用一次 onTick()
+         *                          例如: countDownInterval = 1000 ; 表示每 1000 毫秒调用一次 onTick()
+         */
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        public void onFinish() {
+            sendmessage.setText("发送验证码");
+            sendmessage.setEnabled(true);
+            sendmessage.setBackgroundResource(R.drawable.login_btn_bg);
+        }
+
+        public void onTick(long millisUntilFinished) {
+            sendmessage.setText(millisUntilFinished / 1000 + "s");
+        }
+    }
 }
