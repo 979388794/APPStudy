@@ -213,23 +213,7 @@ public class GuideActivity extends AppCompatActivity {
                 page.setPivotX(0f);
             }
         }
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
 

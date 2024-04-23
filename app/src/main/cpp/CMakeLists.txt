@@ -30,20 +30,20 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
         sever.c
         native-lib.cpp
         mycpp.cpp
-        zmq_router_client.c
+#        zmq_router_client.c
         socketclient.cpp
         socketserver.cpp
         socket.c)
-set_target_properties(
-        sl
-        PROPERTIES IMPORTED_LOCATION
-        ${CMAKE_SOURCE_DIR}../../../../libs/arm64-v8a/libzmq.so)
+#set_target_properties(
+#        sl
+#        PROPERTIES IMPORTED_LOCATION
+#        ${CMAKE_SOURCE_DIR}../../../../libs/arm64-v8a/libzmq.so)
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
 # build script, prebuilt third-party libraries, or Android system libraries.
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
-        sl
+#        sl
         android
         log
         ${log-lib})

@@ -30,7 +30,7 @@ android {
             // 指定库名称
             moduleName "myjni"
             // 指定需要产出哪些架构平台
-            abiFilters "arm64-v8a"//, "x86", "x86_64","armeabi-v7a"
+            abiFilters "arm64-v8a","x86"//, "x86", "x86_64","armeabi-v7a"
         }
 
 
