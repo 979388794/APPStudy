@@ -34,22 +34,24 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
+        <activity
+            android:name="com.henry.imageloadlibrary.ImageloadActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.henry.cmaketest.jniActivity"
-            android:exported="false">
-
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.projectPractice.activity.GuideActivityTwo"
-            android:exported="false">
-
-        </activity>
-
-        <activity android:name="com.henry.projectPractice.activity.RegisterActivity"
-            android:exported="false"/>
+            android:exported="false"></activity>
+        <activity
+            android:name="com.henry.projectPractice.activity.RegisterActivity"
+            android:exported="false" />
         <activity
             android:name="com.henry.projectPractice.activity.LoginActivity"
             android:exported="false" />
@@ -58,37 +60,24 @@
             android:exported="false" />
         <activity
             android:name="com.henry.projectPractice.activity.GuideActivity"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.ViewPagerTest.ViewPagerTestActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name="com.henry.projectPractice.activity.SplashActivity"
             android:exported="false">
 
         </activity>
-
-        <activity
-            android:name="com.henry.projectPractice.activity.SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <activity
             android:name="com.henry.jetPackTest.navigationTest.NavigationTestActivity"
             android:exported="false" />
-
         <activity
             android:name="com.henry.jetPackTest.RoomTest.RoomTestActivity"
             android:exported="false" />
-
         <activity
             android:name="com.henry.jetPackTest.viewModelTest.ViewModelActivity"
             android:exported="false" />
-
         <activity
             android:name="com.henry.jetPackTest.dataBindingTest.DataBindingTestActivity"
             android:exported="false" />
@@ -127,17 +116,15 @@
             android:exported="false" />
         <activity
             android:name="com.henry.jetPackTest.Dagger2Test.UserActivity"
-            android:exported="false" />
-        <!-- <activity -->
+            android:exported="false" /> <!-- <activity -->
         <!-- android:name="com.MyStudy.OkHttpTest.OkHttpTestActivity" -->
         <!-- android:exported="false" /> -->
         <activity
             android:name="com.henry.OpenGl.SurfaceViewActivity"
             android:exported="false" />
         <activity
-            android:name="com.henry.basic.TestActivity"
+            android:name=".TestActivity"
             android:exported="false" />
-
         <activity
             android:name="com.henry.FragmentTest.NavigationBar_Message.Navigation_Message_Activity"
             android:exported="false" />
@@ -195,15 +182,12 @@
         <activity
             android:name="com.henry.DialogTest.DialogTestActivity"
             android:exported="false" />
-
         <activity
             android:name="com.henry.ViewTreeObserverTest.ViewTreeObserverActivity"
             android:exported="false" />
         <activity
             android:name="com.henry.PowerControlTest.PowerContronlActivity"
             android:exported="false" />
-
-
         <activity
             android:name="com.henry.custom_view.Custom_view_group"
             android:exported="false" />
@@ -217,22 +201,19 @@
             android:name="com.henry.linechart.More_Line_Chart"
             android:exported="false" />
         <activity
-            android:name="com.henry.basic.LineChartActivity"
+            android:name=".LineChartActivity"
             android:exported="false" />
-
         <activity
-            android:name="com.henry.basic.EditTextActivity"
-            android:exported="false">
-
-        </activity>
+            android:name=".EditTextActivity"
+            android:exported="false"></activity>
         <activity
-            android:name="com.henry.basic.TextViewActivity"
+            android:name=".TextViewActivity"
             android:exported="false" />
         <activity
             android:name="com.henry.OkHttpTest.OkHttpTestActivity"
             android:exported="false" />
         <activity
-            android:name="com.henry.basic.MainActivity"
+            android:name=".MainActivity"
             android:exported="false">
 
             <!-- <intent-filter> -->
