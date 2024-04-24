@@ -9,5 +9,6 @@
 
 
     <dimen name="default_padding">10dp</dimen>
-
+    <dimen name="image_width">600dp</dimen>
+    <dimen name="image_height">600dp</dimen>
 </resources>

@@ -6,12 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.henry.imageloadlibrary.ImageloadActivity">
 
-<ImageView
-    android:id="@+id/im1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/im1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
+    <ImageView
+        android:id="@+id/im2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im1" />
 
-
+    <ImageView
+        android:id="@+id/im3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im2" />
 </RelativeLayout>
