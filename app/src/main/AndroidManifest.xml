@@ -34,9 +34,10 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
+
         <activity
             android:name="com.henry.imageloadlibrary.ImageloadActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,10 +46,10 @@
         </activity>
         <activity
             android:name="com.henry.cmaketest.jniActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.projectPractice.activity.GuideActivityTwo"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.projectPractice.activity.RegisterActivity"
             android:exported="false" />
@@ -60,15 +61,13 @@
             android:exported="false" />
         <activity
             android:name="com.henry.projectPractice.activity.GuideActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.ViewPagerTest.ViewPagerTestActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.projectPractice.activity.SplashActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.jetPackTest.navigationTest.NavigationTestActivity"
             android:exported="false" />
@@ -205,7 +204,7 @@
             android:exported="false" />
         <activity
             android:name=".EditTextActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".TextViewActivity"
             android:exported="false" />

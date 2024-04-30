@@ -1,21 +1,14 @@
 package com.henry.imageloadlibrary;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.henry.basic.MainActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.henry.basic.R;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Downloader;
-import com.squareup.picasso.LruCache;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -25,7 +18,6 @@ import okhttp3.Response;
 
 
 public class ImageloadActivity extends AppCompatActivity {
-
 
     private ImageView imageView;
     private ImageView imageView2;
