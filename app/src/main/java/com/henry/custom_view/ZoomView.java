@@ -59,8 +59,8 @@ public class ZoomView extends View {
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (moveType == 1) {//拖动操作
-                    setX(mOriginalX+event.getRawX()-actionX);
-                    setY(mOriginalY+event.getRawY()-actionY);
+                    setX(mOriginalX + event.getRawX() - actionX);
+                    setY(mOriginalY + event.getRawY() - actionY);
                 } else if (moveType == 2) {//
                     scale = scale * getSpacing(event) / spacing;
                     setScaleX(scale);

@@ -195,7 +195,8 @@
             android:exported="false" />
         <activity
             android:name="com.henry.custom_view.Custom_view_Activity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name="com.henry.linechart.More_Line_Chart"
             android:exported="false" />

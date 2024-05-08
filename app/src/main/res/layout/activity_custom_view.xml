@@ -30,6 +30,7 @@
         android:layout_marginBottom="23dp"
         android:text="跳转到View测试" />
 
+
     <com.henry.custom_view.MyTextview
         android:id="@+id/view_test"
         android:layout_width="150dp"
