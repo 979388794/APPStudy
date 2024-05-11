@@ -1,4 +1,4 @@
-package com.henry.imageloadlibrary;
+package com.henry.imageloadlibrary.PicassoTest;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
