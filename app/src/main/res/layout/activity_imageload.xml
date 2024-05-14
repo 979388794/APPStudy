@@ -1,26 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.henry.imageloadlibrary.ImageloadActivity">
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Image"
+        android:onClick="loadImage"
+        />
 
     <ImageView
-        android:id="@+id/im1"
-        android:layout_width="match_parent"
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-
-    <ImageView
-        android:id="@+id/im2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/im1" />
-
-    <ImageView
-        android:id="@+id/im3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/im2" />
-</RelativeLayout>
+</LinearLayout>

@@ -241,6 +241,9 @@
         </receiver>
 
         <service android:name="com.henry.PowerControlTest.MyIntentService" />
+        <meta-data
+            android:name="com.henry.imageloadlibrary.GlideTest.MyGlideModule"
+            android:value="GlideModule" />
     </application>
 
 </manifest>
