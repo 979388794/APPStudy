@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.henry.windowManagerTest.FPS.FPSService;
-import com.henry.windowManagerTest.My_Floating_Window.WindowActivity;
+import com.henry.windowManagerTest.floatwindow.WindowActivity;
 import com.henry.basic.R;
 
 public class windowManagerActivity extends AppCompatActivity implements View.OnClickListener {

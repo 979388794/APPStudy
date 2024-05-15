@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fix_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/content_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:id="@+id/videoViewWrap"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:background="#CCC"
+            android:padding="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <!--                android:layout_alignStart="@+id/tv_info"-->
+                <TextView
+                    android:id="@+id/tx1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:text="CPU占用率："
+                    android:textSize="12sp" />
+
+                <TextView
+
+                    android:id="@+id/iv_live_cover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tx1"
+                    android:layout_marginTop="3dp"
+                    android:scaleType="centerCrop"
+                    android:text=""
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tx2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_live_cover"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:text="GPU占用率："
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_gpu_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tx2"
+                    android:layout_marginTop="3dp"
+                    android:scaleType="centerCrop"
+                    android:text=""
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tx3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_gpu_view"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:text="RAM占用率："
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_ram_remainder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tx3"
+                    android:layout_marginTop="3dp"
+                    android:scaleType="centerCrop"
+                    android:text=""
+                    android:textSize="12sp" />
+
+                <com.henry.windowManagerTest.LineChart.MyLinechart
+                    android:id="@+id/dynamic_chart1"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@+id/tx1" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_close_window"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/nn_paster_btn_close" />
+
+        </RelativeLayout>
+
+        <!--缩放按钮-->
+        <ImageView
+            android:id="@+id/iv_zoom_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:scaleType="centerInside"
+            android:src="@mipmap/nn_paster_btn_scale"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

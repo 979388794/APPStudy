@@ -137,12 +137,9 @@
             android:name="com.henry.FragmentTest.FragmentActivity"
             android:exported="false" />
         <activity
-            android:name="com.henry.windowManagerTest.My_Floating_Window.WindowActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name="com.henry.windowManagerTest.floatwindow.WindowActivity"
+            android:exported="false">
+
         </activity>
         <activity
             android:name="com.henry.PreferenceTest.AsyncTaskActivity"
@@ -234,8 +231,20 @@
             android:name="com.henry.HotFixTest.HotFixActivity2"
             android:exported="false" />
 
+        <activity
+            android:name="com.henry.FragmentTest.test1.fragmentactivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.henry.FragmentTest.test1.DisplayActivity" />
+        <activity android:name="com.henry.FragmentTest.test1.SoundActivity" />
+
         <service android:name="com.henry.windowManagerTest.FPS.FPSService" />
-        <service android:name="com.henry.windowManagerTest.My_Floating_Window.FloatService" />
+        <service android:name="com.henry.windowManagerTest.floatwindow.FloatService" />
 
         <receiver
             android:name="com.henry.PowerControlTest.WLWakefulReceiver"
@@ -245,7 +254,9 @@
             </intent-filter>
         </receiver>
 
+        <service android:name="com.henry.windowManagerTest.floatwindow.FloatChartService" />
         <service android:name="com.henry.PowerControlTest.MyIntentService" />
+
         <meta-data
             android:name="com.henry.imageloadlibrary.GlideTest.MyGlideModule"
             android:value="GlideModule" />

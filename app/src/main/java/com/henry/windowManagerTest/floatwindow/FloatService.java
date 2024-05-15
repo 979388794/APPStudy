@@ -1,4 +1,4 @@
-package com.henry.windowManagerTest.My_Floating_Window;
+package com.henry.windowManagerTest.floatwindow;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
@@ -34,16 +34,13 @@ public class FloatService extends Service {
     public static String OPERATION = "是否需要开启";
     public static int OPERATION_SHOW = 1;
     public static int OPERATION_HIDE = 2;
-
     int HANDLE_CHECK_ACTIVITY = 0;
-
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
-
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -80,7 +77,7 @@ public class FloatService extends Service {
         params.height = 200;
         params.gravity = Gravity.LEFT;
         params.x = 200;
-        params.y = 000;
+        params.y = 0;
         // 设置Window Type
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             params.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
