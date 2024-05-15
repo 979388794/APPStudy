@@ -12,23 +12,25 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
 import androidx.annotation.Nullable;
+
 import com.henry.basic.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainService extends Service {
+public class FloatService extends Service {
     Button btnView;
     WindowManager windowManager;
     WindowManager.LayoutParams params;
     Boolean isAdded;
-    ActivityManager mActivityManager;
     public static String OPERATION = "是否需要开启";
     public static int OPERATION_SHOW = 1;
     public static int OPERATION_HIDE = 2;
@@ -63,13 +65,11 @@ public class MainService extends Service {
     @SuppressLint("ClickableViewAccessibility")
     private void createWindowView() {
         btnView = new Button(getApplicationContext());
-        btnView.setBackgroundResource(R.drawable.cluo);
+        btnView.setBackgroundResource(R.drawable.author);
         windowManager = (WindowManager) getApplicationContext()
                 .getSystemService(Context.WINDOW_SERVICE);
         params = new WindowManager.LayoutParams();
 
-        // 设置Window Type
-     //   params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         // 设置悬浮框不可触摸
         params.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
@@ -81,6 +81,7 @@ public class MainService extends Service {
         params.gravity = Gravity.LEFT;
         params.x = 200;
         params.y = 000;
+        // 设置Window Type
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             params.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
         } else {
@@ -120,12 +121,12 @@ public class MainService extends Service {
 
     /**
      * 判断当前界面是否是桌面
-     *
      * android 6.0以上只能判断当前应用包名和Launcher
      */
     private boolean isAtHome() {
         ActivityManager mActivityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> runningTaskInfos = mActivityManager.getRunningTasks(1);
+        Log.d("henry", "是否在主页面" + runningTaskInfos);
         return getHomeApplicationList().contains(runningTaskInfos.get(0).topActivity.getPackageName());
     }
 
@@ -138,6 +139,7 @@ public class MainService extends Service {
     /**
      * 获得属于桌面的应用的应用包名称
      * 返回包含所有包名的字符串列表数组
+     *
      * @return
      */
     private List<String> getHomeApplicationList() {
@@ -146,9 +148,10 @@ public class MainService extends Service {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        for (ResolveInfo  resolveInfo : resolveInfos) {
+        for (ResolveInfo resolveInfo : resolveInfos) {
             names.add(resolveInfo.activityInfo.packageName);
         }
+        Log.d("henry", "主屏幕应用列表" + names);
         return names;
     }
 
@@ -157,45 +160,45 @@ public class MainService extends Service {
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-         if (msg.what==HANDLE_CHECK_ACTIVITY) {
-                    if (isAtHome()) {
-                        if (!isAdded) {
-                            windowManager.addView(btnView, params);
-                            isAdded = true;
-                            new Thread(new Runnable() {
-                                public void run() {
-                                    for (int i = 0; i < 10; i++) {
-                                        try {
-                                            Thread.sleep(1000);
-                                        } catch (InterruptedException e) {
-                                            e.printStackTrace();
-                                        }
-                                        Message m = new Message();
-                                        m.what = 2;
-                                        mHandler.sendMessage(m);
-                                    }
+            if (msg.what == HANDLE_CHECK_ACTIVITY) {
+//                if (isAtHome()) {
+                if (!isAdded) {
+                    windowManager.addView(btnView, params);
+                    isAdded = true;
+                    new Thread(new Runnable() {
+                        public void run() {
+                            for (int i = 0; i < 10; i++) {
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
                                 }
-                            }).start();
+                                Message m = new Message();
+                                m.what = 2;
+                                mHandler.sendMessage(m);
+                            }
                         }
-                    } else {
-                        if (isAdded) {
-                            windowManager.removeView(btnView);
-                            isAdded = false;
-                        }
-                    }
-                    mHandler.sendEmptyMessageDelayed(HANDLE_CHECK_ACTIVITY, 100);
+                    }).start();
+                }
+//                } else {
+//                    if (isAdded) {
+//                        windowManager.removeView(btnView);
+//                        isAdded = false;
+//                    }
+//                }
+                mHandler.sendEmptyMessageDelayed(HANDLE_CHECK_ACTIVITY, 100);
             }
         }
     };
 
     @Override
     public void onDestroy() {
-       if(isAdded){
-           windowManager.removeView(btnView);
-       }
+        if (isAdded) {
+            windowManager.removeView(btnView);
+        }
         mHandler.removeCallbacksAndMessages(null);
-        windowManager=null;
-        mHandler=null;
+        windowManager = null;
+        mHandler = null;
         super.onDestroy();
     }
 }

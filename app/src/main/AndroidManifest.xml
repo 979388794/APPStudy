@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- Network -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 'Sup Koush: https://plus.google.com/103583939320326217147/posts/T9xnMJEnzf1 -->
@@ -37,11 +37,8 @@
 
         <activity
             android:name="com.henry.imageloadlibrary.ImageloadActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
+
         </activity>
 
         <activity
@@ -141,7 +138,12 @@
             android:exported="false" />
         <activity
             android:name="com.henry.windowManagerTest.My_Floating_Window.WindowActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.henry.PreferenceTest.AsyncTaskActivity"
             android:exported="false" />
@@ -156,7 +158,10 @@
             android:exported="false" />
         <activity
             android:name="com.henry.windowManagerTest.windowManagerActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+
+        </activity>
         <activity
             android:name="com.henry.aidlTest.System_Event_Test"
             android:exported="false" />
@@ -230,7 +235,7 @@
             android:exported="false" />
 
         <service android:name="com.henry.windowManagerTest.FPS.FPSService" />
-        <service android:name="com.henry.windowManagerTest.My_Floating_Window.MainService" />
+        <service android:name="com.henry.windowManagerTest.My_Floating_Window.FloatService" />
 
         <receiver
             android:name="com.henry.PowerControlTest.WLWakefulReceiver"
