@@ -197,7 +197,9 @@
             android:exported="false" />
         <activity
             android:name="com.henry.custom_view.Custom_view_Activity"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name="com.henry.linechart.More_Line_Chart"
             android:exported="false" />
@@ -233,13 +235,17 @@
 
         <activity
             android:name="com.henry.FragmentTest.test1.fragmentactivity"
+            android:exported="false"></activity>
+
+        <activity
+            android:name="com.henry.custom_view.ViewGroupActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
 
+        </activity>
         <activity android:name="com.henry.FragmentTest.test1.DisplayActivity" />
         <activity android:name="com.henry.FragmentTest.test1.SoundActivity" />
 

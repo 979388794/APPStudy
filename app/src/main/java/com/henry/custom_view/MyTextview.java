@@ -114,13 +114,4 @@ public class MyTextview extends View {
     }
 
 
-
-
-
-
-
-
-
-
-
 }
