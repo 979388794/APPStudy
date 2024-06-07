@@ -138,7 +138,11 @@
             android:exported="false" />
         <activity
             android:name="com.henry.windowManagerTest.floatwindow.WindowActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity
@@ -155,10 +159,7 @@
             android:exported="false" />
         <activity
             android:name="com.henry.windowManagerTest.windowManagerActivity"
-            android:exported="false">
-
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.aidlTest.System_Event_Test"
             android:exported="false" />
@@ -239,11 +240,8 @@
 
         <activity
             android:name="com.henry.custom_view.ViewGroupActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
+
 
         </activity>
         <activity android:name="com.henry.FragmentTest.test1.DisplayActivity" />

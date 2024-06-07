@@ -74,45 +74,6 @@ public class FloatChartService extends Service {
         LayoutInflater inflater = LayoutInflater.from(getApplicationContext());
         floatView = inflater.inflate(R.layout.float_view_layout, null);
         iv_zoom_btn = (floatView).findViewById(R.id.iv_zoom_btn);
-        iv_zoom_btn.setOnTouchListener(new View.OnTouchListener() {
-            private float initialTouchX, initialTouchY;
-            private int initialWidth, initialHeight;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        iv_zoom_btn.setVisibility(View.VISIBLE);
-                        initialTouchX = event.getRawX();
-                        initialTouchY = event.getRawY();
-                        initialWidth = floatView.getWidth();
-                        initialHeight = floatView.getHeight();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        iv_zoom_btn.setVisibility(View.VISIBLE);
-                        float currentTouchX = event.getRawX();
-                        float currentTouchY = event.getRawY();
-                        float deltaX = currentTouchX - initialTouchX;
-                        float deltaY = currentTouchY - initialTouchY;
-
-                        float newWidth = initialWidth + deltaX;
-                        float newHeight = initialHeight + deltaY;
-
-                        // 设置最小宽高限制，避免缩放过小
-                        if (newWidth >= 200 && newHeight >= 100) {
-                            params.width = (int) newWidth;
-                            params.height = (int) newHeight;
-                            windowManager.updateViewLayout(floatView, params);
-                        }
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        iv_zoom_btn.setVisibility(View.GONE);
-                        break;
-                }
-
-                return true;
-            }
-        });
         windowManager = (WindowManager) getApplicationContext()
                 .getSystemService(Context.WINDOW_SERVICE);
         params = new WindowManager.LayoutParams();
