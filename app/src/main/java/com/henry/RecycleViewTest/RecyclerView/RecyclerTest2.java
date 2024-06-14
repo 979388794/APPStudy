@@ -1,4 +1,4 @@
-package com.henry.list_recycle_view.RecyclerView;
+package com.henry.RecycleViewTest.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;

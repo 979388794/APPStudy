@@ -5,58 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.henry.list_recycle_view.List_Recycler_ViewTestActivity">
+    tools:context="com.henry.RecycleViewTest.RecyclerViewTestActivity">
 
    <Button
        android:id="@+id/list_1"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="Listview_1测试"
+       android:text="Listview基础测试"
        android:textAllCaps="false"
        />
     <Button
         android:id="@+id/list_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Listview_2测试"
+        android:text="Listview水果测试"
         android:textAllCaps="false"
         />
 
 
-    <Button
-        android:id="@+id/list_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Listview_3测试"
-        android:textAllCaps="false"
-        />
+
 
     <Button
         android:id="@+id/Recycler_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recycler_1测试"
+        android:text="RecyclerView基础测试"
         android:textAllCaps="false"
         />
     <Button
         android:id="@+id/Recycler_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recycler_2测试"
+        android:text="RecyclerView增加删除测试"
         android:textAllCaps="false"
         />
     <Button
         android:id="@+id/Recycler_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recycler_3测试"
+        android:text="RecyclerView水果测试"
         android:textAllCaps="false"
         />
  <Button
      android:id="@+id/Recycler_4"
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
-     android:text="Recycler_4测试"
+     android:text="RecyclerView上拉下拉测试"
      android:textAllCaps="false"
      />
 </LinearLayout>

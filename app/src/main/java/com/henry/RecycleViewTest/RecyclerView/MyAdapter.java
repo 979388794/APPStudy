@@ -1,4 +1,4 @@
-package com.henry.list_recycle_view.RecyclerView;
+package com.henry.RecycleViewTest.RecyclerView;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.henry.basic.R;
-import com.henry.list_recycle_view.listview.Fruit;
+import com.henry.RecycleViewTest.listview.Fruit;
 
 import java.util.List;
 
@@ -54,13 +54,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
 
-    public void setSelectIndex(int index) {
-        mSelectIndex = index;
-    }
-
-    public int getSelectIndex() {
-        return mSelectIndex;
-    }
 
 
 

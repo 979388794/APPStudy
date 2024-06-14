@@ -34,13 +34,12 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
-
+        <activity
+            android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest4"
+            android:exported="false" />
         <activity
             android:name="com.henry.imageloadlibrary.ImageloadActivity"
-            android:exported="false">
-
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.cmaketest.jniActivity"
             android:exported="false" />
@@ -64,7 +63,7 @@
             android:exported="false" />
         <activity
             android:name="com.henry.projectPractice.activity.SplashActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.jetPackTest.navigationTest.NavigationTestActivity"
             android:exported="false" />
@@ -136,10 +135,7 @@
             android:exported="false" />
         <activity
             android:name="com.henry.windowManagerTest.floatwindow.WindowActivity"
-            android:exported="false">
-
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.PreferenceTest.AsyncTaskActivity"
             android:exported="false" />
@@ -154,27 +150,33 @@
             android:exported="false" />
         <activity
             android:name="com.henry.windowManagerTest.windowManagerActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name="com.henry.aidlTest.System_Event_Test"
             android:exported="false" />
         <activity
-            android:name="com.henry.list_recycle_view.RecyclerView.RecyclerTest2"
+            android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest2"
             android:exported="false" />
         <activity
-            android:name="com.henry.list_recycle_view.RecyclerView.RecyclerTest1"
+            android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest1"
             android:exported="false" />
         <activity
-            android:name="com.henry.list_recycle_view.List_Recycler_ViewTestActivity"
+            android:name="com.henry.RecycleViewTest.RecyclerViewTestActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest3"
             android:exported="false" />
         <activity
-            android:name="com.henry.list_recycle_view.RecyclerView.RecyclerTest3"
+            android:name="com.henry.RecycleViewTest.listview.ListViewTest2"
             android:exported="false" />
         <activity
-            android:name="com.henry.list_recycle_view.listview.ListViewTest2"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.list_recycle_view.listview.ListViewTest1"
+            android:name="com.henry.RecycleViewTest.listview.ListViewTest1"
             android:exported="false" />
         <activity
             android:name="com.henry.DialogTest.DialogTestActivity"
@@ -193,9 +195,7 @@
             android:exported="false" />
         <activity
             android:name="com.henry.custom_view.Custom_view_Activity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name="com.henry.linechart.More_Line_Chart"
             android:exported="false" />
@@ -210,12 +210,7 @@
             android:exported="false" />
         <activity
             android:name="com.henry.OkHttpTest.OkHttpTestActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -233,20 +228,15 @@
         <activity
             android:name="com.henry.HotFixTest.HotFixActivity2"
             android:exported="false" />
-
         <activity
             android:name="com.henry.FragmentTest.test1.fragmentactivity"
-            android:exported="false"></activity>
-
+            android:exported="false" />
         <activity
             android:name="com.henry.custom_view.ViewGroupActivity"
-            android:exported="false">
-
-
-        </activity>
-        <activity android:name="com.henry.FragmentTest.test1.DisplayActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
+        <activity
+            android:name="com.henry.FragmentTest.test1.DisplayActivity"
+            android:exported="false"></activity>
         <activity android:name="com.henry.FragmentTest.test1.SoundActivity" />
 
         <service android:name="com.henry.windowManagerTest.FPS.FPSService" />

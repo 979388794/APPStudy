@@ -23,7 +23,7 @@ import com.henry.aidlTest.System_Event_Test;
 import com.henry.custom_view.Custom_view_Activity;
 import com.henry.custom_view.Custom_view_group;
 import com.henry.linechart.More_Line_Chart;
-import com.henry.list_recycle_view.List_Recycler_ViewTestActivity;
+import com.henry.RecycleViewTest.RecyclerViewTestActivity;
 import com.henry.windowManagerTest.windowManagerActivity;
 
 import java.util.HashMap;
@@ -50,7 +50,7 @@ public class ActivityFragment extends Fragment {
         put("PowerControl", PowerContronlActivity.class);
         put("ViewTreeObserver", ViewTreeObserverActivity.class);
         put("DialogTest", DialogTestActivity.class);
-        put("list_recycler_view", List_Recycler_ViewTestActivity.class);
+        put("list_recycler_view", RecyclerViewTestActivity.class);
         put("Preference_Test", PreferenceActivity.class);
         put("System_service_Test", System_Event_Test.class);
         put("WindowManager_Test", windowManagerActivity.class);

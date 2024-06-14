@@ -1,4 +1,4 @@
-package com.henry.list_recycle_view.listview;
+package com.henry.RecycleViewTest.listview;
 
 public class Fruit {
 

@@ -1,4 +1,4 @@
-package com.henry.list_recycle_view.RecyclerView;
+package com.henry.RecycleViewTest.RecyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -85,7 +85,7 @@ public class RecyclerTest1 extends AppCompatActivity {
             mTitleContent = itemView.findViewById(R.id.textView2);
         }
     }
-    public class News {
+    public static class News {
         public String title; // 标题
         public String content; //内容
     }

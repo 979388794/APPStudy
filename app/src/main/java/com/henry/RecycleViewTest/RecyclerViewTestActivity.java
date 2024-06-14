@@ -1,4 +1,4 @@
-package com.henry.list_recycle_view;
+package com.henry.RecycleViewTest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,19 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.henry.list_recycle_view.RecyclerView.RecyclerTest1;
-import com.henry.list_recycle_view.RecyclerView.RecyclerTest3;
-import com.henry.list_recycle_view.listview.ListViewTest2;
+import com.henry.RecycleViewTest.RecyclerView.RecyclerTest1;
+import com.henry.RecycleViewTest.RecyclerView.RecyclerTest3;
+import com.henry.RecycleViewTest.RecyclerView.RecyclerTest4;
+import com.henry.RecycleViewTest.listview.ListViewTest2;
 import com.henry.basic.R;
-import com.henry.list_recycle_view.RecyclerView.RecyclerTest2;
-import com.henry.list_recycle_view.listview.ListViewTest1;
+import com.henry.RecycleViewTest.RecyclerView.RecyclerTest2;
+import com.henry.RecycleViewTest.listview.ListViewTest1;
 
-public class List_Recycler_ViewTestActivity extends AppCompatActivity implements View.OnClickListener {
+public class RecyclerViewTestActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button List1;
     Button List2;
-  //  Button List3;
-
     Button Recy1;
     Button Recy2;
     Button Recy3;
@@ -37,7 +36,6 @@ public class List_Recycler_ViewTestActivity extends AppCompatActivity implements
     private void setListeners() {
         List1.setOnClickListener(this);
         List2.setOnClickListener(this);
-      //  List3.setOnClickListener(this);
         Recy1.setOnClickListener(this);
         Recy2.setOnClickListener(this);
         Recy3.setOnClickListener(this);
@@ -47,7 +45,6 @@ public class List_Recycler_ViewTestActivity extends AppCompatActivity implements
     private void findButton() {
         List1 = findViewById(R.id.list_1);
         List2 = findViewById(R.id.list_2);
-      //  List3 = findViewById(R.id.list_3);
         Recy1 = findViewById(R.id.Recycler_1);
         Recy2 = findViewById(R.id.Recycler_2);
         Recy3 = findViewById(R.id.Recycler_3);
@@ -75,7 +72,7 @@ public class List_Recycler_ViewTestActivity extends AppCompatActivity implements
                 intent = new Intent(this, RecyclerTest3.class);
                 break;
             case R.id.Recycler_4:
-                intent = new Intent(this, RecyclerTest3.class);
+                intent = new Intent(this, RecyclerTest4.class);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + v.getId());
