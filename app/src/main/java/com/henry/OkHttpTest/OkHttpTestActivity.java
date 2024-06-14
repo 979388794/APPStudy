@@ -51,6 +51,32 @@ public class OkHttpTestActivity extends AppCompatActivity implements View.OnClic
         get.setOnClickListener(this);
     }
 
+    public void getAsync() {
+        //异步请求
+        OkHttpClient httpClient = new OkHttpClient();
+        String url = "https://www.baidu.com/";
+        Request getRequest = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+        //准备好请求的Call对象
+        Call call = httpClient.newCall(getRequest);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.i(TAG, "okHttpGet enqueue: onResponse:" + response.body().string());
+                ResponseBody body = response.body();
+                String string = body.string();
+                byte[] bytes = body.bytes();
+                InputStream inputStream = body.byteStream();
+            }
+        });
+    }
+
     private void getOkhttp() {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -62,10 +88,10 @@ public class OkHttpTestActivity extends AppCompatActivity implements View.OnClic
             public void run() {
                 try {
                     client.newCall(request).enqueue(new MyCallBack());
-//                    Response response = client.newCall(request).execute();
-//                    String Data = response.body().string();
-//                    Log.d(TAG, "  " + Data);
-//                    showData(Data);
+                    Response response = client.newCall(request).execute();
+                    String Data = response.body().string();
+                    Log.d(TAG, "  " + Data);
+                    showData(Data);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Log.d(TAG, "exception");
@@ -134,34 +160,6 @@ public class OkHttpTestActivity extends AppCompatActivity implements View.OnClic
         }).start();
     }
 
-    void synchronous_request() {
-
-        OkHttpClient httpClient = new OkHttpClient();
-
-        String url = "https://www.baidu.com/";
-        Request getRequest = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
-
-        Call call = httpClient.newCall(getRequest);
-
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.i(TAG, "Connection failure or read/write timeout");
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                Log.i(TAG, "okHttpGet enqueue: onResponse:" + response.body().string());
-                ResponseBody body = response.body();
-                String string = body.string();
-                byte[] bytes = body.bytes();
-                InputStream inputStream = body.byteStream();
-            }
-        });
-    }
 
     void post() {
         OkHttpClient httpClient = new OkHttpClient();
@@ -266,6 +264,7 @@ public class OkHttpTestActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.get:
                 getOkhttp();
+                get();
                 Log.i(TAG, "get..............");
                 break;
             case R.id.post:
