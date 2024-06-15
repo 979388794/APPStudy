@@ -38,32 +38,13 @@
             android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest4"
             android:exported="false" />
         <activity
-            android:name="com.henry.imageloadlibrary.ImageloadActivity"
-            android:exported="false"></activity>
-        <activity
             android:name="com.henry.cmaketest.jniActivity"
             android:exported="false" />
-        <activity
-            android:name="com.henry.projectPractice.activity.GuideActivityTwo"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.projectPractice.activity.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.projectPractice.activity.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.projectPractice.activity.myActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.henry.projectPractice.activity.GuideActivity"
-            android:exported="false" />
+
         <activity
             android:name="com.henry.ViewPagerTest.ViewPagerTestActivity"
             android:exported="false" />
-        <activity
-            android:name="com.henry.projectPractice.activity.SplashActivity"
-            android:exported="false" />
+
         <activity
             android:name="com.henry.jetPackTest.navigationTest.NavigationTestActivity"
             android:exported="false" />
@@ -162,12 +143,8 @@
             android:exported="false" />
         <activity
             android:name="com.henry.RecycleViewTest.RecyclerViewTestActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest3"
@@ -210,7 +187,13 @@
             android:exported="false" />
         <activity
             android:name="com.henry.OkHttpTest.OkHttpTestActivity"
-            android:exported="false"></activity>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false">

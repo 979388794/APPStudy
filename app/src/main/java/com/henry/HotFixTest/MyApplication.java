@@ -18,10 +18,6 @@ public class MyApplication extends Application {
         // /sdcard/xxx.dex
          Hotfix.installPatch(this,new File("/sdcard/patch.dex"));
 
-
-
-
-
           registerComponentCallbacks(new ComponentCallbacks2() {
               @Override
               public void onTrimMemory(int level) {
