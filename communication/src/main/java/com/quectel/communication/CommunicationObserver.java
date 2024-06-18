@@ -8,10 +8,6 @@ import java.net.SocketTimeoutException;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
-/**
- * Created by callen.ye
- * on 2022/1/20
- */
 
 
 /**

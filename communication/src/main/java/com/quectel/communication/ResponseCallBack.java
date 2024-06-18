@@ -3,7 +3,6 @@ package com.quectel.communication;
 
 /**
  * 响应回调
- * @param <T>
  */
 public interface ResponseCallBack<T> {
     /**

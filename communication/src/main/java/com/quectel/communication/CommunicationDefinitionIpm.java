@@ -9,10 +9,7 @@ import java.util.Objects;
 
 import io.reactivex.rxjava3.functions.BiFunction;
 
-/**
- * Created by xiexiangyu
- * on 2022/3/30
- */
+
 
 /**
  * 通信定义真正实现类 实现了通信定义接口的两个方法

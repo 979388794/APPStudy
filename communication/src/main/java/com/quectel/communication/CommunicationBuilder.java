@@ -2,10 +2,6 @@ package com.quectel.communication;
 
 import io.reactivex.rxjava3.core.Observable;
 
-/**
- * Created by callen.ye
- * on 2022/2/15
- */
 
 
 /**

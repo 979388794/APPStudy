@@ -6,10 +6,7 @@ import com.quectel.communication.model.ResSerializableBean;
 import io.reactivex.rxjava3.functions.BiFunction;
 
 
-/**
- * Created by xiexiangyu
- * on 2022/3/10
- */
+
 
 /**
  * 通信定义接口  定义了2个方法
