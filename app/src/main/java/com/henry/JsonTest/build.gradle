@@ -1,0 +1,192 @@
+package com.henry.JsonTest
+
+plugins {
+    id 'com.android.application'
+//    id 'kotlin-android'
+}
+//apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.henry.basic"
+        namespace "com.henry.basic"
+        minSdk 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //启用viewBinding
+        viewBinding {
+            enabled true
+        }
+        //启用dataBinding
+        //第一种方式
+        dataBinding {
+            enabled = true
+        }
+
+        ndk {
+            // 指定库名称
+            moduleName "myjni"
+            // 指定需要产出哪些架构平台
+            abiFilters "arm64-v8a","x86"//, "x86", "x86_64","armeabi-v7a"
+        }
+
+
+    }
+
+//    signingConfigs {
+//        main {
+//            storeFile file("./platform.jks") //签名文件路径，根目录
+//            storePassword "MyPassWord"
+//            keyAlias "Myname"
+//            keyPassword "MyPassWord"
+//        }
+//    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            signingConfig signingConfigs.main //添加这一行
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//        debug {
+//            minifyEnabled false
+//            signingConfig signingConfigs.main //添加这一行
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//
+//    }
+    // 自定义打包名称
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "MyStudy_${buildType.name}_v${versionName}_${generateTime()}.apk"
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+
+
+}
+//构建时间
+def generateTime() {
+    return new Date().format("yyyy_MM_dd_HH_mm_ss")
+}
+
+
+dependencies {
+
+
+    def preference_version = "1.1.0"
+    def lifecycle_version = "2.2.0"
+
+
+    implementation 'androidx.navigation:navigation-fragment:2.2.2'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Java language implementation
+    implementation "androidx.preference:preference:$preference_version"
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'org.json:json:20210307'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    implementation 'com.github.979388794:MyDependency:v1.0'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    implementation 'com.squareup.okio:okio:1.17.5'
+    implementation 'com.alibaba:fastjson:1.2.78'
+
+
+    androidTestImplementation "androidx.test:runner:1.4.0"
+    androidTestImplementation "androidx.test:rules:1.4.0"
+// Optional -- UI testing with Espresso
+//    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+// Optional -- UI testing with UI Automator
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:2.2.0"
+// Optional -- UI testing with Compose
+// androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.6.3-alpha4"
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.8'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
+
+
+    //dagger依赖
+    implementation 'com.google.dagger:dagger-android:2.17'
+//    implementation 'com.google.dagger:dagger-android-support:2.17' // if you use the support libraries
+//    implementation 'com.google.dagger:dagger:2.17'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.17'
+//    annotationProcessor 'com.google.dagger:dagger-android-processor:2.17'
+
+    //lifecycle依赖
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-service:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-process:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
+    //viewmodel依赖
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+
+    //livedata依赖
+    implementation "androidx.lifecycle:lifecycle-livedata:2.2.0"
+
+    //只有lifecycle依赖(不带viewmodel和livedata)
+    implementation "androidx.lifecycle:lifecycle-runtime:2.2.0"
+
+
+    //Databinding插件
+//    implementation 'androidx.databinding:databinding-runtime:2.2.0'
+//
+//    implementation  "com.android.databinding:compiler:2.2.0"
+
+
+    implementation "androidx.room:room-runtime:2.2.0"
+    annotationProcessor "androidx.room:room-compiler:2.2.0" // For Java
+    // 如果需要在调试时查看 Room 数据库的内容
+    debugImplementation "androidx.room:room-testing:2.2.0"
+
+    //navigation依赖导入
+    implementation "androidx.navigation:navigation-fragment:2.2.0"
+    implementation "androidx.navigation:navigation-ui:2.2.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.2.0-alpha02"
+
+
+    //workmanager依赖导入
+    implementation "androidx.work:work-runtime:2.2.0"
+
+    //glide4
+//    implementation 'com.github.bumptech.glide:glide:4.12.0'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    //glide3
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    //RecyclerView上拉下拉
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.2'
+
+
+    //多模块
+    implementation project(':communication')
+}

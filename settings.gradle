@@ -1,2 +1,3 @@
 rootProject.name = "HenryTest"
 include ':app'
+include ':communication'
