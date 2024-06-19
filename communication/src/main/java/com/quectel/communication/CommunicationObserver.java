@@ -9,7 +9,6 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 
-
 /**
  * 观察者
  */
@@ -123,4 +122,3 @@ public class CommunicationObserver implements Observer<ResSerializableBean> {
         }
     }
 }
-

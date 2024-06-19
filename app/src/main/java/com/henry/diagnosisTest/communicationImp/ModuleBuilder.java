@@ -14,7 +14,7 @@ import com.quectel.communication.util.FileUtils;
 
 
 /**
- * 模块生成器
+ * 模块生成器,获取断言文件夹下的json文件
  */
 public class ModuleBuilder extends CommunicationBuilderBase {
 

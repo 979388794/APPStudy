@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.henry.basic.BR;
 import com.henry.basic.R;
-
 import com.henry.basic.databinding.ActivityDiagnosisBinding;
 import com.henry.diagnosisTest.inter.DiagnosisMainNav;
 import com.henry.diagnosisTest.viewMdodel.DiagnosisMainViewModel;
@@ -31,12 +30,6 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
         viewModel = new ViewModelProvider(this).get(DiagnosisMainViewModel.class);
         viewModel.setNavigator(this);
         viewModel.getDiagnosisModuleList(getApplicationContext());
-
-
-
-
-
-
         return viewModel;
     }
 
@@ -69,6 +62,4 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
     public void initRecycleView() {
 
     }
-
-
 }

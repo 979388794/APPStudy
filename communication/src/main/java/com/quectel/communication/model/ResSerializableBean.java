@@ -17,8 +17,6 @@ public class ResSerializableBean<T> implements Serializable {
      *
      */
 
-
-
     /**
      * 请求返回码
      */
@@ -82,6 +80,7 @@ public class ResSerializableBean<T> implements Serializable {
     public void setDiag_id(String diag_id) {
         this.diag_id = diag_id;
     }
+
     public String getDiag_id() {
         return diag_id;
     }
@@ -119,8 +118,6 @@ public class ResSerializableBean<T> implements Serializable {
                 ", message='" + message + '\'' +
                 '}';
     }
-
-
 
 
 }

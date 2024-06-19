@@ -16,10 +16,14 @@ import io.reactivex.rxjava3.core.Observable;
  */
 public interface CommunicationBuilder<T> {
 
+    //获取被观察者
     public Observable getObservable();
 
+
+    //获取源文件
     public String getCommunicationAction() throws Exception;
 
+    //获取
     public CommunicationDefinition getCommunicationDefinition();
 
 }

@@ -12,8 +12,6 @@ import io.reactivex.rxjava3.core.ObservableEmitter;
 import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 
 
-
-
 /**
  * 通信建设基类 是一个抽象类  单独实现了通信建设接口
  * <p>
@@ -21,7 +19,7 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
  */
 public abstract class CommunicationBuilderBase implements CommunicationBuilder {
 
-    private static final String TAG = "CommunicationBuilderBase";
+    String TAG = getClass().getSimpleName();
     private CommunicationDefinition communicationDefinition;
 
     public CommunicationBuilderBase(CommunicationDefinition communicationDefinition) {
@@ -43,7 +41,6 @@ public abstract class CommunicationBuilderBase implements CommunicationBuilder {
             public void subscribe(@NonNull ObservableEmitter<ResSerializableBean> e) throws Exception {
                 /**
                  * communicationData :通信数据
-                 * getCommunicationAction()是在CommunicationBuilderBase()的子类上进行实例化的
                  */
                 String communicationData = getCommunicationAction();
 
@@ -51,8 +48,11 @@ public abstract class CommunicationBuilderBase implements CommunicationBuilder {
                 if (TextUtils.isEmpty(communicationData)) {
                     e.onNext(new ResSerializableBean(ResponseCode.CODE_10001, "请求超时,请稍后再试"));
                 } else {
-                //数据不为空，返回ResSerializableBean对象
+                    //数据不为空，返回ResSerializableBean对象
                     Log.i(TAG, communicationData);
+                    /**
+                     * getData()返回原始bean对象，实现在CommunicationDefinitionIpm.java
+                     */
                     e.onNext(communicationDefinition.getData(communicationData));
                 }
                 e.onComplete();

@@ -1,9 +1,5 @@
 package com.quectel.communication.util;
 
-/**
- * Created by callen.ye
- * on 2021/9/2
- */
 
 /**
  * DeviceUtil 的 Java 类，
