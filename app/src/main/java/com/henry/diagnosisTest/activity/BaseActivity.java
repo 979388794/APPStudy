@@ -159,12 +159,10 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
      * @param prompt 提示语
      */
     protected void showLoading(@NonNull String prompt) {
-        Log.d(TAG, "showLoading  = " + isShowed);
         if (isShowed) {
             return;
         }
         hideLoading();
-        Log.d(TAG, "showLoading  = " + prompt + ",mLocalHandler = " + mLocalHandler);
         if (null != mLocalHandler) {
             //清空当前Handler队列所有消息
             mLocalHandler.removeCallbacksAndMessages(null);
