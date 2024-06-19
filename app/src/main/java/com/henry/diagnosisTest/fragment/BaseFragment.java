@@ -23,7 +23,7 @@ import androidx.fragment.app.Fragment;
 
 import com.henry.diagnosisTest.viewMdodel.BaseViewModel;
 import com.henry.diagnosisTest.diaglog.LoadingDialog;
-import com.henry.diagnosisTest.activity.BaseActivity;
+import com.henry.diagnosisTest.base.BaseActivity;
 
 import java.lang.ref.WeakReference;
 

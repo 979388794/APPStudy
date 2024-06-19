@@ -1,4 +1,4 @@
-package com.henry.diagnosisTest.activity;
+package com.henry.diagnosisTest.base;
 
 /**
  * @author: henry.xue
@@ -64,7 +64,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     public LocalHandler mLocalHandler;
     private boolean isShowed = false;
 
-    public String TAG = getClass().getSimpleName();
+     String TAG = getClass().getSimpleName();
 
     private static final String[] permissions = new String[]{
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
