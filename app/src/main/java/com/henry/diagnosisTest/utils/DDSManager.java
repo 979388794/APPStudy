@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -11,7 +12,6 @@ import com.henry.diagnosisTest.listener.OnTboxDataChangeListener;
 import com.incall.soabridgeadapter.SoaBridgeAdapterManager;
 import com.incall.soabridgeadapter.callback.SoaBridgeConnectCallback;
 import com.incall.soabridgeadapter.tbox.SoaBridgeTboxClientManager;
-import com.quectel.communication.util.LogUtils;
 
 
 import java.lang.ref.WeakReference;
@@ -27,7 +27,7 @@ public class DDSManager {
     private String mParamMa = null;
     private static Context mContext = null;
     private boolean isFirstedSended = true;
-    private static final String TAG = "DDSManager";
+    private static String TAG = "DDSManager";
     private final byte[] bytes = new byte[0];
     private ArrayList<String> aResultList = new ArrayList<>();
     private ArrayList<OnTboxDataChangeListener> aListenerList = new ArrayList<>();
@@ -48,7 +48,7 @@ public class DDSManager {
     }
 
     public void init(Context context) {
-        LogUtils.d(TAG, "app->soa init");
+        Log.d(TAG, "app->soa init");
         if (null == mContext) {
             mContext = context;
         }
@@ -57,7 +57,7 @@ public class DDSManager {
     }
 
     private void initSoaBirdge() {
-        LogUtils.d(TAG, "app->soa initSoaBirdge");
+        Log.d(TAG, "app->soa initSoaBirdge");
         if (null == mSoaBridgeConnectCallback) {
             mSoaBridgeConnectCallback = new SoaBridgeConnectCallback() {
                 @Override
@@ -75,7 +75,7 @@ public class DDSManager {
     }
 
     private void initSoaTbox() {
-        LogUtils.d(TAG, "app->soa initSoaTbox");
+        Log.d(TAG, "app->soa initSoaTbox");
         if (null == mOnSoaBridgeTboxClientListener) {
             mOnSoaBridgeTboxClientListener = new SoaBridgeTboxClientManager.OnSoaBridgeTboxClientListener() {
                 @Override
@@ -90,7 +90,7 @@ public class DDSManager {
 
                 @Override
                 public void onTboxDiagnosticEvent(String state) {
-                    LogUtils.d(TAG, "soa->app onTboxDiagnosticEvent = " + state);
+                    Log.d(TAG, "soa->app onTboxDiagnosticEvent = " + state);
                     result = state;
                     aResultList.add(result);
                     synchronized (bytes) {
@@ -108,7 +108,7 @@ public class DDSManager {
     }
 
     private void onTboxConnectEvent(String tag) {
-        LogUtils.d(TAG, "soa->app onTboxConnectEvent tag = " + tag + ",,isFirstedSended = " + isFirstedSended);
+        Log.d(TAG, "soa->app onTboxConnectEvent tag = " + tag + ",,isFirstedSended = " + isFirstedSended);
         if (isFirstedSended) {
             synchronized (bytes) {
                 isFirstedSended = false;
@@ -125,7 +125,7 @@ public class DDSManager {
 
     //先添加诊断回调，再下发诊断指令
     public void addOnTboxDataChangeListener(OnTboxDataChangeListener listener) {
-        LogUtils.d(TAG, "addOnTboxDataChangeListener listener = " + listener + ",isFirstedSended = " + isFirstedSended);
+        Log.d(TAG, "addOnTboxDataChangeListener listener = " + listener + ",isFirstedSended = " + isFirstedSended);
         if (aListenerList.size() != 0 || aResultList.size() != 0) {
             aListenerList.clear();
             aResultList.clear();
@@ -136,7 +136,7 @@ public class DDSManager {
                 if (!isFirstedSended) {
                     listener.onTboxConnect(true);
                 }
-                LogUtils.d(TAG, "addOnTboxDataChangeListener over");
+                Log.d(TAG, "addOnTboxDataChangeListener over");
             }
         }
     }
@@ -164,21 +164,21 @@ public class DDSManager {
         }
     }*/
     public void addOnTboxDataChangeListenerTest(int type, OnTboxDataChangeListener listener) {
-        LogUtils.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type);
+        Log.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type);
         aListenerList.clear();
         if (type == 1) {
             backData = main_all_3;
         } else if (type == 2) {
             backData = event_data_test_1;
         }
-        LogUtils.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type + ",,backData = " + backData);
+        Log.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type + ",,backData = " + backData);
         aListenerList.add(listener);
         listener.onTboxConnect(true);
     }
 
     //可以不使用，通过回调信息集合删除回调
     public void removeOnTboxDataChangeListener(OnTboxDataChangeListener listener) {
-        LogUtils.d(TAG, "removeOnTboxDataChangeListener listener = " + listener);
+        Log.d(TAG, "removeOnTboxDataChangeListener listener = " + listener);
         if (null != listener) {
             synchronized (bytes) {
                 aListenerList.remove(listener);
@@ -193,34 +193,33 @@ public class DDSManager {
     public void setTboxDiagnosticByListener(String paramMa) {
         //todo test
         if (null != aListenerList) {
-            LogUtils.d(TAG, "setTboxDiagnosticByListener aListenerList = " + aListenerList);
+            Log.d(TAG, "setTboxDiagnosticByListener aListenerList = " + aListenerList);
             for (OnTboxDataChangeListener onTboxDataChangeListener : aListenerList) {
                 onTboxDataChangeListener.onTboxDataChange(backData);
             }
             return;
         }
         //todo test end
-
         if (TextUtils.isEmpty(paramMa)) {
-            LogUtils.d(TAG, "app->soa setTboxDiagnosticByListener null");
+            Log.d(TAG, "app->soa setTboxDiagnosticByListener null");
             return;
         }
         Message message = new Message();
         message.what = count;
         message.obj = paramMa;
         mLocalHandler.sendMessageDelayed(message, 100L);
-        LogUtils.d(TAG, "app->soa setTboxDiagnosticByListener : " + mParamMa + ",,,count = " + count);
+        Log.d(TAG, "app->soa setTboxDiagnosticByListener : " + mParamMa + ",,,count = " + count);
         count++;
     }
 
 
     private void setTboxDiagnosticByManager(String paramMa) {
         if (TextUtils.isEmpty(paramMa)) {
-            LogUtils.d(TAG, "app->soa setTboxDiagnosticByManager null");
+            Log.d(TAG, "app->soa setTboxDiagnosticByManager null");
             return;
         }
         mParamMa = paramMa;
-        LogUtils.d(TAG, "app->soa setTboxDiagnosticByManager : " + mParamMa + "..mSoaBridgeTboxClientManager = " + mSoaBridgeTboxClientManager);
+        Log.d(TAG, "app->soa setTboxDiagnosticByManager : " + mParamMa + "..mSoaBridgeTboxClientManager = " + mSoaBridgeTboxClientManager);
         if (null == mSoaBridgeTboxClientManager) {
             initSoaBirdge();
         }
@@ -230,7 +229,7 @@ public class DDSManager {
     //
     private void notifyListenerTboxDataChange() {
         //根据listener result ,list index返回对应数据
-        LogUtils.d(TAG, "getTboxData aListenerList.size() = " + aListenerList.size() + ",aResultList.size() = " + aResultList.size());
+        Log.d(TAG, "getTboxData aListenerList.size() = " + aListenerList.size() + ",aResultList.size() = " + aResultList.size());
         if (aListenerList.size() == 0) {
             aResultList.clear();
             return;
@@ -246,23 +245,23 @@ public class DDSManager {
             }
             aResultList.clear();
         } else {
-            LogUtils.e(TAG, "lisner error");
+            Log.e(TAG, "lisner error");
             for (OnTboxDataChangeListener listener : aListenerList) {
-                LogUtils.e(TAG, "aListenerList = " + listener);
+                Log.e(TAG, "aListenerList = " + listener);
                 listener.onTboxConnect(false);
             }
             for (String data : aResultList) {
-                LogUtils.e(TAG, "aResultList = " + data);
+                Log.e(TAG, "aResultList = " + data);
             }
             aListenerList.clear();
             aResultList.clear();
         }
-        LogUtils.d(TAG, "no listener for back data!");
+        Log.d(TAG, "no listener for back data!");
     }
 
     private void notifyListenerTboxDataChangeOld() {
         //根据listener result ,list index返回对应数据
-        LogUtils.d(TAG, "getTboxData aListenerList.size() = " + aListenerList.size() + ",aResultList.size() = " + aResultList.size());
+        Log.d(TAG, "getTboxData aListenerList.size() = " + aListenerList.size() + ",aResultList.size() = " + aResultList.size());
         if (aListenerList.size() == 0) {
             aResultList.clear();
             return;
@@ -284,16 +283,16 @@ public class DDSManager {
             }
             return;
         }
-        LogUtils.d(TAG, "no listener for back data!");
+        Log.d(TAG, "no listener for back data!");
     }
 
     public String getTboxData() {
-        LogUtils.d(TAG, "getTboxData for back data!");
+        Log.d(TAG, "getTboxData for back data!");
         return backData;
     }
 
     public void reset() {
-        LogUtils.d(TAG, "reset");
+        Log.d(TAG, "reset");
         if (null != mSoaBridgeTboxClientManager && null != mOnSoaBridgeTboxClientListener) {
             mSoaBridgeTboxClientManager.removeSoaBridgeTboxListener(mOnSoaBridgeTboxClientListener);
         }
@@ -317,10 +316,10 @@ public class DDSManager {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             if (null == ddsManager) {
-                LogUtils.d(TAG, "ddsmanger is null");
+                Log.d(TAG, "ddsmanger is null");
                 return;
             }
-            LogUtils.d(TAG, "current is  = " + ddsManager.current + ",,, what = " + msg.what);
+            Log.d(TAG, "current is  = " + ddsManager.current + ",,, what = " + msg.what);
             if (msg.what != ddsManager.current && (msg.what - ddsManager.current == 1)) {
                 ddsManager.current = msg.what;
                 ddsManager.setTboxDiagnosticByManager(String.valueOf(msg.obj));

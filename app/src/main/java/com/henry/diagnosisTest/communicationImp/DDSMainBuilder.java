@@ -3,6 +3,7 @@ package com.henry.diagnosisTest.communicationImp;
 import android.content.Context;
 import android.util.Log;
 
+import com.henry.diagnosisTest.utils.DDSManager;
 import com.quectel.communication.CommunicationBuilderBase;
 import com.quectel.communication.CommunicationDefinition;
 
@@ -15,7 +16,6 @@ public class DDSMainBuilder extends CommunicationBuilderBase {
     private Context mContext;
 
     /**
-     *
      * @param communicationDefinition
      * @param context
      * @param ipAndProt
@@ -33,8 +33,7 @@ public class DDSMainBuilder extends CommunicationBuilderBase {
      */
     @Override
     public String getCommunicationAction() throws Exception {
-        //todo  暂时省略
-//        result = DDSManager.getInstance().getTboxData();
+        result = DDSManager.getInstance().getTboxData();
         Log.d(TAG, "getCommunicationAction");
         return result;
     }

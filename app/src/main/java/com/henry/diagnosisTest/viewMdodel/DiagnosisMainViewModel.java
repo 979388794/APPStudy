@@ -31,17 +31,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * @author: henry.xue
- * @date: 2024-06-18
+ * DiagnosisMainViewModel  诊断主视图模型
  */
+
+/**
+ * currentType   诊断类型
+ * <p>
+ * -1 默认
+ * 1  诊断模块
+ * 2  all
+ */
+
 public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
 
-    String TAG = getClass().getSimpleName();
     public MutableLiveData<ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>>> listMutableLiveData = new MutableLiveData<ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>>>();
     public MutableLiveData<ArrayList<DiagnosisModule>> diagnosisModulelist = new MutableLiveData<ArrayList<DiagnosisModule>>();
     public MutableLiveData<Boolean> isShowResult = new MutableLiveData<>(false);
     public MutableLiveData<String> mErrorMsg = new MutableLiveData<>();
 
+    String TAG = getClass().getSimpleName();
     private OnTboxDataChangeListener mOnTboxDataChangeListener;
     private Context mContext;
     private DiagnosisModule mDiagnosisModule;
@@ -50,6 +58,7 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
     private int currentType = -1;
 
     private HashMap<String, String> param = new HashMap<>();
+
 
     private void initHashMapData() {
         if (param.size() != 0) {
@@ -70,7 +79,6 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
         if (null == mOnTboxDataChangeListener) {
             //创建监听器
             mOnTboxDataChangeListener = new OnTboxDataChangeListener() {
-
                 /**
                  * Tbox连接时发送handler消息
                  * @param state
@@ -106,13 +114,15 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
     }
 
     /**
-     * 获取json文件并初始化 diagnosisModulelist
+     * 获取诊断模块集合
      */
     public void getDiagnosisModuleList(Context context) {
+
         CommunicationObservable.getInstance().getObservable
                 (new ModuleBuilder(context, new CommunicationModule()),
                         new CommunicationObserver(
                                 new ResponseCallBack<ResSerializableBean<ArrayList<DiagnosisModule>>>() {
+
                                     @Override
                                     public void onSuccess(ResSerializableBean<ArrayList<DiagnosisModule>> diagnosisModules) {
                                         Log.d(TAG, "onSuccess :" + diagnosisModules);
@@ -167,6 +177,7 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
                 new CommunicationObserver(new ResponseCallBack<ResSerializableBean<ArrayList<DiagnosisInfoList>>>() {
                     @Override
                     public void onSuccess(ResSerializableBean<ArrayList<DiagnosisInfoList>> resSerializableBeans) {
+                        LogUtils.d(TAG, "henry-----onSuccess");
                         if (bean.getId() == resSerializableBeans.getId()) {
                             bean.setShowInfo(resSerializableBeans.getCode() == 0);
                             bean.setInfoLists(resSerializableBeans.getData());
@@ -202,6 +213,7 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
 
                     @Override
                     public void onFault(int code, ResSerializableBean<ArrayList<DiagnosisInfoList>> arrayListResSerializableBean, String errorMsg) {
+                        LogUtils.d(TAG, "henry-----onFault");
                         bean.setShowInfo(false);
                         bean.setStatusCode(2);
                         isShowResult.postValue(false);
@@ -229,6 +241,22 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
         DDSManager.getInstance().removeOnTboxDataChangeListener(mOnTboxDataChangeListener);
         currentType = -1;
     }
+
+    /**
+     * 一键诊断
+     */
+    public void getDiagnosisInfo(Context context) {
+        LogUtils.d(TAG, "all");
+        getNavigator().showLoading();
+        mContext = context;
+        currentType = 2;
+        initHashMapData();
+        initListener();
+        //DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
+        //DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1, mOnTboxDataChangeListener);
+    }
+
     private void getDiagnosisInfoAll(Context context) {
         ArrayList<CommunicationBuilder> communicationBuilders = new ArrayList<>();
         for (DiagnosisModule diagnosisModule : diagnosisModulelist.getValue()) {
@@ -302,7 +330,6 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
         currentType = -1;
     }
 
-
     @Override
     public void resetListener() {
         super.resetListener();
@@ -312,5 +339,4 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
         }
         currentType = -1;
     }
-
 }

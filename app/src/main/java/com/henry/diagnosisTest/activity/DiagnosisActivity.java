@@ -16,15 +16,18 @@ import com.henry.basic.databinding.ActivityDiagnosisBinding;
 import com.henry.diagnosisTest.adapter.DiagnosisModuleRecyclerAdapter;
 import com.henry.diagnosisTest.base.BaseActivity;
 import com.henry.diagnosisTest.inter.DiagnosisMainNav;
+import com.henry.diagnosisTest.model.DiagnosisInfoList;
 import com.henry.diagnosisTest.model.DiagnosisModule;
 import com.henry.diagnosisTest.viewMdodel.DiagnosisMainViewModel;
+import com.quectel.communication.model.ResSerializableBean;
 
 import java.util.ArrayList;
 
 public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, DiagnosisMainViewModel> implements DiagnosisMainNav {
     private DiagnosisMainViewModel viewModel;
     private DiagnosisModuleRecyclerAdapter recyclerAdapter;
-    String Tag = getClass().getSimpleName();
+    private ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>> liveData = new ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>>();
+    String TAG = getClass().getSimpleName();
 
     @Override
     public int getBindingVariable() {
@@ -50,7 +53,6 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
         viewModel.mErrorMsg.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Log.d(Tag, "onChanged s = " + s);
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
             }
         });
@@ -64,6 +66,31 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
                 initRecycleView();
             }
         });
+
+
+
+        /**
+         * listMutableLiveData 数据变化时 更新RecycleView的Adapter
+         */
+        viewModel.listMutableLiveData.observe(this, new Observer<ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>>>() {
+            @Override
+            public void onChanged(ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>> resSerializableBeans) {
+                Log.d(TAG, "resSerializableBeans = " + resSerializableBeans);
+                if (null != resSerializableBeans && resSerializableBeans.size() > 0) {
+                    liveData.clear();
+                    liveData.add(resSerializableBeans.get(0));
+                    recyclerAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
+
+
+
+
+
+
+
         return viewModel;
     }
 
@@ -81,15 +108,6 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
     }
 
 
-    @Override
-    public void showLoading() {
-        super.showLoading(Tag);
-    }
-
-    @Override
-    public void hideLoading() {
-        super.hideLoading();
-    }
 
 
     @Override
@@ -119,6 +137,17 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
         recyclerView.setAdapter(recyclerAdapter);
     }
 
+
+    @Override
+    public void showLoading() {
+        super.showLoading(TAG);
+    }
+
+    @Override
+    public void hideLoading() {
+        super.hideLoading();
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -126,6 +155,5 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
             viewModel.resetListener();
         }
     }
-
 
 }

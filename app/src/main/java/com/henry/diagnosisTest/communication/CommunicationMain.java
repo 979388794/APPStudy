@@ -21,7 +21,8 @@ public class CommunicationMain extends CommunicationDefinitionIpm<ResSerializabl
 
     @Override
     public ResSerializableBean<ResSerializableBean<ArrayList<DiagnosisInfoList>>> getData(String data) {
-        ResSerializableBean resSerializableBean =super.getData(data);
+        ResSerializableBean<ResSerializableBean<ArrayList<DiagnosisInfoList>>> resSerializableBean
+                =super.getData(data);
         if(resSerializableBean != null) {
             resSerializableBean.setId(id);
         }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.henry.basic.R;
+import com.quectel.communication.util.LogUtils;
 
 import java.util.Collection;
 
@@ -219,7 +220,7 @@ public abstract class BaseBindingAdapter<M, B extends ViewDataBinding> extends R
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        LogT.i("viewType:" + viewType + ",getHeaderViewLayoutResId():" + getHeaderViewLayoutResId());
+        LogUtils.d(this,"viewType:" + viewType + ",getHeaderViewLayoutResId():" + getHeaderViewLayoutResId());
         if (viewType == TYPE_FOOTER_VIEW) {
 //            LogT.i("加载footview");
             return new FooterViewHolder(LayoutInflater.from(mContext).inflate(

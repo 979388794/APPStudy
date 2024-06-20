@@ -283,17 +283,17 @@ public class FileUtils {
             bufReader = new BufferedReader(inputReader);
             String line = "";
             StringBuffer sb = new StringBuffer();
-            while ((line = bufReader.readLine()) != null){
+            while ((line = bufReader.readLine()) != null) {
                 sb.append(line);
             }
             return sb.toString();
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if(inputReader != null) {
+        } finally {
+            if (inputReader != null) {
                 inputReader.close();
             }
-            if(bufReader != null) {
+            if (bufReader != null) {
                 bufReader.close();
             }
         }
@@ -302,14 +302,15 @@ public class FileUtils {
 
     /**
      * 存储JSON文件到本地
+     *
      * @param context
      * @param json
      * @param fileName
      */
-    public static boolean writeJson(Context context, String json, String fileName){
+    public static boolean writeJson(Context context, String json, String fileName) {
         OutputStream out = null;
         try {
-            File file = new File(context.getExternalFilesDir(null),fileName);
+            File file = new File(context.getExternalFilesDir(null), fileName);
             out = new FileOutputStream(file);
             out.write(json.getBytes(StandardCharsets.UTF_8));
             //out.close();
@@ -320,62 +321,125 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
             return false;
-        }finally {
-            try{
-                if(out != null){
+        } finally {
+            try {
+                if (out != null) {
                     out.close();
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         /**
-        File dir = new File(context.getExternalFilesDir(null)+"/changan/");
-        if(!dir.exists()){
-            dir.mkdirs();
-            try {
-                File file = new File(dir,fileName);
-                OutputStream out = new FileOutputStream(file);
-                out.write(json.getBytes(StandardCharsets.UTF_8));
-                out.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }**/
+         File dir = new File(context.getExternalFilesDir(null)+"/changan/");
+         if(!dir.exists()){
+         dir.mkdirs();
+         try {
+         File file = new File(dir,fileName);
+         OutputStream out = new FileOutputStream(file);
+         out.write(json.getBytes(StandardCharsets.UTF_8));
+         out.close();
+         } catch (FileNotFoundException e) {
+         e.printStackTrace();
+         } catch (IOException e) {
+         e.printStackTrace();
+         }
+         }**/
     }
 
     /**
      * 读取本地JSON文件
+     *
      * @param filePath
      * @return
      */
-    public static String readJsonFile(String filePath){
+    public static String readJsonFile(String filePath) {
         StringBuilder sb = new StringBuilder();
         InputStream in = null;
         try {
             File file = new File(filePath);
             in = new FileInputStream(file);
             int tmp;
-            while((tmp = in.read()) != -1){
-                sb.append((char)tmp);
+            while ((tmp = in.read()) != -1) {
+                sb.append((char) tmp);
             }
             //in.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            try{
-                if(in != null){
+        } finally {
+            try {
+                if (in != null) {
                     in.close();
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return sb.toString();
     }
+
+    /**
+     * 从assets目录下拷贝整个文件夹，不管是文件夹还是文件都能拷贝。
+     */
+    public static void copyFolderFromAssets(Context context, String rootDirFullPath, String targetDirFullPath) {
+        try {
+            //list(String path)方法用于列出指定路径下的所有文件和子目录名称，返回一个字符串数组。
+            //表示获取rootDirFullPath路径下的所有文件和子目录的名称，并将结果存储在一个字符串数组中。
+            String[] files = context.getAssets().list(rootDirFullPath);
+
+            if (files == null || files.length == 0) {
+                return;
+            }
+            for (String file : files) {
+                String sourceFilePath = rootDirFullPath + "/" + file;
+                String targetFilePath = targetDirFullPath + "/" + file;
+                if (isFileByName(file)) {
+                    copyFileFromAssets(context, sourceFilePath, targetFilePath);
+                } else {
+                    new File(targetFilePath).mkdirs();
+                    copyFolderFromAssets(context, sourceFilePath, targetFilePath);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 从assets目录下拷贝文件
+     */
+    public static void copyFileFromAssets(Context context, String assetsFilePath, String targetFileFullPath) {
+        try (InputStream inputStream = context.getAssets().open(assetsFilePath)) {
+            copyFile(inputStream, targetFileFullPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 复制输入流中的内容到目标路径文件。
+     */
+    private static void copyFile(InputStream inputStream, String targetPath) {
+        try (OutputStream outputStream = new FileOutputStream(new File(targetPath))) {
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 判断给定的字符串是否表示一个文件（通过是否包含"."来判断）。
+     */
+    private static boolean isFileByName(String fileName) {
+        return fileName.contains(".");
+    }
+
 
 }

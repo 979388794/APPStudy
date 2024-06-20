@@ -1,0 +1,15 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "id": 1,
+      "moduleName": "蜂窝模组",
+      "moduleIP": "192.168.225.1",
+      "modulePort": 5001,
+      "moduleType": "DDS",
+      "hasHistroy": true,
+      "hasEvents": true
+    }
+  ]
+}
