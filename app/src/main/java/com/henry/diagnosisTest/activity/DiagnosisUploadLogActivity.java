@@ -43,6 +43,7 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
     private ArrayAdapter<String> fileNumAdapter;
     private ArrayAdapter<String> fileLocationAdapter;
     private ArrayAdapter<String> spdiagAdapter;
+    //周期上传时间
     private String time;
     //日志路径索引
     private int filePathIndex;
@@ -64,6 +65,7 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
     HashMap<String, Object> dkReq = new LinkedHashMap<String, Object>();
     HashMap<String, Object> dkList = new LinkedHashMap<String, Object>();
 
+    //周期上传时间索引
     private int saveTimePosition;
     private boolean saveTimeStatus = false;
     private boolean isFirstTimeOn = true;
@@ -71,7 +73,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
     private boolean savaLogStatus = false;
     private boolean isFirstLogOn = true;
 
+    //周期诊断选项索引
     private int saveDiagPosition;
+    //周期诊断时间
     public String saveDiagTime;
     private boolean saveDiagStatus = false;
 
@@ -142,12 +146,92 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
     @Override
     protected void initEvent() {
         super.initEvent();
+        /**
+         * 返回finish()
+         */
         binding.btBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+
+        /**
+         * 周期诊断选项
+         *
+         */
+        binding.spDiag.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                saveDiagPosition = i;
+                saveDiagTime = view.getResources().getStringArray(R.array.diag_options_values)[saveDiagPosition];
+                Log.d(TAG, "onItemSelected: saveDiagTime " + saveDiagTime);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        /**
+         * 周期诊断确认
+         * 设置参数发送Tbox监听器
+         */
+        binding.btnDiagConfim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.spDiag.setEnabled(false);
+                saveDiagStatus = true;
+                //设置周期诊断
+                HashMap<String, Object> param = new LinkedHashMap<String, Object>();
+                param.put("cmd", "timer");
+                param.put("arg", saveDiagTime);
+                DDSManager.getInstance().setTboxDiagnosticByListener(new Gson().toJson(param));
+                Log.d(TAG, "onClick: DiagConfim :" + param.toString());
+                Toast.makeText(getViewDataBinding().btnDiagConfim.getContext(), "设置周期诊断！", Toast.LENGTH_LONG).show();
+            }
+        });
+        /**
+         * 周期诊断取消
+         */
+        binding.btnDiagCancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.spDiag.setEnabled(true);
+                saveDiagStatus = false;
+                //取消周期诊断 恢复成30s
+                HashMap<String, Object> param = new LinkedHashMap<String, Object>();
+                param.put("cmd", "timer");
+                param.put("arg", "30");
+                DDSManager.getInstance().setTboxDiagnosticByListener(new Gson().toJson(param));
+                Log.d(TAG, "onClick: DiagCancle :" + param.toString());
+                Toast.makeText(getViewDataBinding().btnDiagCancle.getContext(), "取消周期诊断！", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        /**
+         * 已失效
+         */
+        binding.tbDiag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    binding.spDiag.setEnabled(false);
+                    saveDiagStatus = true;
+                } else {
+                    binding.spDiag.setEnabled(true);
+                    saveDiagStatus = false;
+                }
+
+            }
+        });
+
+
+        /**
+         * 周期上传选项
+         * 保存 上传时间、时间位置
+         */
         binding.spTime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -161,6 +245,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
 
             }
         });
+        /**
+         * 周期上传确认
+         */
         binding.btnUploadConfim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,7 +258,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
                 saveTimeStatus = true;
             }
         });
-
+        /**
+         * 周期上传取消
+         */
         binding.btnUploadCancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,6 +270,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
+        /**
+         * 已失效
+         */
         binding.tbTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -201,65 +293,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
-        binding.btnDiagConfim.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.spDiag.setEnabled(false);
-                saveDiagStatus = true;
-                //设置周期诊断
-                HashMap<String, Object> param = new LinkedHashMap<String, Object>();
-                param.put("cmd", "timer");
-                param.put("arg", saveDiagTime);
-                DDSManager.getInstance().setTboxDiagnosticByListener(new Gson().toJson(param));
-                Log.d(TAG, "onClick: DiagConfim :" + param.toString());
-                Toast.makeText(getViewDataBinding().btnDiagConfim.getContext(), "设置周期诊断！", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        binding.btnDiagCancle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.spDiag.setEnabled(true);
-                saveDiagStatus = false;
-                //取消周期诊断 恢复成30s
-                HashMap<String, Object> param = new LinkedHashMap<String, Object>();
-                param.put("cmd", "timer");
-                param.put("arg", "30");
-                DDSManager.getInstance().setTboxDiagnosticByListener(new Gson().toJson(param));
-                Log.d(TAG, "onClick: DiagCancle :" + param.toString());
-                Toast.makeText(getViewDataBinding().btnDiagCancle.getContext(), "取消周期诊断！", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        binding.tbDiag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    binding.spDiag.setEnabled(false);
-                    saveDiagStatus = true;
-                } else {
-                    binding.spDiag.setEnabled(true);
-                    saveDiagStatus = false;
-                }
-
-            }
-        });
-
-        binding.spDiag.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                saveDiagPosition = i;
-                saveDiagTime = view.getResources().getStringArray(R.array.diag_options_values)[saveDiagPosition];
-                Log.d(TAG, "onItemSelected: saveDiagTime " + saveDiagTime);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        //文件存储路径
+        /**
+         * 日志路径选项
+         */
         binding.spFilePath.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -274,6 +310,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
+        /**
+         * 日志路径开关
+         */
         binding.filePathButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -283,7 +322,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
-        //单个文件大小
+        /**
+         * 日志大小选项
+         */
         binding.spFileSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -298,6 +339,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
+        /**
+         * 日志大小开关
+         */
         binding.fileSizeButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -307,7 +351,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
-        //总文件数量
+        /**
+         * 日志数量选项
+         */
         binding.spFileNum.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -322,6 +368,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
+        /**
+         * 日志数量开关
+         */
         binding.fileNumButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -331,7 +380,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
-
+        /**
+         * 已失效
+         */
         binding.toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -347,6 +398,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
+        /**
+         * 打开空口日志
+         */
         binding.btnDebugDiagConfim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -385,6 +439,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
+        /**
+         * 取消空口日志
+         */
         binding.btnDebugDiagCancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -413,6 +470,9 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
             }
         });
 
+        /**
+         * 已失效
+         */
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

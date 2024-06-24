@@ -45,7 +45,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.henry.diagnosisTest.activity.DiagnosisUploadLogActivity" />
+        <activity
+            android:name="com.henry.diagnosisTest.activity.DiagnosisUploadLogActivity"
+            android:screenOrientation="landscape" />
 
         <activity
             android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest4"
