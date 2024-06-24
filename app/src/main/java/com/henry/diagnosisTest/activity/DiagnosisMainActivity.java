@@ -42,6 +42,17 @@ public class DiagnosisMainActivity extends BaseActivity<ActivityDiagnosisBinding
     }
 
     @Override
+    protected void initEvent() {
+        super.initEvent();
+        getViewDataBinding().btMainBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                android.os.Process.killProcess(android.os.Process.myPid());    //获取PID
+            }
+        });
+    }
+    @Override
     public DiagnosisMainViewModel getViewModel() {
         viewModel = new ViewModelProvider(this).get(DiagnosisMainViewModel.class);
         viewModel.setNavigator(this);
@@ -102,20 +113,6 @@ public class DiagnosisMainActivity extends BaseActivity<ActivityDiagnosisBinding
 
         return viewModel;
     }
-
-
-    @Override
-    protected void initEvent() {
-        super.initEvent();
-        getViewDataBinding().btMainBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                android.os.Process.killProcess(android.os.Process.myPid());    //获取PID
-            }
-        });
-    }
-
 
     @Override
     public void initRecycleView() {
