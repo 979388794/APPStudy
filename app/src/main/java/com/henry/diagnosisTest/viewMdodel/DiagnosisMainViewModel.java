@@ -2,12 +2,10 @@ package com.henry.diagnosisTest.viewMdodel;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
-import com.henry.DialogTest.DialogTestActivity;
 import com.henry.diagnosisTest.communication.CommunicationMain;
 import com.henry.diagnosisTest.communication.CommunicationModule;
 import com.henry.diagnosisTest.communicationImp.ComuniCationBuilerFactory;

@@ -44,13 +44,21 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
     private ArrayAdapter<String> fileLocationAdapter;
     private ArrayAdapter<String> spdiagAdapter;
     private String time;
+    //日志路径索引
     private int filePathIndex;
+    //日志大小索引
     private int fileSizeIndex;
+    //日志数量索引
     private int fileNumIndex;
+    //日志路径
     private String filePath;
+    //日志大小
     private String fileSize;
+    //日志数量
     private String fileNum;
+    //发送、路径、大小、数量标志位
     private boolean isSendQxdm, isFilePath, isFileSize, isFileNum = false;
+    //文件是否打开
     private boolean isFileOpen = true;
     private ArrayList<DiagnosisModule> diagnosisModuleList;
     HashMap<String, Object> dkReq = new LinkedHashMap<String, Object>();
@@ -105,24 +113,26 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new DiagnosisUploadLogAdapter(this);
         binding.recyclerView.setAdapter(adapter);
-        timeAdapter = new ArrayAdapter<String>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.time_options_entries));
-        binding.spTime.setAdapter(timeAdapter);
 
-        //binding 空口日志
-        fileSizeAdapter = new ArrayAdapter<>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.qxdm_file_size_values));
-        binding.spFileSize.setAdapter(fileSizeAdapter);
-
-        //binding 诊断时长
+        //binding 周期诊断
         spdiagAdapter = new ArrayAdapter<>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.diag_options_entries));
         binding.spDiag.setAdapter(spdiagAdapter);
 
-        //binding 文件数量
-        fileNumAdapter = new ArrayAdapter<>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.qxdm_file_num_values));
-        binding.spFileNum.setAdapter(fileNumAdapter);
+        //binding 周期上传
+        timeAdapter = new ArrayAdapter<String>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.time_options_entries));
+        binding.spTime.setAdapter(timeAdapter);
 
         //binding 日志路径
         fileLocationAdapter = new ArrayAdapter<>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.qxdm_file_path));
         binding.spFilePath.setAdapter(fileLocationAdapter);
+
+        //binding 日志大小
+        fileSizeAdapter = new ArrayAdapter<>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.qxdm_file_size_values));
+        binding.spFileSize.setAdapter(fileSizeAdapter);
+
+        //binding 日志数量
+        fileNumAdapter = new ArrayAdapter<>(this, R.layout.dropdown_stytle, this.getResources().getStringArray(R.array.qxdm_file_num_values));
+        binding.spFileNum.setAdapter(fileNumAdapter);
 
         filePath = getResources().getStringArray(R.array.qxdm_file_path)[0];
         fileSize = getResources().getStringArray(R.array.qxdm_file_size_values)[0];
