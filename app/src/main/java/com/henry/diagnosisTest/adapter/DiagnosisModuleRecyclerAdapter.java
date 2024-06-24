@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.henry.basic.R;
 import com.henry.basic.databinding.ItemDiagnosisModuleBinding;
+import com.henry.diagnosisTest.activity.DiagnosisUploadLogActivity;
 import com.henry.diagnosisTest.base.BaseBindingAdapter;
 import com.henry.diagnosisTest.model.DiagnosisModule;
 import com.henry.diagnosisTest.viewMdodel.DiagnosisMainViewModel;
@@ -55,8 +56,7 @@ public class DiagnosisModuleRecyclerAdapter extends BaseBindingAdapter<Diagnosis
         binding.settingTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: 2024-06-19  暂时注释
-//                mContext.startActivity(new Intent(mContext, DiagnosisUploadLogActivity.class));
+                mContext.startActivity(new Intent(mContext, DiagnosisUploadLogActivity.class));
             }
         });
     }

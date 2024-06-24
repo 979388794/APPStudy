@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.henry.diagnosisTest.activity.DiagnosisActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
-            name="viewModel"
+            name="diagnosisMainViewModel"
             type="com.henry.diagnosisTest.viewMdodel.DiagnosisMainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:clickable="true">
+        android:clickable="true"
+        android:background="@color/white">
 
         <Button
             android:id="@+id/btMainBack"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="80dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="200dp"
             android:background="@mipmap/icon_back"
             android:gravity="center"
             android:padding="5dp"
@@ -35,12 +36,12 @@
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:layout_marginTop="200dp"
-            android:layout_marginEnd="80dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/btn_selector"
+            android:textColor="@color/black"
             android:gravity="center"
             android:text="一键诊断"
-            android:textColor="@color/black"
-            android:textSize="32sp"
+            android:textSize="@dimen/button_text_size"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,10 +49,10 @@
             android:id="@+id/iv_settings"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginRight="10dp"
             android:scaleType="centerInside"
             android:src="@drawable/icon_vector_setting"
             app:layout_constraintRight_toLeftOf="@id/btDiagnosis"
+            android:layout_marginRight="10dp"
             app:layout_constraintTop_toTopOf="@id/btDiagnosis" />
 
         <View
@@ -73,5 +74,6 @@
             app:layout_constraintTop_toBottomOf="@id/btDiagnosis"></androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </layout>

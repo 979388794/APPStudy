@@ -15,15 +15,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:background="@color/white"
         android:paddingLeft="5dp">
 
         <ImageView
             android:id="@+id/ivWarning"
-            module_status_code="@{bean.statusCode}"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            module_status_code="@{bean.statusCode}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,42 +34,42 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_marginEnd="5dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@{bean.moduleName}"
             android:textSize="@dimen/first_title_text_size"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@id/ivWarning"
-            app:layout_constraintRight_toLeftOf="@id/actionTv"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="项目名称" />
 
 
         <TextView
             android:id="@+id/actionTv"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="60dp"
+            android:paddingHorizontal="10dp"
+            android:textSize="@dimen/button_text_size"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/btn_selector"
             android:gravity="center"
-            android:paddingHorizontal="10dp"
             android:text="单项诊断"
             android:textColor="@color/black"
-            android:textSize="@dimen/button_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toLeftOf="@id/settingTV"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
+            android:onClick="onClick"
             android:id="@+id/settingTV"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/icon_vector_setting"
             android:gravity="center"
-            android:onClick="onClick"
             android:visibility="gone"
+            android:background="@drawable/icon_vector_setting"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>

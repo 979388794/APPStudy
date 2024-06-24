@@ -35,7 +35,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="29">
         <activity
-            android:name="com.henry.diagnosisTest.activity.DiagnosisActivity"
+            android:name="com.henry.diagnosisTest.activity.DiagnosisMainActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -44,6 +44,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.henry.diagnosisTest.activity.DiagnosisUploadLogActivity" />
+
         <activity
             android:name="com.henry.RecycleViewTest.RecyclerView.RecyclerTest4"
             android:exported="false" />

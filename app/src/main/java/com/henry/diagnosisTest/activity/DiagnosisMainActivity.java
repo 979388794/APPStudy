@@ -20,18 +20,20 @@ import com.henry.diagnosisTest.model.DiagnosisInfoList;
 import com.henry.diagnosisTest.model.DiagnosisModule;
 import com.henry.diagnosisTest.viewMdodel.DiagnosisMainViewModel;
 import com.quectel.communication.model.ResSerializableBean;
+import com.quectel.communication.util.TimeUtils;
 
 import java.util.ArrayList;
 
-public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, DiagnosisMainViewModel> implements DiagnosisMainNav {
+public class DiagnosisMainActivity extends BaseActivity<ActivityDiagnosisBinding, DiagnosisMainViewModel> implements DiagnosisMainNav {
     private DiagnosisMainViewModel viewModel;
     private DiagnosisModuleRecyclerAdapter recyclerAdapter;
     private ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>> liveData = new ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>>();
+    public static String diagnosisTime;
     String TAG = getClass().getSimpleName();
 
     @Override
     public int getBindingVariable() {
-        return BR.viewModel;
+        return BR.diagnosisMainViewModel;
     }
 
     @Override
@@ -68,7 +70,6 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
         });
 
 
-
         /**
          * listMutableLiveData 数据变化时 更新RecycleView的Adapter
          */
@@ -84,12 +85,20 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
             }
         });
 
+        /**
+         * 一键诊断监听事件
+         */
+        getViewDataBinding().btDiagnosis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diagnosisTime = TimeUtils.getCurrentDateTime();
+                viewModel.getDiagnosisInfo(DiagnosisMainActivity.this);
+            }
+        });
 
-
-
-
-
-
+        getViewDataBinding().ivSettings.setOnClickListener(v -> {
+            DiagnosisMainActivity.this.startActivity(new Intent(DiagnosisMainActivity.this, DiagnosisUploadLogActivity.class));
+        });
 
         return viewModel;
     }
@@ -108,8 +117,6 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
     }
 
 
-
-
     @Override
     public void initRecycleView() {
         RecyclerView recyclerView = getViewDataBinding().rvList;
@@ -118,8 +125,8 @@ public class DiagnosisActivity extends BaseActivity<ActivityDiagnosisBinding, Di
         ArrayList<DiagnosisModule> diagnosisModuleList = viewModel.diagnosisModulelist.getValue();
         recyclerAdapter.getItems().addAll(diagnosisModuleList);
         recyclerAdapter.setOnItemClickListener((diagnosisInfo, positionAdapter) -> {
-            //TODO 点击查看详情
             if (diagnosisInfo.isShowInfo()) {
+                //todo 注释待删除
 //                Intent intent = new Intent(this, DiagnosisDetailActivity.class);
 //                intent.putExtra("data", diagnosisInfo.getInfoLists());
 //                intent.putExtra("position", 0);
