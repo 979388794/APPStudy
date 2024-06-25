@@ -193,6 +193,7 @@ public class DDSManager {
     public void setTboxDiagnosticByListener(String paramMa) {
         //todo test
         if (null != aListenerList) {
+            Log.d(TAG, "paramMa = " + paramMa);
             Log.d(TAG, "setTboxDiagnosticByListener aListenerList = " + aListenerList);
             for (OnTboxDataChangeListener onTboxDataChangeListener : aListenerList) {
                 onTboxDataChangeListener.onTboxDataChange(backData);

@@ -27,7 +27,6 @@ import com.henry.diagnosisTest.utils.DDSManager;
 import com.henry.diagnosisTest.viewMdodel.DiagnosisUploadLogViewModel;
 import com.quectel.communication.util.LogUtils;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -77,6 +76,7 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
     private int saveDiagPosition;
     //周期诊断时间
     public String saveDiagTime;
+    //周期诊断状态
     private boolean saveDiagStatus = false;
 
     @Override
@@ -394,7 +394,6 @@ public class DiagnosisUploadLogActivity extends BaseActivity<ActivityDiagnosisup
                 }
                 isFileOpen = b;
                 LogUtils.d(TAG, "toggleButton->isFileOpen = " + isFileOpen);
-                LogUtils.d(TAG, "toggleButton isFileOpen = " + isFileOpen);
             }
         });
 
