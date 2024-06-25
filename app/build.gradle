@@ -187,6 +187,8 @@ dependencies {
 
     //通信模块
     implementation project(':communication')
+    //ui模块
+    implementation project(':magicindicator')
 
     //soa模块导入
     implementation files('libs/arm64-v8a/soabridgeadapterlib-4.0.3.jar')

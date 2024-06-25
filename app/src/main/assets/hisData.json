@@ -1,0 +1,58 @@
+{
+  "data":	[{
+      "day":	"20231115",
+      "item":	[{
+        "time":	"110337",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }, {
+        "time":	"110355",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }]
+  },
+    {
+      "day":	"20231116",
+      "item":	[{
+        "time":	"110337",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }, {
+        "time":	"110355",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }, {
+        "time":	"110412",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }, {
+        "time":	"110425",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }, {
+        "time":	"110555",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }, {
+        "time":	"110655",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }, {
+        "time":	"110755",
+        "state":	"1",
+        "diag_index":	0,
+        "diag_len": 5254
+      }]
+    }
+  ],
+  "code":	0,
+  "message":	"success"
+}

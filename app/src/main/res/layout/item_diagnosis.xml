@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.henry.diagnosisTest.model.DiagnosisInfo" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ivcl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingStart="5dp">
+
+        <ImageView
+            android:id="@+id/ivWarning"
+            status_code="@{bean.diagnosisStatusCode}"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@{bean.diagnosisContentName}"
+            android:textSize="@dimen/first_title_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/ivWarning"
+            app:layout_constraintRight_toLeftOf="@id/infoTv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="项目名称" />
+
+        <TextView
+            android:id="@+id/infoTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{(bean.diagnosisSuggestion.empty ?bean.diagnosisStatusInfo:bean.diagnosisStatusInfo+'\n'+bean.diagnosisSuggestion).trim}"
+            android:textSize="@dimen/second_title_text_size"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/nameTv"
+            app:layout_constraintRight_toLeftOf="@id/actionTv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="项目诊断详情" />
+
+
+        <TextView
+            android:id="@+id/uploadTv"
+            android:textSize="@dimen/button_text_size"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_selector"
+            android:gravity="center"
+            android:text="上传日志"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/actionTv"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+
+        <TextView
+            android:id="@+id/actionTv"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:textSize="@dimen/button_text_size"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_selector"
+            android:gravity="center"
+            android:text="尝试修复"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/cardview_shadow_start_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/btBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@mipmap/icon_back"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/magicIndicatorBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btBack">
+
+            <net.lucode.hackware.magicindicator.MagicIndicator
+                android:id="@+id/magicIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_navigator_height_new"
+                android:layout_gravity="center_horizontal" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/cardview_shadow_start_color" />
+        </LinearLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpContent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/ll_top1_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/magicIndicatorBox"
+            app:layout_constraintVertical_weight="1"></androidx.viewpager.widget.ViewPager>
+
+        <LinearLayout
+            android:id="@+id/ll_top_location"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/tv_file_location"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/location_text_size"
+                android:text="经度:"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tv_top_jingdu"
+                android:textSize="@dimen/location_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:textSize="@dimen/location_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="纬度:"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:textSize="@dimen/location_text_size"
+                android:id="@+id/tv_top_weidu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0.0"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:textSize="@dimen/location_text_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高度:"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+            <TextView
+                android:textSize="@dimen/location_text_size"
+                android:id="@+id/tv_top_gaodu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_top1_location"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/ll_top_location"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+            <Button
+                android:id="@+id/btn_local_report"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/btn_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="生成本地报告"
+                android:textColor="@color/black"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintRight_toLeftOf="@+id/btn_cloud_report"
+                app:layout_constraintBottom_toTopOf="@+id/ll_top_location" />
+
+            <Button
+                android:id="@+id/btn_cloud_report"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/btn_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="生成云端报告"
+                android:textColor="@color/black"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintRight_toLeftOf="@+id/btn_diag_oc"
+                app:layout_constraintBottom_toTopOf="@+id/ll_top_location" />
+
+            <Button
+                android:id="@+id/btn_diag_oc"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/btn_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="周期诊断历史"
+                android:textColor="@color/black"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintRight_toLeftOf="@+id/btn_diag_error"
+                app:layout_constraintBottom_toTopOf="@+id/ll_top_location" />
+
+            <Button
+                android:id="@+id/btn_diag_error"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@drawable/btn_selector"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="诊断异常信息"
+                android:textColor="@color/black"
+                android:textSize="@dimen/button_text_size"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/ll_top_location" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_file_location"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="一键生成报告本地位置："
+            android:textColor="@color/black"
+            android:textSize="@dimen/location_text_size"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

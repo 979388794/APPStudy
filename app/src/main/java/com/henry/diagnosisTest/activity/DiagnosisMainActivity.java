@@ -123,13 +123,12 @@ public class DiagnosisMainActivity extends BaseActivity<ActivityDiagnosisBinding
         recyclerAdapter.getItems().addAll(diagnosisModuleList);
         recyclerAdapter.setOnItemClickListener((diagnosisInfo, positionAdapter) -> {
             if (diagnosisInfo.isShowInfo()) {
-                //todo 注释待删除
-//                Intent intent = new Intent(this, DiagnosisDetailActivity.class);
-//                intent.putExtra("data", diagnosisInfo.getInfoLists());
-//                intent.putExtra("position", 0);
-//                intent.putExtra("diagnosisModule", diagnosisModuleList.get(positionAdapter));
-//                intent.putExtra("lv_data", liveData);
-//                startActivity(intent);
+                Intent intent = new Intent(this, DiagnosisDetailActivity.class);
+                intent.putExtra("data", diagnosisInfo.getInfoLists());
+                intent.putExtra("position", 0);
+                intent.putExtra("diagnosisModule", diagnosisModuleList.get(positionAdapter));
+                intent.putExtra("lv_data", liveData);
+                startActivity(intent);
             } else {
                 if (diagnosisInfo.getStatusCode() == 2) {
                     Toast.makeText(this, "诊断数据获取失败,请查看连接！！", Toast.LENGTH_LONG).show();
