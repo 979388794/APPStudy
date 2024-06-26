@@ -38,7 +38,8 @@ public class DiagnosisHistoryActivity extends BaseActivity<ActivityDiagnosishist
     private static String his_catalogue = "catalogue";
     private static String his_item = "item";
 
-    String TAG=getClass().getSimpleName();
+    String TAG = getClass().getSimpleName();
+
     @Override
     public int getBindingVariable() {
         return BR.mDiagnosisHistoryViewModel;
@@ -74,7 +75,7 @@ public class DiagnosisHistoryActivity extends BaseActivity<ActivityDiagnosishist
                     recyclerAdapter.setListData(historyRootData);
                     recyclerAdapter.notifyDataSetChanged();
                     getViewDataBinding().tvEmpty.setVisibility(View.GONE);
-                }else {
+                } else {
                     getViewDataBinding().tvEmpty.setVisibility(View.VISIBLE);
                 }
             }
@@ -145,8 +146,8 @@ public class DiagnosisHistoryActivity extends BaseActivity<ActivityDiagnosishist
                 intent.putExtra("data", hisItemData.get(0).getData());
                 intent.putExtra("position", 0);
                 intent.putExtra("diagnosisModule", diagnosisModule);
-                intent.putExtra("lv_data",hisItemData);
-                intent.putExtra("is_history",true);
+                intent.putExtra("lv_data", hisItemData);
+                intent.putExtra("is_history", true);
                 startActivity(intent);
             }
         }
@@ -161,7 +162,7 @@ public class DiagnosisHistoryActivity extends BaseActivity<ActivityDiagnosishist
     @Override
     protected void onStop() {
         super.onStop();
-        if(null != diagnosisHistoryViewModel){
+        if (null != diagnosisHistoryViewModel) {
             diagnosisHistoryViewModel.resetListener();
         }
     }

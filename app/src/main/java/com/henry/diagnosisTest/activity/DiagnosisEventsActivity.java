@@ -36,7 +36,8 @@ public class DiagnosisEventsActivity extends BaseActivity<ActivityDiagnosisEvent
     private DiagnosisEventDateDataAdapter mEventDateDataAdapter;
     private ArrayList<DiagnosisEvent> mEventsRootList = new ArrayList<>();
     private EventExpandenbleItemDecoration mExpandenbleItemDecoration;
-    String TAG=getClass().getSimpleName();
+
+    String TAG = getClass().getSimpleName();
 
     @Override
     public int getBindingVariable() {
@@ -58,6 +59,7 @@ public class DiagnosisEventsActivity extends BaseActivity<ActivityDiagnosisEvent
 
     @Override
     public DiagnosisEventsViewModel getViewModel() {
+        logd("getViewModel:DiagnosisEventsViewModel");
         mDiagnosisModule = (DiagnosisModule) getIntent().getSerializableExtra("module");
         mDiagnosisEventsViewModel = new ViewModelProvider(this).get(DiagnosisEventsViewModel.class);
         mDiagnosisEventsViewModel.setNavigator(this);
@@ -68,7 +70,7 @@ public class DiagnosisEventsActivity extends BaseActivity<ActivityDiagnosisEvent
             @Override
             public void onChanged(ResSerializableBean<ArrayList<DiagnosisEventRoot>> diagnosisEventRootResSerializableBean) {
                 ArrayList<DiagnosisEventRoot> dataList = diagnosisEventRootResSerializableBean.getData();
-                if(dataList != null&&dataList.size()>0){
+                if (dataList != null && dataList.size() > 0) {
                     ArrayList<DiagnosisEvent> eventsList = new ArrayList<>();
                     for (DiagnosisEventRoot diagnosisEventRoot : dataList) {
                         eventsList.addAll(diagnosisEventRoot.getEvents());
@@ -77,7 +79,7 @@ public class DiagnosisEventsActivity extends BaseActivity<ActivityDiagnosisEvent
                     mEventDateDataAdapter.setEventsRootData(eventsList);
                     mEventDateDataAdapter.notifyDataSetChanged();
                     getViewDataBinding().tvEmpty.setVisibility(View.GONE);
-                }else {
+                } else {
                     getViewDataBinding().tvEmpty.setVisibility(View.VISIBLE);
                 }
                 /*
@@ -159,8 +161,8 @@ public class DiagnosisEventsActivity extends BaseActivity<ActivityDiagnosisEvent
                 intent.putExtra("data", eventItemData.get(0).getData());
                 intent.putExtra("position", 0);
                 intent.putExtra("diagnosisModule", mDiagnosisModule);
-                intent.putExtra("lv_data",eventItemData);
-                intent.putExtra("is_history",true);
+                intent.putExtra("lv_data", eventItemData);
+                intent.putExtra("is_history", true);
                 startActivity(intent);
             }
         }
@@ -169,22 +171,22 @@ public class DiagnosisEventsActivity extends BaseActivity<ActivityDiagnosisEvent
     @Override
     public void setOnViewClickListener(View view, int position, DiagnosisEventsItem item) {
         String reason = item.getReason();
-        if("Network".equals(reason)){
+        if ("Network".equals(reason)) {
             Toast.makeText(this, "当前类型不可诊断！！！", Toast.LENGTH_LONG).show();
             return;
         }
         String dayTime = item.getParentName();
         String time = item.getTime();
-        Log.d(TAG,"setOnViewClickListener " + (dayTime + time));
+        Log.d(TAG, "setOnViewClickListener " + (dayTime + time));
         String dateTime = dayTime + time;
-        mDiagnosisEventsViewModel.getDiagnosisEventsItem(mDiagnosisModule,this,dateTime);
-        mDiagnosisEventsViewModel.eventItemData.observe(this,eventItemObs);
+        mDiagnosisEventsViewModel.getDiagnosisEventsItem(mDiagnosisModule, this, dateTime);
+        mDiagnosisEventsViewModel.eventItemData.observe(this, eventItemObs);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if(null != mDiagnosisEventsViewModel){
+        if (null != mDiagnosisEventsViewModel) {
             mDiagnosisEventsViewModel.resetListener();
         }
     }
