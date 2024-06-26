@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="load_more_text" tools:ignore="ResourceName">正在加载...</string>
+</resources>

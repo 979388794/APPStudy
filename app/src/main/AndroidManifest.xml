@@ -45,6 +45,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.henry.diagnosisTest.activity.DiagnosisEventsActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name="com.henry.diagnosisTest.activity.DiagnosisHistoryActivity"
+            android:screenOrientation="landscape"
+            />
+        <activity
             android:name="com.henry.diagnosisTest.activity.DiagnosisDetailActivity"
             android:screenOrientation="landscape" />
         <activity

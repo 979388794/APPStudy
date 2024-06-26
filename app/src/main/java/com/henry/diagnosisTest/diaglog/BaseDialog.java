@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.henry.diagnosisTest.base.BaseActivity;
-import com.henry.diagnosisTest.utils.DensityUtil;
+import com.henry.diagnosisTest.utils.DensityUtils;
 
 
 public class BaseDialog extends DialogFragment {
@@ -50,8 +50,8 @@ public class BaseDialog extends DialogFragment {
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
             dialog.getWindow().setAttributes(lp);
             //铺满全屏
-            dialog.getWindow().getDecorView().setPadding(DensityUtil.dip2px(getContext(), 16), 0,
-                    DensityUtil.dip2px(getContext(), 16), 0);
+            dialog.getWindow().getDecorView().setPadding(DensityUtils.dip2px(getContext(), 16), 0,
+                    DensityUtils.dip2px(getContext(), 16), 0);
         }
         return dialog;
     }

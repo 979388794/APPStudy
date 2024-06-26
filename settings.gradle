@@ -2,3 +2,4 @@ rootProject.name = "HenryTest"
 include ':app'
 include ':communication'
 include ':magicindicator'
+include ':pullloadmorerecyclerview'

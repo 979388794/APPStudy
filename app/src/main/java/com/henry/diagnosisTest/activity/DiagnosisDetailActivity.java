@@ -137,16 +137,14 @@ public class DiagnosisDetailActivity extends BaseActivity<ActivityDiagnosisdetai
         if (getViewDataBinding() != null) {
             getViewDataBinding().btBack.setOnClickListener((v) -> finish());
             getViewDataBinding().btnDiagOc.setOnClickListener(v -> {
-                //todo
-//                Intent intent = new Intent(this, DiagnosisHistoryActivity.class);
-//                intent.putExtra("module", diagnosisModule);
-//                startActivity(intent);
+                Intent intent = new Intent(this, DiagnosisHistoryActivity.class);
+                intent.putExtra("module", diagnosisModule);
+                startActivity(intent);
             });
-            //todo
             getViewDataBinding().btnDiagError.setOnClickListener(v -> {
-//                Intent intent = new Intent(this, DiagnosisEventsActivity.class);
-//                intent.putExtra("module", diagnosisModule);
-//                startActivity(intent);
+                Intent intent = new Intent(this, DiagnosisEventsActivity.class);
+                intent.putExtra("module", diagnosisModule);
+                startActivity(intent);
             });
         }
         initMagicIndicator(position, data);

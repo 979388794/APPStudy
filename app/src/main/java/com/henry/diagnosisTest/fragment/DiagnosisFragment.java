@@ -79,7 +79,6 @@ public class DiagnosisFragment extends BaseFragment<FragmentDiagnososBinding, Di
 
     @Override
     public void initRecycleView() {
-
         RecyclerView recyclerView = getViewDataBinding().rvList;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         DiagnosisRecyclerAdapter recyclerAdapter = new DiagnosisRecyclerAdapter(getContext());
@@ -90,12 +89,12 @@ public class DiagnosisFragment extends BaseFragment<FragmentDiagnososBinding, Di
         recyclerAdapter.setDiagnosisItemClickListener(new DiagnosisRecyclerAdapter.DiagnosisItemClickListener() {
             @Override
             public void clickFix(int position, DiagnosisInfo bean) {
-                getViewModel().FixDiagnosis(mDiagnosisMainViewModel.diagnosisModule.getValue(),getContext());
+                getViewModel().FixDiagnosis(mDiagnosisMainViewModel.diagnosisModule.getValue(), getContext());
             }
 
             @Override
             public void clickUpload(int position, DiagnosisInfo bean) {
-                getViewModel().UploadLogDiagnosis(mDiagnosisMainViewModel.diagnosisModule.getValue(),getContext());
+                getViewModel().UploadLogDiagnosis(mDiagnosisMainViewModel.diagnosisModule.getValue(), getContext());
             }
         });
     }
@@ -103,7 +102,7 @@ public class DiagnosisFragment extends BaseFragment<FragmentDiagnososBinding, Di
     @Override
     public void onStop() {
         super.onStop();
-        if(null != getViewModel()){
+        if (null != getViewModel()) {
             getViewModel().resetListener();
         }
     }

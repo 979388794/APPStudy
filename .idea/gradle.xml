@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/communication" />
             <option value="$PROJECT_DIR$/magicindicator" />
+            <option value="$PROJECT_DIR$/pullloadmorerecyclerview" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -21,7 +21,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.henry.basic.R;
 import com.henry.basic.databinding.DialogLoadingBinding;
-import com.henry.diagnosisTest.utils.DensityUtil;
+import com.henry.diagnosisTest.utils.DensityUtils;
 
 
 public class LoadingDialog extends BaseDialog {
@@ -63,8 +63,8 @@ public class LoadingDialog extends BaseDialog {
             dialog.getWindow().getDecorView().setBackground(new ColorDrawable(Color.TRANSPARENT));
             dialog.setCanceledOnTouchOutside(false);
             WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-            lp.width = DensityUtil.dip2px(getContext(), 180);
-            lp.height = DensityUtil.dip2px(getContext(), 180);
+            lp.width = DensityUtils.dip2px(getContext(), 180);
+            lp.height = DensityUtils.dip2px(getContext(), 180);
             dialog.getWindow().setAttributes(lp);
             dialog.getWindow().setDimAmount(0f);
         }

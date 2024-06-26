@@ -189,6 +189,7 @@ dependencies {
     implementation project(':communication')
     //ui模块
     implementation project(':magicindicator')
+    implementation project(':pullloadmorerecyclerview')
 
     //soa模块导入
     implementation files('libs/arm64-v8a/soabridgeadapterlib-4.0.3.jar')
