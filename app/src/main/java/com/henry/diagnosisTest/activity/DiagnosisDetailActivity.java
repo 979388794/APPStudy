@@ -137,10 +137,12 @@ public class DiagnosisDetailActivity extends BaseActivity<ActivityDiagnosisdetai
         if (getViewDataBinding() != null) {
             getViewDataBinding().btBack.setOnClickListener((v) -> finish());
             getViewDataBinding().btnDiagOc.setOnClickListener(v -> {
+                //todo
 //                Intent intent = new Intent(this, DiagnosisHistoryActivity.class);
 //                intent.putExtra("module", diagnosisModule);
 //                startActivity(intent);
             });
+            //todo
             getViewDataBinding().btnDiagError.setOnClickListener(v -> {
 //                Intent intent = new Intent(this, DiagnosisEventsActivity.class);
 //                intent.putExtra("module", diagnosisModule);
@@ -223,6 +225,7 @@ public class DiagnosisDetailActivity extends BaseActivity<ActivityDiagnosisdetai
 
     public void updateView() {
         if (liveData != null && liveData.get(0) != null && liveData.get(0).getLocation() != null) {
+            Log.i("wangyong", "liveData != null " + liveData.size() + liveData.get(0).toString());
             getViewDataBinding().tvTopJingdu.setText(String.format("%.3f", liveData.get(0).getLocation().getLongitude())); //显示后两位
             getViewDataBinding().tvTopWeidu.setText(String.format("%.3f", liveData.get(0).getLocation().getLatitude()));
             getViewDataBinding().tvTopGaodu.setText(String.format("%.3f", liveData.get(0).getLocation().getAltitude()));

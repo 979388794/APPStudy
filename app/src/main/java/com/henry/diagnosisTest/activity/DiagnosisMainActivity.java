@@ -71,7 +71,7 @@ public class DiagnosisMainActivity extends BaseActivity<ActivityDiagnosisBinding
         });
 
         /**
-         * diagnosisModulelist 数据变化时 初始化RecycleView
+         * diagnosisModulelist 数据变化时 初始化RecyclerView
          */
         viewModel.diagnosisModulelist.observe(this, new Observer<ArrayList<DiagnosisModule>>() {
             @Override
@@ -82,7 +82,7 @@ public class DiagnosisMainActivity extends BaseActivity<ActivityDiagnosisBinding
 
 
         /**
-         * listMutableLiveData 数据变化时 更新RecycleView的Adapter
+         * listMutableLiveData 数据变化时 更新RecyclerView的Adapter
          */
         viewModel.listMutableLiveData.observe(this, new Observer<ArrayList<ResSerializableBean<ArrayList<DiagnosisInfoList>>>>() {
             @Override

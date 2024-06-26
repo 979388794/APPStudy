@@ -42,7 +42,6 @@ public class DiagnosisModuleRecyclerAdapter extends BaseBindingAdapter<Diagnosis
         binding.setBean(bean);
         binding.executePendingBindings();
         binding.actionTv.setClickable(true);
-
         binding.actionTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

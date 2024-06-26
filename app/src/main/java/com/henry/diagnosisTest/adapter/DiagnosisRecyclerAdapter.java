@@ -53,7 +53,6 @@ public class DiagnosisRecyclerAdapter extends BaseBindingAdapter<DiagnosisInfo, 
             }
         });
 
-
         binding.executePendingBindings();
     }
 
