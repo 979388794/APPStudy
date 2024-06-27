@@ -1,6 +1,14 @@
 #include <jni.h>
 #include <string>
 #include <android/log.h>
+#include <unistd.h>
+#include <pthread.h>
+
+
+
+
+
+
 
 #define TAG    "henry"
 #define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__) // 定义LOGD类型
@@ -8,8 +16,8 @@
 #define LOGW(...) ((void)__android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__))
 #define LOGE(...) ((void)__android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__))
 
-extern "C"
-JNIEXPORT jstring JNICALL
+
+extern "C" jstring
 Java_com_henry_cmaketest_JNIDemo_stringJni(JNIEnv *env, jobject thiz) {
     std::string hello = "Hello from C++";
     return env->NewStringUTF(hello.c_str());
@@ -75,4 +83,84 @@ Java_com_henry_cmaketest_jniActivity_test(JNIEnv *env, jobject thiz) {
     free(pArray);
     pArray = NULL;
 
+}
+
+extern "C" {
+int zmq_route_client_init(const char *client_name, const char *server_name, const char *end_point);
+int zmq_route_client_send_sync(const char *send_msg, int send_msg_len, char *recv_msg, int *recv_msg_len);
+int zmq_route_client_deinit();
+}
+
+jstring charTojstring(JNIEnv *env, const char *pat);
+char* jstringTochar(JNIEnv* env, jstring jstr);
+
+JavaVM* g_jvm;
+jobject g_obj;
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_quectel_cardiagnosis_communicationImp_JniZmq_init(JNIEnv *env, jobject thiz, jstring client_name, jstring server_name, jstring address) {
+    // TODO: implement init()
+    env->GetJavaVM(&g_jvm);
+    g_obj = env->NewGlobalRef(thiz);
+    int ret;
+    ret = zmq_route_client_init(jstringTochar(env,client_name), jstringTochar(env,server_name), jstringTochar(env,address));
+    LOGD("ret :%d,%s" , ret,ret==0?"init sucess":"init failed");
+
+}
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_quectel_cardiagnosis_communicationImp_JniZmq_send(JNIEnv *env, jobject thiz, jstring cmd, jint length) {
+    // TODO: implement send()
+    //char recv_msg[300000] = {0};
+    char recv_msg[104857600] = {0};
+    int recv_msg_len = sizeof(recv_msg);
+    //JNIEnv *mEnv;
+    //g_jvm->AttachCurrentThread(&mEnv,NULL);
+    zmq_route_client_send_sync(jstringTochar(env,cmd), length, recv_msg, &recv_msg_len);
+    return charTojstring(env,recv_msg);
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_quectel_cardiagnosis_communicationImp_JniZmq_destory(JNIEnv *env, jobject thiz) {
+    // TODO: implement destory()
+    zmq_route_client_deinit();
+}
+
+
+//jstring to char
+char* jstringTochar(JNIEnv* env, jstring jstr){
+    char* rtn = NULL;
+    jclass clsstring = env->FindClass("java/lang/String");
+    jstring strencode = env->NewStringUTF("utf-8");
+    jmethodID mid = env->GetMethodID(clsstring, "getBytes", "(Ljava/lang/String;)[B");
+    jbyteArray barr= (jbyteArray)env->CallObjectMethod(jstr, mid, strencode);
+    jsize alen = env->GetArrayLength(barr);
+    jbyte* ba = env->GetByteArrayElements(barr, JNI_FALSE);
+    if (alen > 0)
+    {
+        rtn = (char*)malloc(alen + 1);
+        memcpy(rtn, ba, alen);
+        rtn[alen] = 0;
+    }
+    env->ReleaseByteArrayElements(barr, ba, 0);
+    return rtn;
+}
+
+
+//char* to jstring
+jstring charTojstring(JNIEnv *env, const char *pat) {
+    //定义java String类 strClass
+    jclass strClass = (env)->FindClass("java/lang/String");
+    //获取String(byte[],String)的构造器,用于将本地byte[]数组转换为一个新String
+    jmethodID ctorID = (env)->GetMethodID(strClass, "<init>", "([BLjava/lang/String;)V");
+    //建立byte数组
+    jbyteArray bytes = (env)->NewByteArray(strlen(pat));
+    //将char* 转换为byte数组
+    (env)->SetByteArrayRegion(bytes, 0, strlen(pat), (jbyte *) pat);
+    // 设置String, 保存语言类型,用于byte数组转换至String时的参数
+    jstring encoding = (env)->NewStringUTF("utf-8");
+    //将byte数组转换为java String,并输出
+    return (jstring) (env)->NewObject(strClass, ctorID, bytes, encoding);
 }

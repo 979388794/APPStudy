@@ -23,27 +23,42 @@ project("myjni")
 # System.loadLibrary() and pass the name of the library defined here;
 # for GameActivity/NativeActivity derived applications, the same library name must be
 # used in the AndroidManifest.xml file.
-add_library(sl SHARED IMPORTED)
-add_library(${CMAKE_PROJECT_NAME} SHARED
-        # List C/C++ source files with relative paths to this CMakeLists.txt.
-        client.c
-        sever.c
+add_library(ssl SHARED IMPORTED)
+#add_library(${CMAKE_PROJECT_NAME} SHARED
+#        # List C/C++ source files with relative paths to this CMakeLists.txt.
+#        client.c
+#        sever.c
+#        native-lib.cpp
+#        mycpp.cpp
+#        socketclient.cpp
+#        socketserver.cpp
+#        socket.c)
+add_library( # Sets the name of the library.
+        native-lib
+
+        # Sets the library as a shared library.
+        SHARED
+
+        # Provides a relative path to your source file(s).
         native-lib.cpp
-        mycpp.cpp
-#        zmq_router_client.c
-        socketclient.cpp
-        socketserver.cpp
-        socket.c)
-#set_target_properties(
-#        sl
-#        PROPERTIES IMPORTED_LOCATION
-#        ${CMAKE_SOURCE_DIR}../../../../libs/arm64-v8a/libzmq.so)
+        zmq_router_client.c)
+
+find_library( # Sets the name of the path variable.
+        log-lib
+
+        # Specifies the name of the NDK library that
+        # you want CMake to locate.
+        log )
+set_target_properties(
+        ssl
+        PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}../../../../libs/arm64-v8a/libzmq.so)
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
 # build script, prebuilt third-party libraries, or Android system libraries.
-target_link_libraries(${CMAKE_PROJECT_NAME}
-        # List libraries link to the target library
-#        sl
-        android
-        log
-        ${log-lib})
+target_link_libraries( # Specifies the target library.
+        native-lib
+        ssl
+        # Links the target library to the log library
+        # included in the NDK.
+        ${log-lib} )

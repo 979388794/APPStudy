@@ -14,8 +14,7 @@ public class JniZmq {
         return zmq;
     };
 
-    //todo  暂时省略
-//    public native void init(String client_name, String server_name, String address);
-//    public native String send(String cmd, int length);
-//    public native void destory();
+    public native void init(String client_name, String server_name, String address);
+    public native String send(String cmd, int length);
+    public native void destory();
 }

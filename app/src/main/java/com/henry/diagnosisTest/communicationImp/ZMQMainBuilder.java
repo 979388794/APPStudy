@@ -122,11 +122,10 @@ public class ZMQMainBuilder extends CommunicationBuilderBase {
         /**
          * socket 初始化、发送、销毁。返回发送过程返回的结果。
          */
-        //todo 暂时省略
-//        socket.init(zmq_diag_client_name,zmq_diag_server_name,ipAndProt);
-//        result = socket.send(/**map2JsonString(paramMap)**/paramMap,(/**map2JsonString(paramMap)**/paramMap+"\0").length());
-//        Log.d(TAG, "result:"+result);
-//        socket.destory();
+        socket.init(zmq_diag_client_name,zmq_diag_server_name,ipAndProt);
+        result = socket.send(/**map2JsonString(paramMap)**/paramMap,(/**map2JsonString(paramMap)**/paramMap+"\0").length());
+        Log.d(TAG, "result:"+result);
+        socket.destory();
         return result;
     }
 
