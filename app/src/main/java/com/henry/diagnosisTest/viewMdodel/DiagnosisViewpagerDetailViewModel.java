@@ -103,8 +103,7 @@ public class DiagnosisViewpagerDetailViewModel extends BaseViewModel<DiagnosisVi
         mContext = context;
         mDiagnosisModule = bean;
         initListener();
-//        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1, mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
     private void getDiagnosisInfoCycle(DiagnosisModule bean, Context mContext, HashMap<String, String> param) {

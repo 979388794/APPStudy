@@ -8,7 +8,7 @@ import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 
 import java.io.File;
-public class MyApplication extends Application {
+public class HotFixApplication extends Application {
 
     @Override
     protected void attachBaseContext(Context base) {

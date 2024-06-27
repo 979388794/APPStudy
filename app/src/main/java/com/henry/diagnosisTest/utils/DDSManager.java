@@ -1,6 +1,7 @@
 package com.henry.diagnosisTest.utils;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -12,8 +13,13 @@ import com.henry.diagnosisTest.listener.OnTboxDataChangeListener;
 import com.incall.soabridgeadapter.SoaBridgeAdapterManager;
 import com.incall.soabridgeadapter.callback.SoaBridgeConnectCallback;
 import com.incall.soabridgeadapter.tbox.SoaBridgeTboxClientManager;
+import com.quectel.communication.util.LogUtils;
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -141,6 +147,49 @@ public class DDSManager {
         }
     }
 
+    private static String getStringFromAssets(String assetsFile){
+        AssetManager assetManager = mContext.getAssets();
+        InputStream inputStream = null;
+        BufferedReader bufferedReader=null;
+        InputStreamReader inputStreamReader=null;
+        try {
+            inputStream = assetManager.open(assetsFile);
+            inputStreamReader = new InputStreamReader(inputStream);
+            bufferedReader = new BufferedReader(inputStreamReader);
+            String line;
+            StringBuilder sb = new StringBuilder();
+            while ((line=bufferedReader.readLine())!=null){
+                sb.append(line);
+            }
+            return sb.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            if (bufferedReader!=null){
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (inputStreamReader != null) {
+                try {
+                    inputStreamReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
     //先添加诊断回调，再下发诊断指令
     /*public void addOnTboxDataChangeListenerTest(int type ,OnTboxDataChangeListener listener){
         Log.d(TAG,"addOnTboxDataChangeListener type = " + type + ",listener = " + listener + ",isFirstedSended = " + isFirstedSended);
@@ -163,18 +212,39 @@ public class DDSManager {
             }
         }
     }*/
-    public void addOnTboxDataChangeListenerTest(int type, OnTboxDataChangeListener listener) {
-        Log.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type);
+
+    //先添加诊断回调，再下发诊断指令
+    public void addOnTboxDataChangeListenerTest(int type,OnTboxDataChangeListener listener){
+        LogUtils.d(TAG,"addOnTboxDataChangeListenerTest listener = " +listener    +",type = "+ type);
         aListenerList.clear();
-        if (type == 1) {
-            backData = main_all_3;
-        } else if (type == 2) {
-            backData = event_data_test_1;
+        if(type == 1){
+            backData = getStringFromAssets("oneClickData.json");
+        }else if(type == 2){
+            backData = getStringFromAssets("eventData.json");
+        }else if (type==3){
+            backData = getStringFromAssets("hisData.json");
+        }else if (type==4){
+            backData = getStringFromAssets("oneClickData.json");
+        }else if (type==5){
+            backData = getStringFromAssets("oneClickData.json");
         }
-        Log.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type + ",,backData = " + backData);
+        LogUtils.d(TAG,"addOnTboxDataChangeListenerTest listener = "+ listener +   ",type = "  +  type +   ",,backData = " +   backData);
         aListenerList.add(listener);
         listener.onTboxConnect(true);
     }
+
+//    public void addOnTboxDataChangeListenerTest(int type, OnTboxDataChangeListener listener) {
+//        Log.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type);
+//        aListenerList.clear();
+//        if (type == 1) {
+//            backData = main_all_3;
+//        } else if (type == 2) {
+//            backData = event_data_test_1;
+//        }
+//        Log.d(TAG, "addOnTboxDataChangeListenerTest listener = " + listener + ",type = " + type + ",,backData = " + backData);
+//        aListenerList.add(listener);
+//        listener.onTboxConnect(true);
+//    }
 
     //可以不使用，通过回调信息集合删除回调
     public void removeOnTboxDataChangeListener(OnTboxDataChangeListener listener) {

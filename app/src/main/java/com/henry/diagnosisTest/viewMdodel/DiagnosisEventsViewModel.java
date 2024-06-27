@@ -108,7 +108,7 @@ public class DiagnosisEventsViewModel extends BaseViewModel<DiagnosisEventsNav> 
         initListener();
         mContext = context;
         mDiagnosisModule = diagnosisModule;
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1, mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListenerTest(2, mOnTboxDataChangeListener);
 //        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
@@ -167,7 +167,7 @@ public class DiagnosisEventsViewModel extends BaseViewModel<DiagnosisEventsNav> 
         initHashMapData(dayTime);
         initListener();
 //        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListenerTest(2,mOnTboxDataChangeListener);
     }
 
     private void getDiagnosisEventsItemImp(DiagnosisModule diagnosisModule, Context context) {

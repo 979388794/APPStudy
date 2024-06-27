@@ -94,8 +94,7 @@ public class DiagnosisFragmentViewModel extends BaseViewModel<DiagnosisFragmentN
         initListener();
         mContext = context;
         mDiagnosisModule = diagnosisModule;
-//        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
     private void getFixDiagnosis(CommunicationBuilderBase builder) {
@@ -138,8 +137,7 @@ public class DiagnosisFragmentViewModel extends BaseViewModel<DiagnosisFragmentN
         currentType = 2;
         mContext = context;
         mDiagnosisModule = diagnosisModule;
-//        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
     private void getUploadLogDiagnosis(CommunicationBuilderBase builder) {

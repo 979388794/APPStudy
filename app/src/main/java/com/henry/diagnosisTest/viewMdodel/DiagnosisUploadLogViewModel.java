@@ -105,8 +105,7 @@ public class DiagnosisUploadLogViewModel extends BaseViewModel<DiagnosisUploadLo
         mContext = context;
         mParam = param;
         initListener();
-//        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1, mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
     /**

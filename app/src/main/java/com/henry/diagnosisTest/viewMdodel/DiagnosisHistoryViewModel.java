@@ -106,9 +106,8 @@ public class DiagnosisHistoryViewModel extends BaseViewModel<DiagnosisHistoryNav
         currentType = 1;
         initHashMapData(reqType,null);
         initListener();
-        //DDSManager.getInstance().addOnTboxDataChangeListenerTest(3,mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListenerTest(3,mOnTboxDataChangeListener);
 //        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
     }
 
     private void getDiagnosisHistoryCatalogueImp() {
@@ -156,8 +155,8 @@ public class DiagnosisHistoryViewModel extends BaseViewModel<DiagnosisHistoryNav
         currentType = 2;
         initHashMapData(reqType,dayTime);
         initListener();
-//        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
-        DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListenerTest(3,mOnTboxDataChangeListener);
+        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
     private void getDiagnosisHistoryItemImp() {

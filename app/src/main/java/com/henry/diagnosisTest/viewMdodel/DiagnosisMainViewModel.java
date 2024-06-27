@@ -164,9 +164,8 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
         mDiagnosisModule = bean;
         initHashMapData();
         initListener();
-        //DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
-//        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
         DDSManager.getInstance().addOnTboxDataChangeListenerTest(1, mOnTboxDataChangeListener);
+//        DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
     private void getOnlyDiagnosisInfo(DiagnosisModule bean, Context mContext, HashMap<String, String> param) {
@@ -250,9 +249,8 @@ public class DiagnosisMainViewModel extends BaseViewModel<DiagnosisMainNav> {
         currentType = 2;
         initHashMapData();
         initListener();
-        //DDSManager.getInstance().addOnTboxDataChangeListenerTest(1,mOnTboxDataChangeListener);
-        //DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
         DDSManager.getInstance().addOnTboxDataChangeListenerTest(1, mOnTboxDataChangeListener);
+        //DDSManager.getInstance().addOnTboxDataChangeListener(mOnTboxDataChangeListener);
     }
 
     private void getDiagnosisInfoAll(Context context) {
