@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.henry.basic.R;
 import com.henry.basic.databinding.DialogLoadingBinding;
+import com.henry.diagnosisTest.base.BaseDialog;
 import com.henry.diagnosisTest.utils.DensityUtils;
 
 

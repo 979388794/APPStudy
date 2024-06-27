@@ -4,6 +4,7 @@ package com.henry.diagnosisTest.viewMdodel;
 import androidx.lifecycle.MutableLiveData;
 
 
+import com.henry.diagnosisTest.base.BaseViewModel;
 import com.henry.diagnosisTest.inter.DiagnosisDetailNav;
 import com.henry.diagnosisTest.model.DiagnosisInfoList;
 import com.henry.diagnosisTest.model.DiagnosisModule;

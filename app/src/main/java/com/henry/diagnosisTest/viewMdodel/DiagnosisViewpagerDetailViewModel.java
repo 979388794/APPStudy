@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
 
+import com.henry.diagnosisTest.base.BaseViewModel;
 import com.henry.diagnosisTest.communication.CommunicationModule;
 import com.henry.diagnosisTest.communication.CommunicationViewpagerDetail;
 import com.henry.diagnosisTest.communicationImp.ComuniCationBuilerFactory;

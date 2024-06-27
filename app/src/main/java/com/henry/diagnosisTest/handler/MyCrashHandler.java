@@ -1,4 +1,4 @@
-package com.henry.diagnosisTest;
+package com.henry.diagnosisTest.handler;
 
 import android.os.Environment;
 import android.text.TextUtils;

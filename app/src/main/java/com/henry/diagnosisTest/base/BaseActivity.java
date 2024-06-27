@@ -28,8 +28,6 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
-import com.henry.diagnosisTest.fragment.BaseFragment;
-import com.henry.diagnosisTest.viewMdodel.BaseViewModel;
 import com.henry.diagnosisTest.diaglog.LoadingDialog;
 
 import java.lang.ref.WeakReference;

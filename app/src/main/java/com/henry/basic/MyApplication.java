@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 
 import com.henry.diagnosisTest.base.ActivityManager;
-import com.henry.diagnosisTest.MyCrashHandler;
+import com.henry.diagnosisTest.handler.MyCrashHandler;
 import com.henry.diagnosisTest.utils.DDSManager;
 import com.henry.diagnosisTest.utils.LogUtils;
 

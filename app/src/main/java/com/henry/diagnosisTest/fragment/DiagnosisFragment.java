@@ -15,6 +15,7 @@ import com.henry.basic.BR;
 import com.henry.basic.R;
 import com.henry.basic.databinding.FragmentDiagnososBinding;
 import com.henry.diagnosisTest.adapter.DiagnosisRecyclerAdapter;
+import com.henry.diagnosisTest.base.BaseFragment;
 import com.henry.diagnosisTest.inter.DiagnosisFragmentNav;
 import com.henry.diagnosisTest.model.DiagnosisInfo;
 import com.henry.diagnosisTest.model.DiagnosisInfoList;

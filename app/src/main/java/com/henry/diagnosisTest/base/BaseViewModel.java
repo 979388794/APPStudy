@@ -1,4 +1,4 @@
-package com.henry.diagnosisTest.viewMdodel;
+package com.henry.diagnosisTest.base;
 
 /**
  * @author: henry.xue
