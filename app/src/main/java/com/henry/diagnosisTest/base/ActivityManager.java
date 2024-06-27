@@ -1,4 +1,4 @@
-package com.henry.diagnosisTest;
+package com.henry.diagnosisTest.base;
 
 import android.app.Activity;
 import android.app.Application;
